@@ -1,0 +1,27 @@
+% !TeX root = ../main.tex
+% Add the above to each chapter to make compiling the PDF easier in some editors.
+
+\chapter{Tuning Linear Programming Solvers for Query Optimization}\label{chapter:linearprogramming}
+This is the body
+\section{Proposal}
+
+\section{Experimental Design}
+\subsection{Analysis of dataset properties}
+In  this subsection we will conduct an analysis of our dataset properties. What are the 
+particularites of the structure of these LP problems, is their any patterns in their solution
+process. This anaylsis is based on observing the statistical results we obtained from
+running different solvers on these problems. This will later provide us with insight 
+regarding optimization of these problems.
+
+\subsection{Dataset Structure}
+Our dataset stucture: 
+as opposed to what the linear programming research has dealt with, which is 
+very large problems, we are dealing with hundreds of small problems. These are represented
+in the revised simplex algorithm by
+sparse matrices but not as sparse as it would have been if the problem was large, 
+small matrices that are not small enough to be dense. 
+(they still have quite a number of non-zeroes).
+
+\section{Analysis}
+
+\section{Results}

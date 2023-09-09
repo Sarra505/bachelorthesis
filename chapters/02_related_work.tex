@@ -1,0 +1,31 @@
+% !TeX root = ../main.tex
+% Add the above to each chapter to make compiling the PDF easier in some editors.
+
+\chapter{Related work}\label{chapter:relatedwork}
+
+\section{Background}
+or Fundamentals: the knowledge the reader needs to understand my contribution, mostly definition of mathematical concepts needed
+\subsection{Linear Programming}
+
+\subsection{Cardinality Estimation}
+Defining the problem of upper bounding a multi-join query size as a packing linear programming problem.
+To illustrate the main ideas, we start with an example where the query is a simple join
+between two relations
+\[
+Q(X, Y, Z) = R(X, Y) \land S(Y, Z)
+\]
+In the context of our packing LP problem, we start with the inequality \ref{eq:initial_inequality}. Applying the natural logarithm to both sides yields \ref{eq:log_inequality}. We then rename the variables, simplifying the inequality to \ref{eq:renamed_inequality}. 
+Normalizing by dividing both sides by \(r'\), we obtain \ref{eq:normalized_inequality}. This leads us to the objective function for our packing LP problem.
+\begin{align}
+    |a| \cdot |b| &\leq |R| \label{eq:initial_inequality} \\
+    \ln|a| + \ln|b| &\leq \ln|R| \label{eq:log_inequality} \\
+    a' + b' &\leq r' \label{eq:renamed_inequality} \\
+    \frac{1}{r'} a' + \frac{1}{r'} b' &\leq 1 \label{eq:normalized_inequality} \\
+    \text{maximize } a' + b' + c' + d' \quad &\text{s.t.} \quad \frac{1}{r'} a' + \frac{1}{r'} b' \leq 1 \label{eq:objective_function}
+    \end{align}
+\subsection{The Simplex Algorithm}
+
+\section{Previous Work}
+alternative approaches that are superseded by my work
+\subsection{Comparative studies of different update methods}
+\subsection{Other techniques}

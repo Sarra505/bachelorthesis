@@ -19,31 +19,32 @@
 
 \refsection{0}
   \datalist[entry]{anyt/global//global/global}
-    \entry{latex}{book}{}
+    \entry{ngo2022information}{inproceedings}{}
       \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=5d77435450d10a850a5b58577b9a456b}{%
-           family={Lamport},
-           familyi={L\bibinitperiod},
-           given={Leslie},
-           giveni={L\bibinitperiod},
+        {{un=0,uniquepart=base,hash=39f0b4f45a7cc49c2d93ad4644319d9c}{%
+           family={Ngo},
+           familyi={N\bibinitperiod},
+           given={Hung\bibnamedelima Q},
+           giveni={H\bibinitperiod\bibinitdelim Q\bibinitperiod},
            givenun=0}}%
       }
-      \list{publisher}{1}{%
-        {Addison-Wesley Professional}%
+      \list{organization}{1}{%
+        {Schloss Dagstuhl-Leibniz-Zentrum für Informatik}%
       }
-      \strng{namehash}{5d77435450d10a850a5b58577b9a456b}
-      \strng{fullhash}{5d77435450d10a850a5b58577b9a456b}
-      \strng{bibnamehash}{5d77435450d10a850a5b58577b9a456b}
-      \strng{authorbibnamehash}{5d77435450d10a850a5b58577b9a456b}
-      \strng{authornamehash}{5d77435450d10a850a5b58577b9a456b}
-      \strng{authorfullhash}{5d77435450d10a850a5b58577b9a456b}
-      \field{labelalpha}{Lam94}
-      \field{sortinit}{L}
-      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \strng{namehash}{39f0b4f45a7cc49c2d93ad4644319d9c}
+      \strng{fullhash}{39f0b4f45a7cc49c2d93ad4644319d9c}
+      \strng{bibnamehash}{39f0b4f45a7cc49c2d93ad4644319d9c}
+      \strng{authorbibnamehash}{39f0b4f45a7cc49c2d93ad4644319d9c}
+      \strng{authornamehash}{39f0b4f45a7cc49c2d93ad4644319d9c}
+      \strng{authorfullhash}{39f0b4f45a7cc49c2d93ad4644319d9c}
+      \field{labelalpha}{Ngo22}
+      \field{sortinit}{N}
+      \field{sortinithash}{22369a73d5f88983a108b63f07f37084}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{title}{LaTeX : A Documentation Preparation System User's Guide and Reference Manual}
-      \field{year}{1994}
+      \field{booktitle}{25th International Conference on Database Theory (ICDT 2022)}
+      \field{title}{On an Information Theoretic Approach to Cardinality Estimation (Invited Talk)}
+      \field{year}{2022}
     \endentry
   \enddatalist
 \endrefsection

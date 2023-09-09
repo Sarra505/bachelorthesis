@@ -5,7 +5,6 @@
 
 \section{Background}
 or Fundamentals: the knowledge the reader needs to understand my contribution, mostly definition of mathematical concepts needed
-\subsection{Linear Programming}
 
 \subsection{Cardinality Estimation}
 Defining the problem of upper bounding a multi-join query size as a packing linear programming problem.
@@ -23,9 +22,84 @@ Normalizing by dividing both sides by \(r'\), we obtain \ref{eq:normalized_inequ
     \frac{1}{r'} a' + \frac{1}{r'} b' &\leq 1 \label{eq:normalized_inequality} \\
     \text{maximize } a' + b' + c' + d' \quad &\text{s.t.} \quad \frac{1}{r'} a' + \frac{1}{r'} b' \leq 1 \label{eq:objective_function}
     \end{align}
-\subsection{The Simplex Algorithm}
 
+
+
+\subsection{Linear Programming}
+The LP problem class that we are dealing with is called the packing LP problem. Additionally
+it is a special instance where:
+\begin{itemize}
+    \item \( c \), the vector of the variable coefficients in the objective function,
+    is a vector of all ones
+    \item \( b \) , or the right hand side vector,  is a vector of all ones
+\end{itemize}
+Our specific problem is then expressed as follows:
+\begin{align}
+    \text{Maximize} \quad & \sum_{j=1}^{n} x_j \notag \\
+    \text{subject to} \quad & \notag \\
+    & \sum_{j=1}^{n} a_{ij} x_j \leq 1, \quad & i = 1, \ldots, m \notag \\
+    & x_j \geq 0, \quad & j = 1, \ldots, n \label{LP_Problem}
+\end{align}
+\begin{itemize}
+    \item \( x_j \) is the \( j^{th} \) decision variable.
+    \item \( m \) is the number of constraints.
+    \item \( n \) is the number of variables.
+\end{itemize}
+
+\subsection{The Simplex Algorithm}
+\subsubsection{The algorithm}
+In this subsection we will present the most widely used algorithm for solving
+LP problems and that we also used, among others, to solve our dataset.
+To be approachable by the simplex algorithm LP \ref*{LP_Problem} needs to be cast in a 
+computational form, that fulfills the requirement of the constraint matrix having to have
+full row rank and only equality  constraints are allowed. This is done by introducing slack
+variables. 
+We now have what is called the Simplex Tableau. 
+\begin{enumerate}
+    \item the standard algorithm is the tabular form
+    \item feasible dictionaries
+    \item the grand strategy of the simplex method is that of successive improvements
+    \item decision variables vs. slack variables
+    \item A maximization problem is optimized when the slack variables are “squeezed out,” maximizing the true variables’ effect on the objective function. Conversely, a minimization problem is optimized when the slack variables are “stuffed,” 
+    minimizing the true variables’ effect on the objective function.
+    \item feasibility, boundedness, 
+    \item largest coefficient rule vs. largest increase rule.
+    \item the problem of stalling, degeneracy
+    \item Bland's rule guarantees termination.
+    
+\end{enumerate}
+
+\subsubsection{The complexity}
+
+The simplex method is an active set method.
+Each step of the simplex method deactivates one box constraint and 
+selects another one to be activated (general linear constraints are 
+always satisfied).
+Typically for an active set method, O(N+M) steps are needed for 
+an N-dimensional problem with M general linear constraints.
+\subsection{The Revised Simplex Algorithm}
+As explained in the book \parencite*{chvatal1983linear}. 
+Mention zero tolerances: A zero tolerance epsilon2 saefguards against divisions
+by extremely small numbers, which tend to produce the most dangerous rounding errors, and 
+may even lead to degeneracy. diagonal entry in eta matrix should be fairly far from
+ otherwise (in our experiment) degeneracy.
+\subsubsection*{The product form update method}
+We will discuss the PFI, introduced by George Dantzig \parencite{dantzig1954product}.
+\subsubsection*{Data structures}
+Compressed Storage Formats:
+Eigen uses either the CSC or CSR format to store sparse matrices. These formats store the non-zero values, along with their corresponding row and column indices, 
+in a compact way. This reduces memory usage and speeds up operations on sparse matrices
 \section{Previous Work}
-alternative approaches that are superseded by my work
+Here we will discuss alternative approaches that are superseded by my work.
 \subsection{Comparative studies of different update methods}
+We will focus on one study \parencite{huangfu2015novel}.
 \subsection{Other techniques}
+The primal simplex method starts from a trial point that is primal feasible and iterates until dual feasibility.
+The dual simplex method starts from a trial point that is dual feasible and iterates until primal feasibility.
+ALGLIB implements a three-phase dual simplex method with additional degeneracy-breaking perturbation:
+\begin{itemize}
+    \item Forrest-Tomlin updates for faster LU refactorizations
+    \item A bound flipping ratio test (also known as long dual step) for longer steps
+    \item Dual steepest edge pricing for better selection of the leaving variable
+    \item Shifting (dynamic perturbations applied to cost vector) for better stability
+\end{itemize}

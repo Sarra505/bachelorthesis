@@ -12,6 +12,12 @@ particularites of the structure of these LP problems, is their any patterns in t
 process. This anaylsis is based on observing the statistical results we obtained from
 running different solvers on these problems. This will later provide us with insight 
 regarding optimization of these problems.
+TPC-H is a Decision Support Benchmark
+The TPC-H is a decision support benchmark. It consists 
+of a suite of business oriented ad-hoc queries and concurrent data modifications. 
+The performance metric reported by TPC-H is called the TPC-H Composite 
+Query-per-Hour Performance Metric (QphH@Size) 
+
 
 \subsection{Dataset Structure}
 Our dataset stucture: 
@@ -23,5 +29,19 @@ small matrices that are not small enough to be dense.
 (they still have quite a number of non-zeroes).
 
 \section{Analysis}
+Some metrics:
+\begin{itemize}
+    \item number of iterations
+    \item runtime
+    \item number of loops ? 
+    \item for matrix : number of columns and rows, nonzeros and density
+\end{itemize}
 
 \section{Results}
+All the following results have been obtained on a personal computer with AMD 4000 series
+RYZEN, 16GB RAM running Ubuntu. Using the following settings:
+\begin{itemize}
+    \item Presolve techniques are not used
+    \item scaling techniques are not used
+    \item The computed optimal solutions have been validated using the scipy python library.
+\end{itemize}

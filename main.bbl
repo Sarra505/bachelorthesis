@@ -19,6 +19,103 @@
 
 \refsection{0}
   \datalist[entry]{anyt/global//global/global}
+    \entry{chvatal1983linear}{book}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=76e781465fa327a48c5a4a9d1b551fe5}{%
+           family={Chvátal},
+           familyi={C\bibinitperiod},
+           given={Vašek},
+           giveni={V\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Macmillan}%
+      }
+      \strng{namehash}{76e781465fa327a48c5a4a9d1b551fe5}
+      \strng{fullhash}{76e781465fa327a48c5a4a9d1b551fe5}
+      \strng{bibnamehash}{76e781465fa327a48c5a4a9d1b551fe5}
+      \strng{authorbibnamehash}{76e781465fa327a48c5a4a9d1b551fe5}
+      \strng{authornamehash}{76e781465fa327a48c5a4a9d1b551fe5}
+      \strng{authorfullhash}{76e781465fa327a48c5a4a9d1b551fe5}
+      \field{labelalpha}{Chv83}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Linear programming}
+      \field{year}{1983}
+    \endentry
+    \entry{dantzig1954product}{article}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=212fe65a17e797b6dbce0c3731498b2c}{%
+           family={Dantzig},
+           familyi={D\bibinitperiod},
+           given={George\bibnamedelima B},
+           giveni={G\bibinitperiod\bibinitdelim B\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=d2fb903daa3137951131754f67a243cb}{%
+           family={Orchard-Hays},
+           familyi={O\bibinithyphendelim H\bibinitperiod},
+           given={Wm},
+           giveni={W\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {JSTOR}%
+      }
+      \strng{namehash}{1150c221088b34484c91b6ac081e5470}
+      \strng{fullhash}{1150c221088b34484c91b6ac081e5470}
+      \strng{bibnamehash}{1150c221088b34484c91b6ac081e5470}
+      \strng{authorbibnamehash}{1150c221088b34484c91b6ac081e5470}
+      \strng{authornamehash}{1150c221088b34484c91b6ac081e5470}
+      \strng{authorfullhash}{1150c221088b34484c91b6ac081e5470}
+      \field{labelalpha}{DO54}
+      \field{sortinit}{D}
+      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Mathematical Tables and Other Aids to Computation}
+      \field{title}{The product form for the inverse in the simplex method}
+      \field{year}{1954}
+      \field{pages}{64\bibrangedash 67}
+      \range{pages}{4}
+    \endentry
+    \entry{huangfu2015novel}{article}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=c717029f6b70cf7c1026f315880ca282}{%
+           family={Huangfu},
+           familyi={H\bibinitperiod},
+           given={Qi},
+           giveni={Q\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=4bef926b4d65e71e3368fbd88d8b805f}{%
+           family={Hall},
+           familyi={H\bibinitperiod},
+           given={JA\bibnamedelima Julian},
+           giveni={J\bibinitperiod\bibinitdelim J\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{217f62034a2d625dc6f9f224367635cb}
+      \strng{fullhash}{217f62034a2d625dc6f9f224367635cb}
+      \strng{bibnamehash}{217f62034a2d625dc6f9f224367635cb}
+      \strng{authorbibnamehash}{217f62034a2d625dc6f9f224367635cb}
+      \strng{authornamehash}{217f62034a2d625dc6f9f224367635cb}
+      \strng{authorfullhash}{217f62034a2d625dc6f9f224367635cb}
+      \field{labelalpha}{HH15}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Computational Optimization and Applications}
+      \field{title}{Novel update techniques for the revised simplex method}
+      \field{volume}{60}
+      \field{year}{2015}
+      \field{pages}{587\bibrangedash 608}
+      \range{pages}{22}
+    \endentry
     \entry{ngo2022information}{inproceedings}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=39f0b4f45a7cc49c2d93ad4644319d9c}{%

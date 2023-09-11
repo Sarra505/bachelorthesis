@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.12) (preloaded format=pdflatex 2023.2.6)  9 SEP 2023 22:46
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.12) (preloaded format=pdflatex 2023.2.6)  11 SEP 2023 15:25
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1247,6 +1247,11 @@ Package tocbasic Info: character protrusion at lot deactivated on input line 56.
 
 ]
 chapter without number
+
+Overfull \hbox (18.1615pt too wide) in paragraph at lines 58--58
+[]\T1/pplx/m/n/10.95 (-20) W. Stille. ^^P  Solution techniques for specific bin packing problems with applications
+ []
+
 No complaints by nag.
 [12
 
@@ -1259,17 +1264,17 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 48670 strings out of 478312
- 1097121 string characters out of 5840164
- 2160705 words of memory out of 5000000
- 67705 multiletter control sequences out of 15000+600000
- 563148 words of font info for 243 fonts, out of 8000000 for 9000
+ 48669 strings out of 478312
+ 1097298 string characters out of 5840164
+ 2160771 words of memory out of 5000000
+ 67710 multiletter control sequences out of 15000+600000
+ 563246 words of font info for 245 fonts, out of 8000000 for 9000
  2 hyphenation exceptions out of 8191
  115i,10n,109p,10932b,2367s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {/home/sarrabenmed/.miktex/texmfs/install/fonts/enc/dvips/base/8r.enc}</home/sarrabenmed/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmr10.pfb></home/sarrabenmed/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy10.pfb></home/sarrabenmed/.miktex/texmfs/install/fonts/type1/public/mathpazo/fplmr.pfb></home/sarrabenmed/.miktex/texmfs/install/fonts/type1/urw/palatino/uplb8a.pfb></home/sarrabenmed/.miktex/texmfs/install/fonts/type1/urw/palatino/uplr8a.pfb></home/sarrabenmed/.miktex/texmfs/install/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on main.pdf (19 pages, 139684 bytes).
+Output written on main.pdf (19 pages, 139129 bytes).
 PDF statistics:
- 320 PDF objects out of 1000 (max. 8388607)
- 75 named destinations out of 1000 (max. 500000)
+ 311 PDF objects out of 1000 (max. 8388607)
+ 67 named destinations out of 1000 (max. 500000)
  81661 words of extra memory for PDF output out of 89155 (max. 10000000)
 

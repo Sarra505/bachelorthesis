@@ -11,7 +11,7 @@ Defining the problem of upper bounding a multi-join query size as a packing line
 To illustrate the main ideas, we start with an example where the query is a simple join
 between two relations
 \[
-Q(X, Y, Z) = R(X, Y) \land S(Y, Z)
+Q(A, B, C) = R(A, B) \land S(B, C)
 \]
 In the context of our packing LP problem, we start with the inequality \ref{eq:initial_inequality}. Applying the natural logarithm to both sides yields \ref{eq:log_inequality}. We then rename the variables, simplifying the inequality to \ref{eq:renamed_inequality}. 
 Normalizing by dividing both sides by \(r'\), we obtain \ref{eq:normalized_inequality}. This leads us to the objective function for our packing LP problem.
@@ -55,7 +55,7 @@ computational form, that fulfills the requirement of the constraint matrix havin
 full row rank and only equality  constraints are allowed. This is done by introducing slack
 variables. 
 We now have what is called the Simplex Tableau. 
-\begin{enumerate}
+\begin{itemize}
     \item the standard algorithm is the tabular form
     \item feasible dictionaries
     \item the grand strategy of the simplex method is that of successive improvements
@@ -67,10 +67,15 @@ We now have what is called the Simplex Tableau.
     \item the problem of stalling, degeneracy
     \item Bland's rule guarantees termination.
     
-\end{enumerate}
+\end{itemize}
 
 \subsubsection{The complexity}
-
+The Simplex algorithm for linear programming has an 
+exponential worst-case time complexity, which we denote by \( O(2^n) \).
+For packing linear programs, the worst-case time complexity of the Simplex algorithm 
+remains exponential, even though there exists polynomial time implementations for it.
+\parencite{stille2010solution}.
+\\
 The simplex method is an active set method.
 Each step of the simplex method deactivates one box constraint and 
 selects another one to be activated (general linear constraints are 
@@ -78,7 +83,7 @@ always satisfied).
 Typically for an active set method, O(N+M) steps are needed for 
 an N-dimensional problem with M general linear constraints.
 \subsection{The Revised Simplex Algorithm}
-As explained in the book \parencite*{chvatal1983linear}. 
+As explained in the book \parencite{chvatal1983linear}. 
 Mention zero tolerances: A zero tolerance epsilon2 saefguards against divisions
 by extremely small numbers, which tend to produce the most dangerous rounding errors, and 
 may even lead to degeneracy. diagonal entry in eta matrix should be fairly far from

@@ -143,6 +143,33 @@
       \field{title}{On an Information Theoretic Approach to Cardinality Estimation (Invited Talk)}
       \field{year}{2022}
     \endentry
+    \entry{stille2010solution}{thesis}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=f5d6804d16ae41780d3f7bf35f9127cd}{%
+           family={Stille},
+           familyi={S\bibinitperiod},
+           given={Wolfgang},
+           giveni={W\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{institution}{1}{%
+        {Technische Universität}%
+      }
+      \strng{namehash}{f5d6804d16ae41780d3f7bf35f9127cd}
+      \strng{fullhash}{f5d6804d16ae41780d3f7bf35f9127cd}
+      \strng{bibnamehash}{f5d6804d16ae41780d3f7bf35f9127cd}
+      \strng{authorbibnamehash}{f5d6804d16ae41780d3f7bf35f9127cd}
+      \strng{authornamehash}{f5d6804d16ae41780d3f7bf35f9127cd}
+      \strng{authorfullhash}{f5d6804d16ae41780d3f7bf35f9127cd}
+      \field{labelalpha}{Sti10}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Solution techniques for specific bin packing problems with applications to assembly line optimization}
+      \field{type}{phdthesis}
+      \field{year}{2010}
+    \endentry
   \enddatalist
 \endrefsection
 \endinput

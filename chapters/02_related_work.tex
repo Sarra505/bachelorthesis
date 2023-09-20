@@ -4,16 +4,55 @@
 \chapter{Related work}\label{chapter:relatedwork}
 
 \section{Background}
-or Fundamentals: the knowledge the reader needs to understand my contribution, mostly definition of mathematical concepts needed
+or Fundamentals:  here we lay down the knowledge the reader needs to understand
+my contribution, and I will mostly present the definition of mathematical and 
+algorithmic concepts needed to build the hypotheses and experiments that follow.
+First, let's say some words about cardinality estimation. It is an important process
+in the pipeline of query execution. In fact, the query optimizor selects which 
+query plan to execute after computing and comparing the  cardinality (number of tuples in 
+the output) of each of these plans. 
+This is crucial in the way most of today's DBSMs work. 
+The SQL Server Query Optimizer \parencite{microsoft2023cardinality} for instance 
+is a cost-based Query Optimizer. This means that it selects query plans that have the lowest 
+estimated processing cost to execute.
+ The Query Optimizer determines the cost of executing a query plan based on 
+ two main factors, the cardinality of the plan, as previously defined, and the cost model
+ of the algorithm dictated by the operators used in the query.
+The first factor, cardinality, is used as an input parameter of the 
+second factor, the cost model. Therefore, improved cardinality leads to 
+better estimated costs and, in turn, faster execution plans. The goodness of the estimate
+is dependent on its precision. We want a tight upper bound estimate
+with as little constraints as possible and with the least assumptions.
 
 \subsection{Cardinality Estimation}
-Defining the problem of upper bounding a multi-join query size as a packing linear programming problem.
-To illustrate the main ideas, we start with an example where the query is a simple join
+As we previously elaborated,  to be able to compute reliable and
+"good" cardinality extimates of query plans leads to faster execution. 
+This is the desirable outcome.
+We want to implement a cardinality estimator in the form of an LP solver, with the
+functionality of maximising the cost function which represents how large the output size
+can possibly be. We want this LP solver to be as efficient as possible from the
+viewpoint of memory and time complexity. We will generally be looking at 
+a metric called Query-per-Hour Performance Metric (QphH@Size).
+For the purpouse of defining how our dataset is generated let us consider the 
+problem of upper-bounding the cardinality, or the output size of a join query $Q$.
+Now we start with the worst-case join size:
+The reason for this work is  
+defining the problem of upper bounding a multi-join query size as a packing linear 
+programming problem.
+To illustrate the main ideas, we start with a simple example where the query is a join
 between two relations
 \[
-Q(A, B, C) = R(A, B) \land S(B, C)
+Q(a, b, c) = R(a, b) \land S(b, c)
 \]
-In the context of our packing LP problem, we start with the inequality \ref{eq:initial_inequality}. Applying the natural logarithm to both sides yields \ref{eq:log_inequality}. We then rename the variables, simplifying the inequality to \ref{eq:renamed_inequality}. 
+where we denote the sizes of the relations as
+$|R|$ and $|S|$ respectively.
+It is easy to see that the largest possible output is $N1 \cdot N2$, which occurs when the join
+behaves like a cartesian product. So, this is the worst-case
+upper bound.
+Now the maximum sizes of these relations (i.e. the number of tuples, in our case pairs) depend on the
+variables $a$, $b$ and $c$, their respective types and domains. It can also
+be affected by te nature of the data or business rules.
+We start with the inequality \ref{eq:initial_inequality}. Applying the natural logarithm to both sides yields \ref{eq:log_inequality}. We then rename the variables, simplifying the inequality to \ref{eq:renamed_inequality}. 
 Normalizing by dividing both sides by \(r'\), we obtain \ref{eq:normalized_inequality}. This leads us to the objective function for our packing LP problem.
 \begin{align}
     |a| \cdot |b| &\leq |R| \label{eq:initial_inequality} \\
@@ -23,8 +62,7 @@ Normalizing by dividing both sides by \(r'\), we obtain \ref{eq:normalized_inequ
     \text{maximize } a' + b' + c' + d' \quad &\text{s.t.} \quad \frac{1}{r'} a' + \frac{1}{r'} b' \leq 1 \label{eq:objective_function}
     \end{align}
 
-
-
+And in this simple abstracted way we get a sample packing LP from our dataset.
 \subsection{Linear Programming}
 The LP problem class that we are dealing with is called the packing LP problem. Additionally
 it is a special instance where:
@@ -45,19 +83,33 @@ Our specific problem is then expressed as follows:
     \item \( m \) is the number of constraints.
     \item \( n \) is the number of variables.
 \end{itemize}
-
+This specific class of LPs has a simple structure that we can exploit
+to further optimize our implementation.
 \subsection{The Simplex Algorithm}
 \subsubsection{The algorithm}
 In this subsection we will present the most widely used algorithm for solving
-LP problems and that we also used, among others, to solve our dataset.
-To be approachable by the simplex algorithm LP \ref*{LP_Problem} needs to be cast in a 
+LP problems. We have implemented our version  of this algorithm in the C++ language 
+and we use it, among others, to solve our dataset.
+To be approachable by the simplex algorithm, the LP \ref*{LP_Problem} needs to be cast in a 
 computational form, that fulfills the requirement of the constraint matrix having to have
 full row rank and only equality  constraints are allowed. This is done by introducing slack
 variables. 
-We now have what is called the Simplex Tableau. 
+We now have what is called the Simplex Tableau. A simple such tableau would look like this.
+
+\begin{equation*}
+    \begin{array}{ccccccc|c}
+      & a & b & c & d & s_1 & s_2 & \text{RHS} \\
+      \hline
+      z & -1 & -1 & -1 & -1 & 0 & 0 & 0 \\
+      \hline
+      s_1 & a_{11} & a_{12} & a_{13} & a_{14} & 1 & 0 & b_1 \\
+      s_2 & a_{21} & a_{22}& a_{23} & a_{24}& 0 & 1 & b_2 \\
+    \end{array}
+\end{equation*}
 \begin{itemize}
-    \item the standard algorithm is the tabular form
-    \item feasible dictionaries
+    \item feasible dictionaries? 
+    \item just write the algorithm in abstarct way, in the approach chapter write it in the 
+    specific way I implemented it (Bland's rule, zero tolerance, ...)
     \item the grand strategy of the simplex method is that of successive improvements
     \item decision variables vs. slack variables
     \item A maximization problem is optimized when the slack variables are “squeezed out,” maximizing the true variables’ effect on the objective function. Conversely, a minimization problem is optimized when the slack variables are “stuffed,” 

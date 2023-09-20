@@ -116,6 +116,33 @@
       \field{pages}{587\bibrangedash 608}
       \range{pages}{22}
     \endentry
+    \entry{microsoft2023cardinality}{online}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=140864078aeca1c7c35b4beb33c53c34}{%
+           family={Microsoft},
+           familyi={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{140864078aeca1c7c35b4beb33c53c34}
+      \strng{fullhash}{140864078aeca1c7c35b4beb33c53c34}
+      \strng{bibnamehash}{140864078aeca1c7c35b4beb33c53c34}
+      \strng{authorbibnamehash}{140864078aeca1c7c35b4beb33c53c34}
+      \strng{authornamehash}{140864078aeca1c7c35b4beb33c53c34}
+      \strng{authorfullhash}{140864078aeca1c7c35b4beb33c53c34}
+      \field{labelalpha}{Mic23}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Accessed: Sep 19th}
+      \field{title}{Cardinality Estimation (SQL Server)}
+      \field{year}{2023}
+      \verb{urlraw}
+      \verb https://learn.microsoft.com/en-us/sql/relational-databases/performance/cardinality-estimation-sql-server?view=sql-server-ver16
+      \endverb
+      \verb{url}
+      \verb https://learn.microsoft.com/en-us/sql/relational-databases/performance/cardinality-estimation-sql-server?view=sql-server-ver16
+      \endverb
+    \endentry
     \entry{ngo2022information}{inproceedings}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=39f0b4f45a7cc49c2d93ad4644319d9c}{%

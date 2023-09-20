@@ -7,25 +7,52 @@ This is the body
 
 \section{Experimental Design}
 \subsection{Analysis of dataset properties}
-In  this subsection we will conduct an analysis of our dataset properties. What are the 
+In  this subsection we will conduct an analysis of our dataset properties. What are the
 particularites of the structure of these LP problems, is their any patterns in their solution
 process. This anaylsis is based on observing the statistical results we obtained from
-running different solvers on these problems. This will later provide us with insight 
+running different solvers on these problems. This will later provide us with insight
 regarding optimization of these problems.
 TPC-H is a Decision Support Benchmark
-The TPC-H is a decision support benchmark. It consists 
-of a suite of business oriented ad-hoc queries and concurrent data modifications. 
-The performance metric reported by TPC-H is called the TPC-H Composite 
-Query-per-Hour Performance Metric (QphH@Size) 
+The TPC-H is a decision support benchmark. It consists
+of a suite of business oriented ad-hoc queries and concurrent data modifications.
+The performance metric reported by TPC-H is called the TPC-H Composite
+Query-per-Hour Performance Metric (QphH@Size)
 
+\begin{algorithm}
+    \caption{Tableau Simplex Algorithm}
+    \begin{algorithmic}[1]
+        \State \textbf{Input:} Packing LP maximisation problem in computational form
+        \State \textbf{Output:} Optimal value $z$
+
+        \State \textbf{Step 1:} Pricing: Find pivot column, or entering variable using Bland's rule
+        \State \hspace{\algorithmicindent} $enteringVars \gets \text{findPivotColumnCandidates}()$
+        \State \hspace{\algorithmicindent} \textbf{if} no entering variable found \textbf{then}
+        \State \hspace{\algorithmicindent} \hspace{\algorithmicindent} \text{print} "Optimal value reached."
+        \State \hspace{\algorithmicindent} \hspace{\algorithmicindent} \Return $z$
+        \State \hspace{\algorithmicindent} \textbf{end if}
+        \State \hspace{\algorithmicindent} $pivotColumn \gets enteringVars[0]$
+
+        \State \textbf{Step 2:} Find pivot row, or leaving variable using the ratio test
+        \State \hspace{\algorithmicindent} $pivotRow \gets \text{findPivotRow}(pivotColumn)$
+        \State \hspace{\algorithmicindent} \textbf{if} no leaving variable \textbf{then}
+        \State \hspace{\algorithmicindent} \hspace{\algorithmicindent} \text{print} "The given LP is unbounded."
+        \State \hspace{\algorithmicindent} \hspace{\algorithmicindent} \Return $\infty$
+        \State \hspace{\algorithmicindent} \textbf{end if}
+
+        \State \textbf{Step 3:} Update the tableau using pivotting and update the objective function value
+        \State \hspace{\algorithmicindent} $\text{doPivotting}(pivotRow, pivotColumn, z)$
+
+        \State \textbf{Goto Step 1}
+    \end{algorithmic}
+\end{algorithm}
 
 \subsection{Dataset Structure}
-Our dataset stucture: 
-as opposed to what the linear programming research has dealt with, which is 
+Our dataset stucture:
+as opposed to what the linear programming research has dealt with, which is
 very large problems, we are dealing with hundreds of small problems. These are represented
 in the revised simplex algorithm by
-sparse matrices but not as sparse as it would have been if the problem was large, 
-small matrices that are not small enough to be dense. 
+sparse matrices but not as sparse as it would have been if the problem was large,
+small matrices that are not small enough to be dense.
 (they still have quite a number of non-zeroes).
 
 \section{Analysis}
@@ -33,7 +60,7 @@ Some metrics:
 \begin{itemize}
     \item number of iterations
     \item runtime
-    \item number of loops ? 
+    \item number of loops ?
     \item for matrix : number of columns and rows, nonzeros and density
 \end{itemize}
 

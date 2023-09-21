@@ -4,43 +4,56 @@
 \chapter{Related work}\label{chapter:relatedwork}
 
 \section{Background}
-or Fundamentals:  here we lay down the knowledge the reader needs to understand
-my contribution, and I will mostly present the definition of mathematical and 
-algorithmic concepts needed to build the hypotheses and experiments that follow.
-First, let's say some words about cardinality estimation. It is an important process
-in the pipeline of query execution. In fact, the query optimizor selects which 
-query plan to execute after computing and comparing the  cardinality (number of tuples in 
-the output) of each of these plans. 
-This is crucial in the way most of today's DBSMs work. 
-The SQL Server Query Optimizer \parencite{microsoft2023cardinality} for instance 
-is a cost-based Query Optimizer. This means that it selects query plans that have the lowest 
-estimated processing cost to execute.
- The Query Optimizer determines the cost of executing a query plan based on 
- two main factors, the cardinality of the plan, as previously defined, and the cost model
- of the algorithm dictated by the operators used in the query.
-The first factor, cardinality, is used as an input parameter of the 
-second factor, the cost model. Therefore, improved cardinality leads to 
-better estimated costs and, in turn, faster execution plans. The goodness of the estimate
-is dependent on its precision. We want a tight upper bound estimate
-with as little constraints as possible and with the least assumptions.
+In the pipeline of query execution, cardinality estimation serves 
+as a cornerstone for the optimization process. 
+Cardinality, defined as the number of tuples in the output, 
+plays a pivotal role in the selection of an optimal query plan. 
+Modern Database Management Systems (DBMSs) often rely on 
+cost-based Query Optimizers to make this selection. 
+For example, the SQL Server Query Optimizer
+ \parencite{microsoft2023cardinality} employs a 
+ cost-based approach, aiming to minimize the estimated 
+ processing cost of executing a query.
+
+The cost estimation is influenced by two primary factors: 
+the cardinality of the query plan and the algorithmic cost 
+model dictated by the operators used in the query. The 
+former serves as an input parameter for the latter, creating 
+a dependency between the two. Enhanced cardinality estimation 
+can lead to more accurate cost models, which in turn results 
+in more efficient query execution plans.
+
+The quality of the cardinality estimate is contingent 
+upon its precision. Ideally, one seeks a tight upper bound estimated
+ that is subject to minimal constraints and assumptions.
+  This ensures that the Query Optimizer can make more accurate 
+  and effective decisions, thereby improving the overall 
+  performance of the DBMS.
 
 \subsection{Cardinality Estimation}
-As we previously elaborated,  to be able to compute reliable and
-"good" cardinality extimates of query plans leads to faster execution. 
-This is the desirable outcome.
-We want to implement a cardinality estimator in the form of an LP solver, with the
-functionality of maximising the cost function which represents how large the output size
-can possibly be. We want this LP solver to be as efficient as possible from the
-viewpoint of memory and time complexity. We will generally be looking at 
-a metric called Query-per-Hour Performance Metric (QphH@Size).
-For the purpouse of defining how our dataset is generated let us consider the 
-problem of upper-bounding the cardinality, or the output size of a join query $Q$.
-Now we start with the worst-case join size:
-The reason for this work is  
-defining the problem of upper bounding a multi-join query size as a packing linear 
-programming problem.
-To illustrate the main ideas, we start with a simple example where the query is a join
-between two relations
+As previously discussed, accurate and 
+reliable cardinality estimates are crucial 
+in achieving faster query execution times. 
+The objective is to develop a Linear Programming (LP) 
+solver designed specifically for cardinality estimation. 
+This solver aims to maximize a cost function that represents 
+the upper bound of the output size, optimizing for both 
+time and memory complexity. The performance of this solver 
+will be evaluated using the Query-per-Hour Performance Metric 
+(QphH@Size).
+
+To set the stage for our implementation, 
+we focus on the problem of upper-bounding the 
+cardinality of a join query $Q$. 
+We begin by considering the worst-case join size and then proceed
+to add some constraints that keep some of our main variables in check.
+ The motivation behind this work is to frame the problem of 
+ estimating the size of a multi-join query as a packing 
+ linear programming problem.
+
+To elucidate the core concepts, 
+let's consider a simple example 
+where the query is a join operation between two relations.
 \[
 Q(a, b, c) = R(a, b) \land S(b, c)
 \]
@@ -85,27 +98,30 @@ Our specific problem is then expressed as follows:
 \end{itemize}
 This specific class of LPs has a simple structure that we can exploit
 to further optimize our implementation.
-\subsection{The Simplex Algorithm}
+
+
+\subsection{The Standard Simplex Algorithm}
 \subsubsection{The algorithm}
 In this subsection we will present the most widely used algorithm for solving
 LP problems. We have implemented our version  of this algorithm in the C++ language 
 and we use it, among others, to solve our dataset.
 To be approachable by the simplex algorithm, the LP \ref*{LP_Problem} needs to be cast in a 
-computational form, that fulfills the requirement of the constraint matrix having to have
+computational, or tabular form, that fulfills the requirement of the constraint matrix having to have
 full row rank and only equality  constraints are allowed. This is done by introducing slack
 variables. 
-We now have what is called the Simplex Tableau. A simple such tableau would look like this.
-
+A simple packing LP in tabular form would look like this:
 \begin{equation*}
     \begin{array}{ccccccc|c}
       & a & b & c & d & s_1 & s_2 & \text{RHS} \\
       \hline
       z & -1 & -1 & -1 & -1 & 0 & 0 & 0 \\
       \hline
-      s_1 & a_{11} & a_{12} & a_{13} & a_{14} & 1 & 0 & b_1 \\
-      s_2 & a_{21} & a_{22}& a_{23} & a_{24}& 0 & 1 & b_2 \\
+      s_1 & a_{11} & a_{12} & a_{13} & a_{14} & 1 & 0 & 1 \\
+      s_2 & a_{21} & a_{22}& a_{23} & a_{24}& 0 & 1 & 1\\
     \end{array}
 \end{equation*}
+We call this a feasible dictionary\parencite{chvatal1983linear}, or a feasible tableau. This is apparent, since all
+values in the RHS are positive, and the constraint matrix $A$ also has positive coefficients.
 \begin{itemize}
     \item feasible dictionaries? 
     \item just write the algorithm in abstarct way, in the approach chapter write it in the 
@@ -127,25 +143,66 @@ exponential worst-case time complexity, which we denote by \( O(2^n) \).
 For packing linear programs, the worst-case time complexity of the Simplex algorithm 
 remains exponential, even though there exists polynomial time implementations for it.
 \parencite{stille2010solution}.
-\\
-The simplex method is an active set method.
-Each step of the simplex method deactivates one box constraint and 
-selects another one to be activated (general linear constraints are 
-always satisfied).
-Typically for an active set method, O(N+M) steps are needed for 
-an N-dimensional problem with M general linear constraints.
+
+
 \subsection{The Revised Simplex Algorithm}
 As explained in the book \parencite{chvatal1983linear}. 
-Mention zero tolerances: A zero tolerance epsilon2 saefguards against divisions
-by extremely small numbers, which tend to produce the most dangerous rounding errors, and 
-may even lead to degeneracy. diagonal entry in eta matrix should be fairly far from
- otherwise (in our experiment) degeneracy.
+while Standard Simplex algorithm maintains and updates the entire tableau in its dense form,
+ which includes both basic and non-basic variables, at each iteration. 
+ In contrast, the Revised Simplex algorithm focuses on tracking only 
+ the basic variables and their corresponding basis matrix $B$, 
+ thereby reducing memory requirements. 
+ The Revised Simplex algorithm often employs 
+ the product form update method to efficiently 
+ update the inverse of the basis matrix $B^{-1}$ 
+ without having to recompute it from scratch, 
+ making it computationally more efficient for large-scale problems. 
+ Finally, we primarily use the Compressed Column Representation (CCR) of the, 
+ which greatly benefits the performance of the implementation.
+\begin{algorithm}
+    \caption{Revised Simplex Algorithm}
+    \begin{enumerate}
+        \item \textbf{Input:} A feasible basic solution, \( B \), \( c \), \( A \), and \( b \)
+        \item \textbf{Output:} Optimal solution or a certificate of unboundedness
+        \item Initialize \( B^{-1} \), the inverse of the basis matrix \( B \)
+        \item \textbf{While True:}
+        \begin{itemize}
+            \setlength{\itemindent}{3em}
+            \item[\textit{Step 1:}] Solve the system \( yB = c_B \) (BTRAN)
+            \item[\textit{Step 2:}] Choose an entering column. This may be any column a of
+            $A_N$ such that $ya$ is less than the corresponding component
+            of $c_N$. If there is no such column, then the current solution is optimal.
+            In other words: Choose first \( j \) such that \( c_j -yA_j > 0 \) 
+            then $a=A_j$ is the enterig column.
+            \item[\textit{Step 3:}] Solve the system $Bd = a$ (FTRAN)
+            \item[\textit{Step 4:}] Let $x_B^{\ast} = B^{-1}b$ the current basic variables' values.
+            Find the largest $t$ such that \( x_B^{\ast} - td \geq 0\)
+                if there is no such $t$, then the problem is unbounded; otherwise, at least 
+                one component of  \( x_B^{\ast} - td \) equals zero and the corresponding variable is leaving the basis.
+            \item[\textit{Step 5:}] Set the value of the entering variable at 
+            $t$ and replace the values $x_B^{\ast}$ of the basic variables by \( x_B^{\ast} - td \).
+            Replace the leaving column of B by the entering column, and in the basis heading,
+            replace the leaving variable by the entering variable.
+        \end{itemize}
+        
+        \item \textbf{Return} Optimal solution \( B^{-1}b \)
+    \end{enumerate}
+    \end{algorithm} 
+
 \subsubsection*{The product form update method}
 We will discuss the PFI, introduced by George Dantzig \parencite{dantzig1954product}.
 \subsubsection*{Data structures}
 Compressed Storage Formats:
-Eigen uses either the CSC or CSR format to store sparse matrices. These formats store the non-zero values, along with their corresponding row and column indices, 
+We use the CSC format to store sparse matrices. These formats store the non-zero values, along with their corresponding row and column indices, 
 in a compact way. This reduces memory usage and speeds up operations on sparse matrices
+
+\begin{verbatim}
+    struct CCRMatrix {
+        float *values;  // Non-zero values in the matrix
+        int *rowIdx;  // Row indices corresponding to the non-zero values
+        int *colPtr;  // Points to the index in `values` where each column starts
+    };
+\end{verbatim}
 \section{Previous Work}
 Here we will discuss alternative approaches that are superseded by my work.
 \subsection{Comparative studies of different update methods}

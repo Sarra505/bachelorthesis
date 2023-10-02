@@ -10,11 +10,12 @@
 
 Our aim with this project is to investigate and compare different methods 
 and techniques to solve small linear programming problems representing 
-the problem of cardinality estimation. Our goal is to 
-estimate realistic and useful upper bounds on query sizes. Studies have 
+among others the problem of cardinality estimation. A way to estimate realistic and
+useful upper bounds of query sizes is through linear programming.
+ Studies have 
 shown that cardinality estimation is the major root of many issues in 
-query optimization\parencite{ngo2022information}. And yet, theoretical upper bounds that
-are way too large would be useless since we want practical estimation to choose
+query optimization \parencite{ngo2022information}, which is why we want a 
+practical estimate to choose
 the best from data plans to run efficient queries.
 For this purpouse, we will introduce a formal description of the cardinality
 estimation problem, represent it in the form of a packing linear programming problem with
@@ -24,6 +25,6 @@ with different methods and algorithms. We then draw conclusions based on the res
 our experiments, benchmarks and the previous work done on similar packing LP problems.
 This should guide us into constructing a thorough analysis of the particularities of
 these LP problems, what's unique about their structure and if their solution
-process is following any patterns. We then discuss and draw hypotheses on the ways this 
+process follows any patterns. We then discuss and draw hypotheses on the ways this 
 analysis can be exploited to further optimize the solution process: which methods or 
 combination of methods deliver the best time and memory complexity.

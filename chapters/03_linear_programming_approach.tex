@@ -2,9 +2,14 @@
 % Add the above to each chapter to make compiling the PDF easier in some editors.
 
 \chapter{Tuning Linear Programming Solvers for Query Optimization}\label{chapter:linearprogramming}
-This is the body
-\section{Proposal}
 
+\section{Proposal}
+Our contribution consists in conducting experiments on small packing LP problems that are generated from
+real-life queries as mentioned in \ref{subsection:cardinality-estimate} as well as randomly generated
+LPs with varying sizes. We use different LP solvers, and different update methods to solves these LPs.
+We then proceed to compare results based on time and memory performance. We also build an analysis of our datasets' properties.
+Finally, we aim to give a recommendation on how to build the best performing LP solver based on the 
+particularities of the LP problems.
 \section{Experimental Design}
 \subsection{Analysis of dataset properties}
 In  this subsection we will conduct an analysis of our dataset properties. What are the

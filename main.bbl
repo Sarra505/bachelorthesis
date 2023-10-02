@@ -45,6 +45,32 @@
       \field{title}{Linear programming}
       \field{year}{1983}
     \endentry
+    \entry{dantzig1990origins}{incollection}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=212fe65a17e797b6dbce0c3731498b2c}{%
+           family={Dantzig},
+           familyi={D\bibinitperiod},
+           given={George\bibnamedelima B},
+           giveni={G\bibinitperiod\bibinitdelim B\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{212fe65a17e797b6dbce0c3731498b2c}
+      \strng{fullhash}{212fe65a17e797b6dbce0c3731498b2c}
+      \strng{bibnamehash}{212fe65a17e797b6dbce0c3731498b2c}
+      \strng{authorbibnamehash}{212fe65a17e797b6dbce0c3731498b2c}
+      \strng{authornamehash}{212fe65a17e797b6dbce0c3731498b2c}
+      \strng{authorfullhash}{212fe65a17e797b6dbce0c3731498b2c}
+      \field{labelalpha}{Dan90}
+      \field{sortinit}{D}
+      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{A history of scientific computing}
+      \field{title}{Origins of the simplex method}
+      \field{year}{1990}
+      \field{pages}{141\bibrangedash 151}
+      \range{pages}{11}
+    \endentry
     \entry{dantzig1954product}{article}{}
       \name{author}{2}{}{%
         {{un=0,uniquepart=base,hash=212fe65a17e797b6dbce0c3731498b2c}{%
@@ -115,6 +141,43 @@
       \field{year}{2015}
       \field{pages}{587\bibrangedash 608}
       \range{pages}{22}
+    \endentry
+    \entry{klee1972good}{article}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=3fc4fb7684111cb9dcd6eb11d4024766}{%
+           family={Klee},
+           familyi={K\bibinitperiod},
+           given={Victor},
+           giveni={V\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=825471e840e6528200c705f1987f2752}{%
+           family={Minty},
+           familyi={M\bibinitperiod},
+           given={George\bibnamedelima J},
+           giveni={G\bibinitperiod\bibinitdelim J\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {New York}%
+      }
+      \strng{namehash}{70179a195b902288f7ebcf355bf13d3b}
+      \strng{fullhash}{70179a195b902288f7ebcf355bf13d3b}
+      \strng{bibnamehash}{70179a195b902288f7ebcf355bf13d3b}
+      \strng{authorbibnamehash}{70179a195b902288f7ebcf355bf13d3b}
+      \strng{authornamehash}{70179a195b902288f7ebcf355bf13d3b}
+      \strng{authorfullhash}{70179a195b902288f7ebcf355bf13d3b}
+      \field{labelalpha}{KM72}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Inequalities}
+      \field{number}{3}
+      \field{title}{How good is the simplex algorithm}
+      \field{volume}{3}
+      \field{year}{1972}
+      \field{pages}{159\bibrangedash 175}
+      \range{pages}{17}
     \endentry
     \entry{microsoft2023cardinality}{online}{}
       \name{author}{1}{}{%

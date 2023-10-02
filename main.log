@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.12) (preloaded format=pdflatex 2023.2.6)  1 OCT 2023 19:31
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.12) (preloaded format=pdflatex 2023.2.6)  2 OCT 2023 20:14
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1026,17 +1026,158 @@ Package scrhack Info: undefining \float@addtolists on input line 163.
 Package tocbasic Info: setting babel extension for `loa' on input line 95.
 \@float@every@algorithm=\toks51
 \c@algorithm=\count476
+) (/home/sarrabenmed/.miktex/texmfs/install/tex/latex/glossaries/base/glossaries.sty
+Package: glossaries 2022/11/03 v4.52 (NLCT)
+ (/home/sarrabenmed/.miktex/texmfs/install/tex/latex/xkeyval/xkeyval.sty
+Package: xkeyval 2022/06/16 v2.9 package option processing (HA)
+ (/home/sarrabenmed/.miktex/texmfs/install/tex/generic/xkeyval/xkeyval.tex (/home/sarrabenmed/.miktex/texmfs/install/tex/generic/xkeyval/xkvutils.tex
+\XKV@toks=\toks52
+\XKV@tempa@toks=\toks53
+)
+\XKV@depth=\count477
+File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
+)) (/home/sarrabenmed/.miktex/texmfs/install/tex/latex/mfirstuc/mfirstuc.sty
+Package: mfirstuc 2022/10/14 v2.08 (NLCT)
+\@glsmfirst=\toks54
+\@glsmrest=\toks55
+) (/home/sarrabenmed/.miktex/texmfs/install/tex/latex/xfor/xfor.sty
+Package: xfor 2009/02/05 v1.05 (NLCT)
+) (/home/sarrabenmed/.miktex/texmfs/install/tex/latex/datatool/datatool-base.sty
+Package: datatool-base 2019/09/27 v2.32 (NLCT)
+ (/home/sarrabenmed/.miktex/texmfs/install/tex/latex/substr/substr.sty
+Package: substr 2009/10/20 v1.2 Handle substrings
+\c@su@anzahl=\count478
+) (/home/sarrabenmed/.miktex/texmfs/install/tex/latex/datatool/datatool-fp.sty
+Package: datatool-fp 2019/09/27 v2.32 (NLCT)
+ (/home/sarrabenmed/.miktex/texmfs/install/tex/latex/fp/fp.sty
+Package: fp 1995/04/02
+ `Fixed Point Package', Version 0.8, April 2, 1995 (C) Michael Mehlich (/home/sarrabenmed/.miktex/texmfs/install/tex/latex/fp/defpattern.sty
+Package: defpattern 1994/10/12
+\actioncount=\count479
+) (/home/sarrabenmed/.miktex/texmfs/install/tex/latex/fp/fp-basic.sty
+Package: fp-basic 1996/05/13
+\FP@xs=\count480
+\FP@xia=\count481
+\FP@xib=\count482
+\FP@xfa=\count483
+\FP@xfb=\count484
+\FP@rega=\count485
+\FP@regb=\count486
+\FP@regs=\count487
+\FP@times=\count488
+) (/home/sarrabenmed/.miktex/texmfs/install/tex/latex/fp/fp-addons.sty
+Package: fp-addons 1995/03/15
+) (/home/sarrabenmed/.miktex/texmfs/install/tex/latex/fp/fp-snap.sty
+Package: fp-snap 1995/04/05
+) (/home/sarrabenmed/.miktex/texmfs/install/tex/latex/fp/fp-exp.sty
+Package: fp-exp 1995/04/03
+) (/home/sarrabenmed/.miktex/texmfs/install/tex/latex/fp/fp-trigo.sty
+Package: fp-trigo 1995/04/14
+) (/home/sarrabenmed/.miktex/texmfs/install/tex/latex/fp/fp-pas.sty
+Package: fp-pas 1994/08/29
+) (/home/sarrabenmed/.miktex/texmfs/install/tex/latex/fp/fp-random.sty
+Package: fp-random 1995/02/23
+\FPseed=\count489
+) (/home/sarrabenmed/.miktex/texmfs/install/tex/latex/fp/fp-eqn.sty
+Package: fp-eqn 1995/04/03
+) (/home/sarrabenmed/.miktex/texmfs/install/tex/latex/fp/fp-upn.sty
+Package: fp-upn 1996/10/21
+) (/home/sarrabenmed/.miktex/texmfs/install/tex/latex/fp/fp-eval.sty
+Package: fp-eval 1995/04/03
+)))
+\@dtl@toks=\toks56
+\@dtl@tmpcount=\count490
+\dtl@tmplength=\skip98
+\dtl@sortresult=\count491
+\@dtl@numgrpsepcount=\count492
+\@dtl@datatype=\count493
+\dtl@codeA=\count494
+\dtl@codeB=\count495
+\@dtl@foreach@level=\count496
+) (/home/sarrabenmed/.miktex/texmfs/install/tex/latex/tracklang/tracklang.sty
+Package: tracklang 2022/12/13 v1.6.1 (NLCT) Track Languages
+ (/home/sarrabenmed/.miktex/texmfs/install/tex/generic/tracklang/tracklang.tex)) (/home/sarrabenmed/.miktex/texmfs/install/tex/latex/translator/translator.sty
+Package: translator 2021-05-31 v1.12d Easy translation of strings in LaTeX
+) (/home/sarrabenmed/.miktex/texmfs/install/tex/latex/glossaries-english/glossaries-english.ldf
+File: glossaries-english.ldf 2014/11/23 v1.0
+) (/home/sarrabenmed/.miktex/texmfs/install/tex/latex/glossaries-german/glossaries-german.ldf
+File: glossaries-german.ldf 2014/11/23 v1.0
+)
+\gls@level=\count497
+\@gls@tmpb=\toks57
+\gls@tmplen=\skip99
+\glskeylisttok=\toks58
+\glslabeltok=\toks59
+\glsshorttok=\toks60
+\glslongtok=\toks61
+ (/home/sarrabenmed/.miktex/texmfs/install/tex/latex/glossaries/styles/glossary-hypernav.sty
+Package: glossary-hypernav 2022/11/03 v4.52 (NLCT)
+) (/home/sarrabenmed/.miktex/texmfs/install/tex/latex/glossaries/styles/glossary-list.sty
+Package: glossary-list 2022/11/03 v4.52 (NLCT)
+\glslistdottedwidth=\skip100
+) (/home/sarrabenmed/.miktex/texmfs/install/tex/latex/glossaries/styles/glossary-long.sty
+Package: glossary-long 2022/11/03 v4.52 (NLCT)
+ (/home/sarrabenmed/.miktex/texmfs/install/tex/latex/tools/longtable.sty
+Package: longtable 2021-09-01 v4.17 Multi-page Table package (DPC)
+\LTleft=\skip101
+\LTright=\skip102
+\LTpre=\skip103
+\LTpost=\skip104
+\LTchunksize=\count498
+\LTcapwidth=\dimen305
+\LT@head=\box75
+\LT@firsthead=\box76
+\LT@foot=\box77
+\LT@lastfoot=\box78
+\LT@gbox=\box79
+\LT@cols=\count499
+\LT@rows=\count500
+\c@LT@tables=\count501
+\c@LT@chunks=\count502
+\LT@p@ftn=\toks62
+)
+Class scrbook Info: longtable captions redefined on input line 47.
+\glsdescwidth=\skip105
+\glspagelistwidth=\skip106
+) (/home/sarrabenmed/.miktex/texmfs/install/tex/latex/glossaries/styles/glossary-super.sty
+Package: glossary-super 2022/11/03 v4.52 (NLCT)
+ (/home/sarrabenmed/.miktex/texmfs/install/tex/latex/supertabular/supertabular.sty
+Package: supertabular 2020/02/02 v4.1g the supertabular environment
+\c@tracingst=\count503
+\ST@wd=\dimen306
+\ST@rightskip=\skip107
+\ST@leftskip=\skip108
+\ST@parfillskip=\skip109
+\ST@pageleft=\dimen307
+\ST@headht=\dimen308
+\ST@tailht=\dimen309
+\ST@pagesofar=\dimen310
+\ST@pboxht=\dimen311
+\ST@lineht=\dimen312
+\ST@prevht=\dimen313
+\ST@toadd=\dimen314
+\ST@dimen=\dimen315
+\ST@pbox=\box80
+)) (/home/sarrabenmed/.miktex/texmfs/install/tex/latex/glossaries/styles/glossary-tree.sty
+Package: glossary-tree 2022/11/03 v4.52 (NLCT)
+\glstreeindent=\skip110
 ))
+\glswrite=\write5
+\glo@main@file=\write6
+\openout6 = `main.glo'.
+
+Package glossaries Info: Writing glossary file main.glo on input line 34.
+\glo@acronym@file=\write7
+\openout7 = `main.acn'.
+
+Package glossaries Info: Writing glossary file main.acn on input line 34.
+ (pages/glossary.tex))
 Package csquotes Info: Checking for multilingual support...
 Package csquotes Info: ... found 'babel' package.
 LaTeX Font Info:    Trying to load font information for T1+pplx on input line 22.
  (/home/sarrabenmed/.miktex/texmfs/install/tex/latex/psnfss/t1pplx.fd
 File: t1pplx.fd 2004/09/06 font definitions for T1/pplx.
-) (main.aux
-
-LaTeX Warning: Label `LP_Problem' multiply defined.
-
-)
+) (main.aux)
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 22.
@@ -1117,24 +1258,24 @@ Package biblatex Info: Reference section=0 on input line 22.
 Package biblatex Info: Reference segment=0 on input line 22.
  (/home/sarrabenmed/.miktex/texmfs/install/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count477
-\scratchdimen=\dimen305
-\scratchbox=\box75
-\nofMPsegments=\count478
-\nofMParguments=\count479
-\everyMPshowfont=\toks52
-\MPscratchCnt=\count480
-\MPscratchDim=\dimen306
-\MPnumerator=\count481
-\makeMPintoPDFobject=\count482
-\everyMPtoPDFconversion=\toks53
+\scratchcounter=\count504
+\scratchdimen=\dimen316
+\scratchbox=\box81
+\nofMPsegments=\count505
+\nofMParguments=\count506
+\everyMPshowfont=\toks63
+\MPscratchCnt=\count507
+\MPscratchDim=\dimen317
+\MPnumerator=\count508
+\makeMPintoPDFobject=\count509
+\everyMPtoPDFconversion=\toks64
 ) (/home/sarrabenmed/.miktex/texmfs/install/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
  (/home/sarrabenmed/.miktex/texmfs/install/tex/latex/00miktex/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
-\c@lstlisting=\count483
+\c@lstlisting=\count510
 Package scrhack Info: undefining \float@addtolists on input line 22.
 
 Package pgfplots notification 'compat/show suggested version=true': document has been generated with the most recent feature set (\pgfplotsset{compat=1.18}).
@@ -1161,11 +1302,16 @@ File: mt-ppl.cfg 2005/11/16 v1.6 microtype config. file: Palatino (RS)
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: float package is loaded.
 Package caption Info: hyperref package is loaded.
+Package caption Info: longtable package is loaded.
+ (/home/sarrabenmed/.miktex/texmfs/install/tex/latex/caption/ltcaption.sty
+Package: ltcaption 2021/01/08 v1.4c longtable captions (AR)
+)
+Package caption Info: supertabular package is loaded.
 Package caption Info: End \AtBeginDocument code.
 Package hyperref Info: Link coloring OFF on input line 22.
  (main.out) (main.out)
-\@outlinefile=\write5
-\openout5 = `main.out'.
+\@outlinefile=\write8
+\openout8 = `main.out'.
 
 Class scrbook Info: loading recommended package `bookmark'.
 (scrbook)           Using `bookmark' together with `hyperref' is recommended,
@@ -1179,11 +1325,12 @@ Class scrbook Info: loading recommended package `bookmark'.
 Package: bookmark 2020-11-06 v1.29 PDF bookmarks (HO)
  (/home/sarrabenmed/.miktex/texmfs/install/tex/latex/bookmark/bkm-pdftex.def
 File: bkm-pdftex.def 2020-11-06 v1.29 bookmark driver for pdfTeX (HO)
-\BKM@id=\count484
-))
+\BKM@id=\count511
+)) (main.glsdefs)
 Package nag Info: Command \hc@caption not defined, skipping amendment on input line 22.
-Package nag Info: Command \topcaption not defined, skipping amendment on input line 22.
  (pages/cover.tex [1
+
+\openout5 = `main.ist'.
 
 
 
@@ -1252,8 +1399,8 @@ Package tocbasic Info: character protrusion at toc deactivated on input line 36.
 
 
 ])
-\tf@toc=\write6
-\openout6 = `main.toc'.
+\tf@toc=\write9
+\openout9 = `main.toc'.
 
 LaTeX Font Info:    Font shape `T1/pplx/m/sl' in size <10.95> not available
 (Font)              Font shape `T1/pplx/m/it' tried instead on input line 39.
@@ -1270,17 +1417,22 @@ Overfull \hbox (1.11548pt too wide) in paragraph at lines 11--3
 
 ]
 chapter 2.
-[2
+LaTeX Font Info:    Trying to load font information for U+fplmbb on input line 19.
+(/home/sarrabenmed/.miktex/texmfs/install/tex/latex/psnfss/ufplmbb.fd
+File: ufplmbb.fd 2003/10/30 Fontinst v1.914 font definitions for U/fplmbb.
+) [2
 
 
-]
-LaTeX Font Info:    Trying to load font information for TS1+pplx on input line 52.
+] [3]
+Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on input line 94.
+Package microtype Info: Character `029' is missing
+(microtype)             in font `T1/pplx/m/sc/10.95'.
+(microtype)             Ignoring protrusion settings for this character.
+LaTeX Font Info:    Trying to load font information for TS1+pplx on input line 116.
  (/home/sarrabenmed/.miktex/texmfs/install/tex/latex/psnfss/ts1pplx.fd
 File: ts1pplx.fd 2004/09/06 font definitions for TS1/pplx.
-) [3] [4] [5]
-Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on input line 213.
- [6] [7]
-LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 249.
+) [4] [5]
+LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 233.
  (/home/sarrabenmed/.miktex/texmfs/install/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 2022/07/10 v2.5l Standard LaTeX font definitions
 )
@@ -1289,21 +1441,16 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 
-Overfull \hbox (6.12227pt too wide) in paragraph at lines 255--255
+Overfull \hbox (6.12227pt too wide) in paragraph at lines 239--239
 []          \T1/cmtt/m/n/10.95 int *rowIdx;  // Row indices corresponding to the non-zero values[] 
  []
 
 
-Overfull \hbox (51.38924pt too wide) in paragraph at lines 255--255
+Overfull \hbox (51.38924pt too wide) in paragraph at lines 239--239
 []          \T1/cmtt/m/n/10.95 int *colPtr;  // Points to the index in `values` where each column starts[] 
  []
 
-
-Overfull \hbox (3.24768pt too wide) in paragraph at lines 257--267
-\T1/pplx/m/n/10.95 (-20) achieving faster query execution times. The objective is to develop a Linear Programming
- []
-
-[8] [9]) (chapters/03_linear_programming_approach.tex [10]
+[6] [7] [8] [9]) (chapters/03_linear_programming_approach.tex [10]
 chapter 3.
 [11
 
@@ -1315,34 +1462,45 @@ chapter 4.
 
 ]
 chapter 5.
+) (pages/glossary.tex
+\@gls@deffile=\write10
+\openout10 = `main.glsdefs'.
+
+
+
+Package glossaries Warning: Entry `lp' has already been defined in the preamble (in which case remove the duplicate definition) or you have just updated to glossaries.sty v4.47 (in which case delete `main.glsdefs') on input line 3.
+
+
+Package glossaries Warning: Entry `dbms' has already been defined in the preamble (in which case remove the duplicate definition) or you have just updated to glossaries.sty v4.47 (in which case delete `main.glsdefs') on input line 6.
+
 ) [15
 
 
 ]
-Package tocbasic Info: character protrusion at lof deactivated on input line 55.
+Package tocbasic Info: character protrusion at lof deactivated on input line 56.
  (main.lof)
-\tf@lof=\write7
-\openout7 = `main.lof'.
+\tf@lof=\write11
+\openout11 = `main.lof'.
 
  [16
 
 
 ]
-Package tocbasic Info: character protrusion at lot deactivated on input line 56.
+Package tocbasic Info: character protrusion at lot deactivated on input line 57.
  (main.lot)
-\tf@lot=\write8
-\openout8 = `main.lot'.
+\tf@lot=\write12
+\openout12 = `main.lot'.
 
- [17
+
+No file main.gls.
+No file main.acr.
+[17
 
 
 ]
 chapter without number
-Package microtype Info: Character `029' is missing
-(microtype)             in font `T1/pplx/m/sc/10.95'.
-(microtype)             Ignoring protrusion settings for this character.
 
-Overfull \hbox (18.1615pt too wide) in paragraph at lines 58--58
+Overfull \hbox (18.1615pt too wide) in paragraph at lines 60--60
 []\T1/pplx/m/n/10.95 (-20) W. Stille. ^^P  Solution techniques for specific bin packing problems with applications
  []
 
@@ -1351,9 +1509,6 @@ No complaints by nag.
 
 
 ] (main.aux)
-
-LaTeX Warning: There were multiply-defined labels.
-
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
 Package logreq Info: Writing requests to 'main.run.xml'.
@@ -1361,17 +1516,20 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 50027 strings out of 478312
- 1117599 string characters out of 5840164
- 2173927 words of memory out of 5000000
- 68928 multiletter control sequences out of 15000+600000
- 575994 words of font info for 311 fonts, out of 8000000 for 9000
+ 56438 strings out of 478312
+ 1247188 string characters out of 5840164
+ 2321571 words of memory out of 5000000
+ 75163 multiletter control sequences out of 15000+600000
+ 577660 words of font info for 332 fonts, out of 8000000 for 9000
  2 hyphenation exceptions out of 8191
- 115i,10n,109p,10932b,2367s stack positions out of 10000i,1000n,20000p,200000b,200000s
-{/home/sarrabenmed/.miktex/texmfs/install/fonts/enc/dvips/base/8r.enc} </home/sarrabenmed/.miktex/texmfs/data/fonts/pk/ljfour/jknappen/ec/dpi600/ectt1095.pk></home/sarrabenmed/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmex10.pfb></home/sarrabenmed/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmmi10.pfb></home/sarrabenmed/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmr10.pfb></home/sarrabenmed/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy10.pfb></home/sarrabenmed/.miktex/texmfs/install/fonts/type1/public/mathpazo/fplmr.pfb></home/sarrabenmed/.miktex/texmfs/install/fonts/type1/public/fpl/fplrc8a.pfb></home/sarrabenmed/.miktex/texmfs/install/fonts/type1/public/amsfonts/symbols/msbm10.pfb></home/sarrabenmed/.miktex/texmfs/install/fonts/type1/urw/palatino/uplb8a.pfb></home/sarrabenmed/.miktex/texmfs/install/fonts/type1/urw/palatino/uplr8a.pfb></home/sarrabenmed/.miktex/texmfs/install/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on main.pdf (25 pages, 213950 bytes).
+ 115i,10n,109p,10932b,2459s stack positions out of 10000i,1000n,20000p,200000b,200000s
+
+pdfTeX warning (dest): name{glo:lp} has been referenced but does not exist, replaced by a fixed one
+
+ </home/sarrabenmed/.miktex/texmfs/data/fonts/pk/ljfour/jknappen/ec/dpi600/ectt1095.pk>{/home/sarrabenmed/.miktex/texmfs/install/fonts/enc/dvips/base/8r.enc}</home/sarrabenmed/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmex10.pfb></home/sarrabenmed/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmmi10.pfb></home/sarrabenmed/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmr10.pfb></home/sarrabenmed/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy10.pfb></home/sarrabenmed/.miktex/texmfs/install/fonts/type1/public/mathpazo/fplmbb.pfb></home/sarrabenmed/.miktex/texmfs/install/fonts/type1/public/mathpazo/fplmr.pfb></home/sarrabenmed/.miktex/texmfs/install/fonts/type1/public/fpl/fplrc8a.pfb></home/sarrabenmed/.miktex/texmfs/install/fonts/type1/public/amsfonts/symbols/msbm10.pfb></home/sarrabenmed/.miktex/texmfs/install/fonts/type1/urw/palatino/uplb8a.pfb></home/sarrabenmed/.miktex/texmfs/install/fonts/type1/urw/palatino/uplr8a.pfb></home/sarrabenmed/.miktex/texmfs/install/fonts/type1/urw/palatino/uplri8a.pfb>
+Output written on main.pdf (25 pages, 225425 bytes).
 PDF statistics:
- 439 PDF objects out of 1000 (max. 8388607)
- 95 named destinations out of 1000 (max. 500000)
- 93957 words of extra memory for PDF output out of 106986 (max. 10000000)
+ 459 PDF objects out of 1000 (max. 8388607)
+ 99 named destinations out of 1000 (max. 500000)
+ 93949 words of extra memory for PDF output out of 106986 (max. 10000000)
 

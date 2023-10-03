@@ -2358,7 +2358,8 @@
     <bcf:citekey order="7" intorder="1">chvatal1983linear</bcf:citekey>
     <bcf:citekey order="8" intorder="1">dantzig1954product</bcf:citekey>
     <bcf:citekey order="9" intorder="1">microsoft2023cardinality</bcf:citekey>
-    <bcf:citekey order="10" intorder="1">huangfu2015novel</bcf:citekey>
+    <bcf:citekey order="10" intorder="1">atserias2013size</bcf:citekey>
+    <bcf:citekey order="11" intorder="1">huangfu2015novel</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="anyt">

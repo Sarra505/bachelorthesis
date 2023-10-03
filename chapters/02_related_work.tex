@@ -50,6 +50,7 @@ Our specific problem is then expressed as follows:
 This specific class of LPs has a simple structure that we can exploit, see
 Chapter \ref*{chapter:linearprogramming},
 to further optimize our implementation.
+\subsection{Duality}\label{duality}
 
 \subsection{The Standard Simplex Algorithm}
 In this subsection we will present the most widely used algorithm for solving
@@ -179,6 +180,8 @@ For packing linear programs, the worst-case time complexity of the Simplex algor
 remains exponential, even though there exists polynomial time implementations for it.
 \parencite{stille2010solution}.
 
+\subsection{The interior point method}
+
 \subsection{The Revised Simplex Algorithm}
 As explained in the book \parencite{chvatal1983linear}.
 while Standard Simplex algorithm maintains and updates the entire tableau in its dense form,
@@ -239,44 +242,34 @@ in a compact way. This reduces memory usage and speeds up operations on sparse m
   \end{verbatim}
 \subsection{Cardinality Estimation}\label{subsection:cardinality-estimate}
 In the pipeline of query execution, cardinality estimation serves
-as a cornerstone for the optimization process.
+as a cornerstone for the query optimization process.
 Cardinality, defined as the number of tuples in the output,
 plays a pivotal role in the selection of an optimal query plan.
-Modern Database Management Systems (DBMSs) often rely on
-cost-based Query Optimizers to make this selection.
+Modern \gls{dbms} often rely on
+cost-based query optimizers to make this selection.
 For example, the SQL Server Query Optimizer
 \parencite{microsoft2023cardinality} employs a
 cost-based approach, aiming to minimize the estimated
 processing cost of executing a query.
 
-The cost estimation is influenced by two primary factors:
-the cardinality of the query plan and the algorithmic cost
-model dictated by the operators used in the query. The
-former serves as an input parameter for the latter, creating
-a dependency between the two. Enhanced cardinality estimation
+Enhanced cardinality estimation
 can lead to more accurate cost models, which in turn results
 in more efficient query execution plans.
-Consequently, accurate and reliable cardinality estimates are crucial
-in achieving faster query execution times.
-The objective is to develop a Linear Programming (LP)
+Consequently, accurate and reliable cardinality estimates are
+crucial in achieving faster query execution times.
+The objective is to develop a \gls{lp}
 solver designed specifically for cardinality estimation.
 This solver aims to maximize a cost function that represents
 the upper bound of the output size, optimizing for both
-time and memory complexity. The performance of this solver
-will be evaluated using the Query-per-Hour Performance Metric
-(QphH@Size).
+time and memory complexity.
 
 To set the stage for our implementation,
 we focus on the problem of upper-bounding the
 cardinality of a join query $Q$.
-We begin by considering the worst-case join size and then proceed
-to add some constraints that keep some of our main variables in check.
-The motivation behind this work is to frame the problem of
-estimating the size of a multi-join query as a packing
-linear programming problem.
+
 \subsubsection{Scenario}
 To elucidate the core concepts,
-suppose we have two relation $R$ and $S$ with attributes
+suppose we have two relation $R$ and $S$ with attributes 
 \[
     Q(a, b, c) = R(a, b) \Join S(b, c)
 \]
@@ -285,20 +278,20 @@ $|R|$ and $|S|$ respectively.
 It is easy to see that the largest possible output is $|R| \cdot |S|$, which occurs when the join
 behaves like a cartesian product, i.e. have a selectivity equals to 1. So, this is the worst-case
 upper bound.
+\subsubsection{AGM bound}
+The AGM bound \parencite{atserias2013size} proves
+using entropy that \[ \min_w \left( \sum_{i=1}^{k} w_i \log |R_i| \right) \]
+is a tight upper bound for join size, given query graph (how the
+relations are connected, if there are any shared attributes)
+and relation sizes.
+The dual \gls{lp} problem of the given minimzation problem, is
+\[ \max \sum_{i} v_i \]
+subject to:
+\[ A^T \mathbf{v} \leq \log |R| \]
+The dual theorem \ref{duality} states that the both problems have the same 
+optimal values. 
 
-Now the maximum sizes of these relations (i.e. the number of tuples, in our case pairs) depend on the
-variables $a$, $b$ and $c$, their respective types and domains. It can also
-be affected by te nature of the data or business rules.
-
-If there are constraints on the domains of the attributes, the join size can be limited. For example:
-
-\begin{itemize}
-    \item If \( B \) in \( R \) and \( B \) in \( S \) have domain constraints such that they can only take on \( k \) distinct values, then the maximum number of join results for a single value of \( B \) is \( \frac{|R|}{k} \times \frac{|S|}{k} \) (assuming uniform distribution). Therefore, the worst-case join size is \( k \times \left( \frac{|R|}{k} \times \frac{|S|}{k} \right) = \frac{|R| \times |S|}{k} \).
-
-    \item If there are foreign key constraints, such as \( B \) in \( S \) being a foreign key referencing \( B \) in \( R \), then each tuple in \( S \) can join with at most one tuple in \( R \). This means the worst-case join size is \( \min(|R|, |S|) \).
-\end{itemize}
-
-If there are multiple constraints, they can be combined to provide a tighter bound on the join size. For instance, if there's both a domain constraint and a foreign key constraint, the worst-case join size would be the minimum of the sizes derived from each constraint.
+This is how our \gls{lp} datasets are generated.
 
 We start with the inequality \ref{eq:initial_inequality}. Applying the natural logarithm to both sides yields \ref{eq:log_inequality}. We then rename the variables, simplifying the inequality to \ref{eq:renamed_inequality}.
 Normalizing by dividing both sides by \(r'\), we obtain \ref{eq:normalized_inequality}. This leads us to the objective function for our packing LP problem.

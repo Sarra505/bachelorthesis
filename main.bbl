@@ -19,6 +19,49 @@
 
 \refsection{0}
   \datalist[entry]{anyt/global//global/global}
+    \entry{atserias2013size}{article}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=d76caff876e17420f72da32cf908b812}{%
+           family={Atserias},
+           familyi={A\bibinitperiod},
+           given={Albert},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=09c9a63ce22980640e97ed9ed81ea815}{%
+           family={Grohe},
+           familyi={G\bibinitperiod},
+           given={Martin},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=e31719b087ab896a11d4b30ad542eab8}{%
+           family={Marx},
+           familyi={M\bibinitperiod},
+           given={Dániel},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {SIAM}%
+      }
+      \strng{namehash}{c57b884562221a4898a017cf0a77be86}
+      \strng{fullhash}{c57b884562221a4898a017cf0a77be86}
+      \strng{bibnamehash}{c57b884562221a4898a017cf0a77be86}
+      \strng{authorbibnamehash}{c57b884562221a4898a017cf0a77be86}
+      \strng{authornamehash}{c57b884562221a4898a017cf0a77be86}
+      \strng{authorfullhash}{c57b884562221a4898a017cf0a77be86}
+      \field{labelalpha}{AGM13}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{SIAM Journal on Computing}
+      \field{number}{4}
+      \field{title}{Size bounds and query plans for relational joins}
+      \field{volume}{42}
+      \field{year}{2013}
+      \field{pages}{1737\bibrangedash 1767}
+      \range{pages}{31}
+    \endentry
     \entry{chvatal1983linear}{book}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=76e781465fa327a48c5a4a9d1b551fe5}{%

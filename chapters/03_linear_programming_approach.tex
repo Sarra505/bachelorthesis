@@ -8,20 +8,183 @@ Our contribution consists in conducting experiments on small packing LP problems
 real-life queries as mentioned in \ref{subsection:cardinality-estimate} as well as randomly generated
 LPs with varying sizes. We use different LP solvers, and different update methods to solves these LPs.
 We then proceed to compare results based on time and memory performance. We also build an analysis of our datasets' properties.
-Finally, we aim to give a recommendation on how to build the best performing LP solver based on the 
+Finally, we aim to give a recommendation on how to build the best performing LP solver based on the
 particularities of the LP problems.
+\subsection{Implementation hierarchy}
+The final code repository contains 3 different solvers as shown in the
+UML graph \ref{fig:hierarchy}
+and a \verb|compareSolvers.cpp|, in which we can conduct our benchmarks.
+\begin{figure}[htpb]
+    \centering
+    \includegraphics[height=0.6\textheight]{figures/UML.png}
+    \caption{An UML Graph explaining the hierarchy of the implementation} \label{fig:tumslide}
+    \label{fig:hierarchy}
+\end{figure}
+\subsection{Tableau simplex solver}
+\subsection{Data structures}
+
+\subsubsection{Dense Matrix}
+Given a matrix \( A \) of dimensions \( m \times n \), the density \( D \) of
+the matrix is defined as:
+\[
+    D(A) = \frac{\text{Number of non-zero elements in } A}{m \times n}
+\]
+$D$ is a measure between 0 and 1, where 0 indicates a
+matrix with all zero elements (completely sparse)
+and 1 indicates a matrix with all non-zero elements (completely dense).
+Sparsity of a matrix is a feature that can be exploited to
+enhance memory complexity of our implementation, as we will discuss next.
+
+\subsubsection{Sparse Matrix}\label{subsubsection:sparse-matrix}
+In our dataset, we deal with sparse matrices.
+We use the \gls{ccr} format to store sparse matrices in C++. They are represented using this
+structure.
+
+\begin{verbatim}
+      struct CCRMatrix {
+          float *values;  // Non-zero values in the matrix
+          int *rowIdx;  // Row indices corresponding to the non-zero values
+          int *colPtr;  // Points to the index in `values` where each column starts
+      };
+\end{verbatim}
+
+For example, consider the matrix \( A \):
+\[
+    A =
+    \begin{bmatrix}
+        5 & 0 & 0 \\
+        0 & 8 & 0 \\
+        0 & 0 & 3 \\
+        0 & 6 & 0 \\
+    \end{bmatrix}
+\]
+
+In \gls{ccr} format, the matrix is represented using three arrays:
+\texttt{values}, \texttt{row\_indices}, and \texttt{column\_pointers}.
+
+\begin{align*}
+    \texttt{values}           & = [5, 8, 6, 3] \\
+    \texttt{row\_indices}     & = [0, 1, 3, 2] \\
+    \texttt{column\_pointers} & = [0, 1, 3, 4] \\
+\end{align*}
+\subsubsection{Comparison of memory complexity}
+Storing a dense matrix variable \( A \) of dimensions \( m \times n \) in C++, we have two alternatives.
+\begin{itemize}
+    \item using an array of arrays (two-dimensional array) or \texttt{vector<vector<double>>}. This array would contain
+          $m$ arrays, representing the rows, each contains $n$ doubles, representing the matrix entries in each row.
+    \item using a one-dimensional array with rows stacked next to each other, \texttt{vector<vector<double>>}. This
+          array contains $m \times n$ entries. With the $a_{row,col}$ entry located at \texttt{A[row * (m + n) + col]}
+\end{itemize}
+Note that even
+though there is a difference (see Table \ref{table:array}) between  \texttt{array}, \texttt{vector} and \texttt{list}, we
+choose \texttt{std::vector}, or dynamoic array, in all our implementation, because it suits our purpouses.
+We also opt for 1D array as opposed to 2D array for better memory complexity and speed.
+We explain this choice:
+The 2D array typically requires slightly more memory than its 1D counterpart.
+This increased memory usage is attributed to the pointers in the 2D array that point to
+the set of allocated 1D arrays. While this difference might seem negligible for large arrays,
+it becomes relatively significant for smaller arrays. In terms of speed, the 1D array often outperforms
+the 2D array due to its contiguous memory allocation, which reduces cache misses.
+However, the 2D dynamic array loses cache locality and consumes more memory because of its non-contiguous
+memory allocation. While the 2D dynamic array introduces an
+extra level of indirection, the 1D array has its own overhead stemming from index calculations.
+\begin{table}[h]
+    \centering
+    \caption{Comparison between \texttt{std::vector}, \texttt{std::array}, and \texttt{std::list}}
+    \begin{tabularx}{\textwidth}{lXXX}
+        \toprule
+        \textbf{Feature/Property}   & \textbf{std::vector}                                                                                                             & \textbf{std::array}                                                                                & \textbf{std::list}                                                                          \\
+        \midrule
+        \textbf{Dynamic vs Static}  & Dynamic array. Can grow in size.                                                                                                 & Static in essence. Size is fixed at compile time.                                                  & Dynamic linked structure.                                                                   \\
+        \textbf{Memory Management}  & Automatic memory management. Can reallocate and move data.                                                                       & All memory management is on the user.                                                              & Automatic memory management.                                                                \\
+        \textbf{Appending}          & Fast appending to the end.                                                                                                       & Not applicable (fixed size).                                                                       & Fast appending to the end or beginning.                                                     \\
+        \textbf{Access}             & Instant access to all elements.                                                                                                  & Instant access to all elements.                                                                    & Sequential access. Must traverse from start or end to desired element.                      \\
+        \textbf{Iteration}          & Can iterate forth and back at any index with any step.                                                                           & Can iterate forth and back at any index with any step.                                             & Can iterate forward (and backward if doubly-linked).                                        \\
+        \textbf{Insertion/Deletion} & Can insert/delete in the middle, but can be expensive.                                                                           & Not applicable (fixed size).                                                                       & Fast insertion/deletion at any position.                                                    \\
+        \textbf{Error Handling}     & Provides smart pointers that can throw exceptions for out-of-bounds access.                                                      & No built-in error handling for out-of-bounds access.                                               & No built-in error handling for out-of-bounds access.                                        \\
+        \textbf{Use Cases}          & Use when needing random access, and data might grow but not unpredictably. Avoid if frequent insertions/deletions in the middle. & Use when data size is known and won't change. Suitable for cases where compiler manages the array. & Use when frequent structure modifications are needed or only sequential access is required. \\
+        \bottomrule
+    \end{tabularx}
+\end{table} \label{table:array}
+
+\begin{figure}[h]
+    \centering
+    \caption{Memory Layout of a 1D Dynamic Array}
+    \begin{tikzpicture}[scale=0.5, every node/.style={scale=0.5}]
+        \foreach \x in {0,...,8} {
+                \draw (\x,0) rectangle ++(1,1);
+            }
+    \end{tikzpicture}
+\end{figure}
+
+\begin{figure}[h]
+    \centering
+    \caption{Memory Layout of a 2D Dynamic Array}
+    \begin{tikzpicture}[scale=0.5, every node/.style={scale=0.5}]
+        \foreach \x in {0,...,2} {
+                \draw (\x,2) rectangle ++(1,1);
+            }
+        \foreach \x in {0,...,2} {
+                \foreach \y in {0,...,2} {
+                        \draw (\x*4+\y,-\x) rectangle ++(1,1);
+                    }
+            }
+        \draw[->] (0.5,2) -- (0.5,1);
+        \draw[->] (1.5,2) -- (1.5,1.25) -- (4.5,1.25) -- (4.5,0);
+        \draw[->] (2.5,2) -- (2.5,1.5) -- (8.5,1.5) -- (8.5,-1);
+    \end{tikzpicture}
+\end{figure}
+
 \section{Experimental Design}
+\subsection{Query datasets}
+The input files \texttt{TPCH}, \texttt{TPCDS}, and \texttt{JOB} contain packing
+\gls{lp} problems. We have already established the mathematical derivation of how
+these query-related packing
+\gls{lp} problems are generated in \ref{subsection:cardinality-estimate}.
+There are two main formats for these problems:
+\texttt{lpp.txt} and \texttt{lp.txt}.
+
+The \texttt{lpp.txt} file provides a more human-readable representation of the
+packing \glspl{lp}, detailing each rule in a clear mathematical format.
+For instance, it might describe a problem with 8 rules,
+where each rule is represented as a linear inequality of variables
+(like \(v_0\), \(v_1\), etc.) with their respective coefficients:
+
+\begin{lstlisting}
+lpp:
+LP with 8 rules:
+v0*0.0540277 + v2*0.0540277 <= 1
+v0*0.0540277 + v3*0.0540277 <= 1
+...
+\end{lstlisting}
+
+On the other hand, the \texttt{lp.txt} file is structured for machine readability.
+In this format, each line represents a single \gls{lp}. The line starts with
+the number of rules in that problem. For each rule, the number of entries in
+the coefficient matrix is specified first, followed by pairs of values:
+the column number and the coefficient. This is convenient to parse the entries
+and then populate our sparse matrix representation quite efficiently.
+
+\begin{lstlisting}
+lp:
+8 2 0 0.0540277 2 0.0540277 ...
+\end{lstlisting}
+
+\subsection{Dataset Structure}
+Our dataset stucture:
+as opposed to what the linear programming research has dealt with, which is
+very large problems, we are dealing with hundreds of small problems. These are represented
+in the revised simplex algorithm by
+sparse matrices but not as sparse as it would have been if the problem was large,
+small matrices that are not small enough to be dense.
+(they still have quite a number of non-zeroes).
+
 \subsection{Analysis of dataset properties}
 In  this subsection we will conduct an analysis of our dataset properties. What are the
 particularites of the structure of these LP problems, is their any patterns in their solution
 process. This anaylsis is based on observing the statistical results we obtained from
 running different solvers on these problems. This will later provide us with insight
 regarding optimization of these problems.
-TPC-H is a Decision Support Benchmark
-The TPC-H is a decision support benchmark. It consists
-of a suite of business oriented ad-hoc queries and concurrent data modifications.
-The performance metric reported by TPC-H is called the TPC-H Composite
-Query-per-Hour Performance Metric (QphH@Size)
 
 \begin{algorithm}
     \caption{Tableau Simplex Algorithm}
@@ -52,17 +215,10 @@ Query-per-Hour Performance Metric (QphH@Size)
 \end{algorithm}
 
 Mention zero tolerances: A zero tolerance epsilon2 saefguards against divisions
-by extremely small numbers, which tend to produce the most dangerous rounding errors, and 
+by extremely small numbers, which tend to produce the most dangerous rounding errors, and
 may even lead to degeneracy. diagonal entry in eta matrix should be fairly far from
- otherwise (in our experiment) degeneracy.
-\subsection{Dataset Structure}
-Our dataset stucture:
-as opposed to what the linear programming research has dealt with, which is
-very large problems, we are dealing with hundreds of small problems. These are represented
-in the revised simplex algorithm by
-sparse matrices but not as sparse as it would have been if the problem was large,
-small matrices that are not small enough to be dense.
-(they still have quite a number of non-zeroes).
+otherwise (in our experiment) degeneracy.
+
 
 \section{Analysis}
 Some metrics:
@@ -81,3 +237,16 @@ RYZEN, 16GB RAM running Ubuntu. Using the following settings:
     \item scaling techniques are not used
     \item The computed optimal solutions have been validated using the scipy python library.
 \end{itemize}
+
+
+\begin{figure}[p] % 'p' places the figure on its own page
+    \begin{adjustbox}{width=\paperwidth,center}
+        \includegraphics[width=\paperwidth]{figures/all_scify_mpfi_pfi.png}
+    \end{adjustbox}
+    \caption{A graph comparing the time performance of two of 
+    our solvers with scipy solver solving the tpch dataset}
+    \label{fig:all_time_tpch}
+\end{figure}
+
+
+%

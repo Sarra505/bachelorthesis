@@ -12,31 +12,38 @@
 \contentsline {subsubsection}{\nonumberline Geometric Interpretation}{5}{subsubsection*.8}%
 \contentsline {subsubsection}{\nonumberline The complexity}{6}{subsubsection*.10}%
 \contentsline {subsection}{\numberline {2.1.4}The interior point method}{7}{subsection.2.1.4}%
-\contentsline {subsection}{\numberline {2.1.5}The Revised Simplex Algorithm}{7}{subsection.2.1.5}%
-\contentsline {subsection}{\numberline {2.1.6}Cardinality Estimation}{9}{subsection.2.1.6}%
-\contentsline {subsubsection}{\nonumberline Scenario}{9}{subsubsection*.14}%
-\contentsline {subsubsection}{\nonumberline AGM bound}{9}{subsubsection*.16}%
-\contentsline {subsubsection}{\nonumberline Variables}{10}{subsubsection*.18}%
-\contentsline {subsubsection}{\nonumberline Objective}{10}{subsubsection*.20}%
-\contentsline {subsubsection}{\nonumberline Constraints}{10}{subsubsection*.22}%
-\contentsline {section}{\numberline {2.2}Previous Work}{10}{section.2.2}%
-\contentsline {subsection}{\numberline {2.2.1}Comparative studies of different update methods}{10}{subsection.2.2.1}%
-\contentsline {subsection}{\numberline {2.2.2}Other techniques}{10}{subsection.2.2.2}%
-\contentsline {chapter}{\numberline {3}Tuning Linear Programming Solvers for Query Optimization}{12}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Proposal}{12}{section.3.1}%
-\contentsline {section}{\numberline {3.2}Experimental Design}{12}{section.3.2}%
-\contentsline {subsection}{\numberline {3.2.1}Analysis of dataset properties}{12}{subsection.3.2.1}%
-\contentsline {subsection}{\numberline {3.2.2}Dataset Structure}{14}{subsection.3.2.2}%
-\contentsline {section}{\numberline {3.3}Analysis}{14}{section.3.3}%
-\contentsline {section}{\numberline {3.4}Results}{14}{section.3.4}%
-\contentsline {chapter}{\numberline {4}Evaluation}{15}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Setup}{15}{section.4.1}%
-\contentsline {subsection}{\numberline {4.1.1}Evaluation metrics}{15}{subsection.4.1.1}%
-\contentsline {subsection}{\numberline {4.1.2}Evaluation baselines}{15}{subsection.4.1.2}%
-\contentsline {section}{\numberline {4.2}Results}{15}{section.4.2}%
-\contentsline {section}{\numberline {4.3}Discussion}{15}{section.4.3}%
-\contentsline {chapter}{\numberline {5}Conclusion}{16}{chapter.5}%
-\contentsline {chapter}{\nonumberline List of Figures}{17}{chapter*.23}%
-\contentsline {chapter}{\nonumberline List of Tables}{18}{chapter*.24}%
-\contentsline {chapter}{\nonumberline Bibliography}{19}{chapter*.25}%
+\contentsline {subsection}{\numberline {2.1.5}Revised Simplex Algorithm}{7}{subsection.2.1.5}%
+\contentsline {subsection}{\numberline {2.1.6}Cardinality Estimation}{10}{subsection.2.1.6}%
+\contentsline {subsubsection}{\nonumberline Scenario}{10}{subsubsection*.14}%
+\contentsline {subsubsection}{\nonumberline AGM bound}{10}{subsubsection*.16}%
+\contentsline {subsubsection}{\nonumberline Variables}{11}{subsubsection*.18}%
+\contentsline {subsubsection}{\nonumberline Objective}{11}{subsubsection*.20}%
+\contentsline {subsubsection}{\nonumberline Constraints}{11}{subsubsection*.22}%
+\contentsline {section}{\numberline {2.2}Previous Work}{11}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}Comparative studies of different update methods}{11}{subsection.2.2.1}%
+\contentsline {subsection}{\numberline {2.2.2}Other techniques}{12}{subsection.2.2.2}%
+\contentsline {chapter}{\numberline {3}Tuning Linear Programming Solvers for Query Optimization}{13}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Proposal}{13}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}Implementation hierarchy}{13}{subsection.3.1.1}%
+\contentsline {subsection}{\numberline {3.1.2}Tableau simplex solver}{13}{subsection.3.1.2}%
+\contentsline {subsection}{\numberline {3.1.3}Data structures}{13}{subsection.3.1.3}%
+\contentsline {subsubsection}{\nonumberline Dense Matrix}{13}{subsubsection*.25}%
+\contentsline {subsubsection}{\nonumberline Sparse Matrix}{15}{subsubsection*.27}%
+\contentsline {subsubsection}{\nonumberline Comparison of memory complexity}{15}{subsubsection*.29}%
+\contentsline {section}{\numberline {3.2}Experimental Design}{16}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Query datasets}{16}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.2}Dataset Structure}{17}{subsection.3.2.2}%
+\contentsline {subsection}{\numberline {3.2.3}Analysis of dataset properties}{17}{subsection.3.2.3}%
+\contentsline {section}{\numberline {3.3}Analysis}{17}{section.3.3}%
+\contentsline {section}{\numberline {3.4}Results}{19}{section.3.4}%
+\contentsline {chapter}{\numberline {4}Evaluation}{22}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Setup}{22}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}Evaluation metrics}{22}{subsection.4.1.1}%
+\contentsline {subsection}{\numberline {4.1.2}Evaluation baselines}{22}{subsection.4.1.2}%
+\contentsline {section}{\numberline {4.2}Results}{22}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Discussion}{22}{section.4.3}%
+\contentsline {chapter}{\numberline {5}Conclusion}{23}{chapter.5}%
+\contentsline {chapter}{\nonumberline List of Figures}{24}{chapter*.34}%
+\contentsline {chapter}{\nonumberline List of Tables}{25}{chapter*.35}%
+\contentsline {chapter}{\nonumberline Bibliography}{26}{chapter*.36}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

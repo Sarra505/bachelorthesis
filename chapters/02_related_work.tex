@@ -82,7 +82,8 @@ variables are “squeezed out,” maximizing the true variables’ effect on the
 function. Conversely, a minimization problem is optimized when the slack variables 
 are “stuffed,” minimizing the true variables’ effect on the objective function.
 
-Let's start by defining the concepts of feasibility and unboundedness.
+Let's start by defining the concepts of feasibility and unboundedness. 
+We then will define what a basis is.
 
 The simplex method is first initialized by 
 an initial feasible solution $\mathbf{\bar{x}}$, which is a vector of nonnegative numbers.
@@ -90,7 +91,7 @@ This constitutes a feasible dictionary (or tableau), formally defined in \parenc
 The simplex method then contructs a sequence of feasible dictionaries until reaching an optimum. 
 This is how a simplex algorithm broadly looks like:
 
-% basic and non basic variables !!!!!
+% basic and non basic variables !!!!! you have to explain what a basis is !!!!!!!!
 \begin{algorithm}
     \caption{Simplex Algorithm}
     \begin{algorithmic}[1]
@@ -166,36 +167,109 @@ the optimal solution is found.
 \end{itemize}
 \subsubsection{The complexity}
 %Worst case vs. average case
-Klee and Minty (1972) \parencite{klee1972good} constructed a worst-case example that 
-showed that the
-the simplex algorithm for linear programming has a number of iterations or pivots that 
-is not majorized by any polynomial function of the two parameters that specifiy the size of
-the program, i.e. the number of  decision variables $n$ and the number of linear inequalities $m$.
- In particular, they showed that $2^m -1$ iterations may be required, making the simplex'
+With $m<50$ and $m+n<200$, where $m$ and $n$ are the number of constraints and variables in the \gls{lp}
+problem respectively, Dantzig observed that the number of iterations are usually less than $3m/2$
+and only rarely going to $3m$. However, there is no proof that for every
+problem the simplex algorithm for
+ linear programming has a number of iterations or pivots that 
+is majorized by a polynomial function.
+In fact, Klee and Minty (1972) \parencite{klee1972good} constructed a worst-case example where
+ $2^m -1$ iterations may be required, making the simplex'
 worst-case time complexity exponential, which we denote by \( O(2^m) \).
 It can be however argued that this is only one worst-case example. Indeed, the number 
-of iterations usually encountred in practice or even in formal experimental studies of 
-the simplex algorithm is much lower.
+of iterations usually encountred in practice or even in formal experimental studies of is much lower.
 For packing linear programs, the worst-case time complexity of the Simplex algorithm
 remains exponential, even though there exists polynomial time implementations for it.
 \parencite{stille2010solution}.
 
 \subsection{The interior point method}
 
-\subsection{The Revised Simplex Algorithm}
-As explained in the book \parencite{chvatal1983linear}.
-while Standard Simplex algorithm maintains and updates the entire tableau in its dense form,
-which includes both basic and non-basic variables, at each iteration.
-In contrast, the Revised Simplex algorithm focuses on tracking only
-the basic variables and their corresponding basis matrix $B$,
-thereby reducing memory requirements.
-The Revised Simplex algorithm often employs
-the product form update method to efficiently
+\subsection{Revised Simplex Algorithm}
+While the standard or tableau simplex algorithm maintains and updates the entire tableau in its 
+dense form at each iteration, meaning when we perform the pivotting we have to update the entire matrix
+using row operations, the revised simplex 
+method uses the same recursion relations to transform only the inverse of the basis for each iteration, thus 
+reducing the amount of writing at each step and overall memory usage.
+This is explained in the following mathematical proof.
+\subsubsection*{Mathematical proof}
+Given a linear programming problem in standard form:
+\begin{align*}
+\text{maximize} \quad & c^T x \\
+\text{subject to} \quad & Ax = b \\
+& x \geq 0
+\end{align*}
+where \( A \) is an \( m \times n \) matrix, 
+\( b \) is an \( m \times 1 \) vector, and 
+\( c \) is an \( n \times 1 \) vector.
+
+
+Partition \( x \) into basic (\( x_B \)) and non-basic (\( x_N \)) variables. 
+Similarly, partition \( A \) into \( B \) (columns corresponding to \( x_B \)) 
+and \( N \) (columns corresponding to \( x_N \)).
+
+The constraints can be written as:
+\begin{align*}
+Bx_B + Nx_N &= b \\
+x_B &\geq 0 \\
+x_N &\geq 0
+\end{align*}
+
+From \( Bx_B + Nx_N = b \), when \( x_N = 0 \):
+\[ x_B = B^{-1}b \]
+This is the basic feasible solution if all entries of \( x_B \) are non-negative.
+
+Compute the reduced costs:
+\[ \bar{c}_N^T = c_N^T - c_B^T B^{-1} N \]
+If all entries of \( \bar{c}_N^T \) are non-negative, 
+then the current basic feasible solution is optimal.
+
+If some entries of \( \bar{c}_N^T \) are negative, 
+choose \( j \) such that \( \bar{c}_j < 0 \). Compute:
+\[ d = B^{-1} A_j \]
+If all entries of \( d \) are non-positive, the problem is unbounded.
+
+Otherwise, compute the step length:
+\[ \theta = \min \left\{ \frac{x_B[i]}{d[i]} : d[i] > 0 \right\} \]
+Update the solution:
+\[ x_B = x_B - \theta d \]
+\[ x_j = \theta \]
+and adjust the sets of basic and non-basic variables.
+
+Repeat the optimality test, and if necessary, the pivot operation, 
+until an optimal solution is found or the problem is determined to be unbounded. 
+
+This proof elucidates that at every stage of the simplex method, we only have to
+ track the following variables:
+\begin{itemize}
+    \item the indices of basic and non-basic variables
+    \item $B^{-1}$ the inverse of the basis matrix. This is used to solve two types of linear equations
+    during an iteration, see step 1 and 3 in \ref{algo:revised}.
+    \item the current values of the basic variables, or the current basic feasible solution $x_B = B^{-1}b$
+\end{itemize}
+In practical terms, we only update the basis matrix every iteration, and we will be able to use it to
+perform all the steps needed to update our problem data and go on to the next
+iteration.
+The algorithm is elaborated in \ref{algo:revised}. As we can see, step 1 and 3 represent the solving of
+two types of systems , \gls{ftran} and \gls{btran}. This can be done using a multiplication with
+the basis matrix inverse'. 
+
+However, having to recompute the inverse of a matrix is costly.
+
+For a square matrix of size \(n \times n\), the time complexity of LU decomposition 
+\parencite{golub2013matrix}, 
+which is one of the 
+most prominent methods to invert a matrix is $O(n^3) $.
+
+This is why it is desirable to employ another tool to efficiently
 update the inverse of the basis matrix $B^{-1}$
 without having to recompute it from scratch,
-making it computationally more efficient for large-scale problems.
-Finally, we primarily use the Compressed Column Representation (CCR) of the,
+making it computationally more efficient for large-scale problems. Such tools are called update methods,
+and we will later describe the \gls{pfi}, the modified \gls{pfi} and Forrest-Tomlin update method. 
+
+Finally, in our implementation we also use the \gls{ccr} format to store matrices, 
+see \ref{subsubsection:sparse-matrix} of the,
 which greatly benefits the performance of the implementation.
+
 \begin{algorithm}
     \caption{Revised Simplex Algorithm}
     \begin{enumerate}
@@ -224,22 +298,11 @@ which greatly benefits the performance of the implementation.
 
         \item \textbf{Return} Optimal solution \( B^{-1}b \)
     \end{enumerate}
-\end{algorithm}
+\end{algorithm}\label{algo:revised}
 
-\subsubsection*{The product form update method}
+\subsubsection*{The product form inverse update method}
 We will discuss the PFI, introduced by George Dantzig \parencite{dantzig1954product}.
-\subsubsection*{Data structures}
-Compressed Storage Formats:
-We use the CSC format to store sparse matrices. These formats store the non-zero values, along with their corresponding row and column indices,
-in a compact way. This reduces memory usage and speeds up operations on sparse matrices
-
-\begin{verbatim}
-      struct CCRMatrix {
-          float *values;  // Non-zero values in the matrix
-          int *rowIdx;  // Row indices corresponding to the non-zero values
-          int *colPtr;  // Points to the index in `values` where each column starts
-      };
-  \end{verbatim}
+The revised simplex method 
 \subsection{Cardinality Estimation}\label{subsection:cardinality-estimate}
 In the pipeline of query execution, cardinality estimation serves
 as a cornerstone for the query optimization process.

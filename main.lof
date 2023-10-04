@@ -3,6 +3,10 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
+\contentsline {figure}{\numberline {3.1}{\ignorespaces An UML Graph explaining the hierarchy of the implementation\relax }}{14}{figure.caption.23}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Memory Layout of a 1D Dynamic Array\relax }}{16}{figure.caption.31}%
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Memory Layout of a 2D Dynamic Array\relax }}{16}{figure.caption.32}%
+\contentsline {figure}{\numberline {3.4}{\ignorespaces A graph comparing the time performance of two of our solvers with scipy solver solving the tpch dataset\relax }}{20}{figure.caption.33}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

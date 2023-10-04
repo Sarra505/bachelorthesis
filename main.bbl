@@ -149,6 +149,38 @@
       \field{pages}{64\bibrangedash 67}
       \range{pages}{4}
     \endentry
+    \entry{golub2013matrix}{book}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=8b856da92ad549d323acc679ecf7f474}{%
+           family={Golub},
+           familyi={G\bibinitperiod},
+           given={Gene\bibnamedelima H},
+           giveni={G\bibinitperiod\bibinitdelim H\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=4ed2d13e66ef340bd8d892c23333c87b}{%
+           family={Van\bibnamedelima Loan},
+           familyi={V\bibinitperiod\bibinitdelim L\bibinitperiod},
+           given={Charles\bibnamedelima F},
+           giveni={C\bibinitperiod\bibinitdelim F\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {JHU press}%
+      }
+      \strng{namehash}{315525c1558db03561c0e8a8b605758b}
+      \strng{fullhash}{315525c1558db03561c0e8a8b605758b}
+      \strng{bibnamehash}{315525c1558db03561c0e8a8b605758b}
+      \strng{authorbibnamehash}{315525c1558db03561c0e8a8b605758b}
+      \strng{authornamehash}{315525c1558db03561c0e8a8b605758b}
+      \strng{authorfullhash}{315525c1558db03561c0e8a8b605758b}
+      \field{labelalpha}{GV13}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Matrix computations}
+      \field{year}{2013}
+    \endentry
     \entry{huangfu2015novel}{article}{}
       \name{author}{2}{}{%
         {{un=0,uniquepart=base,hash=c717029f6b70cf7c1026f315880ca282}{%

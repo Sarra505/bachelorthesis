@@ -7,8 +7,8 @@
 %------------------------------------------------------------------------
 \section{Proposal or Implementation}
 Our contribution consists in conducting experiments on small packing LP problems that are generated from
-real-life queries as mentioned in \ref{subsection:cardinality-estimate} as well as randomly generated
-LPs with varying sizes. We use different LP solvers, and different update methods to solves these LPs.
+real-life queries as mentioned in Section \ref{section:cardinality-estimate} as well as randomly generated
+LPs with varying sizes. We use different LP solvers, and different update methods to solve these LPs.
 We then proceed to compare results based on time and memory performance. We also build an analysis of our datasets' properties.
 Finally, we aim to give a recommendation on how to build the best performing LP solver based on the
 particularities of the LP problems.
@@ -29,7 +29,8 @@ and a \verb|compareSolvers.cpp|, in which we can conduct our benchmarks.
 \subsection{Tableau simplex solver}
 This solver is the simplest of the three solvers, it follows the steps of the standard simplex 
 algorithm in its tabular form. It uses dense matrices and vectors. Although the
-doPivotting()
+doPivotting() is costly, the simplicity of this algorithm makes it suitable for 
+smaller problems.
 \begin{algorithm}
     \caption{Tableau Simplex Algorithm}
     \begin{algorithmic}[1]

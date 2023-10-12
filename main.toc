@@ -7,53 +7,5 @@
 \contentsline {subsection}{\numberline {2.1.1}Linear Programming}{2}{subsection.2.1.1}%
 \contentsline {subsubsection}{\nonumberline Packing LP}{3}{subsubsection*.4}%
 \contentsline {subsection}{\numberline {2.1.2}Duality}{3}{subsection.2.1.2}%
-\contentsline {subsubsection}{\nonumberline Geometric Interpretation}{3}{subsubsection*.6}%
-\contentsline {subsection}{\numberline {2.1.3}Feasibility, unboundedness}{4}{subsection.2.1.3}%
-\contentsline {subsection}{\numberline {2.1.4}The Standard Simplex Algorithm}{4}{subsection.2.1.4}%
-\contentsline {subsubsection}{\nonumberline The algorithm}{4}{subsubsection*.9}%
-\contentsline {subsubsection}{\nonumberline Termination}{6}{subsubsection*.11}%
-\contentsline {subsubsection}{\nonumberline The runtime complexity}{6}{subsubsection*.13}%
-\contentsline {subsection}{\numberline {2.1.5}Time complextity analysis of one iteration of the tableau simplex algorithm}{7}{subsection.2.1.5}%
-\contentsline {subsection}{\numberline {2.1.6}The interior point method}{7}{subsection.2.1.6}%
-\contentsline {subsection}{\numberline {2.1.7}Revised Simplex Algorithm}{7}{subsection.2.1.7}%
-\contentsline {subsection}{\numberline {2.1.8}Cardinality Estimation}{10}{subsection.2.1.8}%
-\contentsline {subsubsection}{\nonumberline Scenario}{11}{subsubsection*.19}%
-\contentsline {subsubsection}{\nonumberline AGM bound}{11}{subsubsection*.21}%
-\contentsline {subsubsection}{\nonumberline Variables}{12}{subsubsection*.23}%
-\contentsline {subsubsection}{\nonumberline Objective}{12}{subsubsection*.25}%
-\contentsline {subsubsection}{\nonumberline Constraints}{12}{subsubsection*.27}%
-\contentsline {subsection}{\numberline {2.1.9}Other use cases and techniques}{12}{subsection.2.1.9}%
-\contentsline {subsection}{\numberline {2.1.10}Other techniques}{12}{subsection.2.1.10}%
-\contentsline {section}{\numberline {2.2}State-of-the-art LP solvers}{12}{section.2.2}%
-\contentsline {subsection}{\numberline {2.2.1}HIGHS Scipy}{12}{subsection.2.2.1}%
-\contentsline {subsection}{\numberline {2.2.2}Cplex}{12}{subsection.2.2.2}%
-\contentsline {chapter}{\numberline {3}Tuning Linear Programming Solvers for Query Optimization}{13}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Proposal or Implementation}{13}{section.3.1}%
-\contentsline {subsection}{\numberline {3.1.1}Implementation hierarchy}{13}{subsection.3.1.1}%
-\contentsline {subsection}{\numberline {3.1.2}Tableau simplex solver}{13}{subsection.3.1.2}%
-\contentsline {subsection}{\numberline {3.1.3}Data structures}{13}{subsection.3.1.3}%
-\contentsline {subsubsection}{\nonumberline Dense Matrix}{13}{subsubsection*.30}%
-\contentsline {subsubsection}{\nonumberline Sparse Matrix}{16}{subsubsection*.32}%
-\contentsline {subsubsection}{\nonumberline Comparison of memory complexity}{16}{subsubsection*.34}%
-\contentsline {subsection}{\numberline {3.1.4}Revised Simplex Solver}{17}{subsection.3.1.4}%
-\contentsline {subsection}{\numberline {3.1.5}Stability}{17}{subsection.3.1.5}%
-\contentsline {section}{\numberline {3.2}Experiments and Results}{17}{section.3.2}%
-\contentsline {subsection}{\numberline {3.2.1}Query datasets}{18}{subsection.3.2.1}%
-\contentsline {subsubsection}{\nonumberline The JOB dataset results}{18}{subsubsection*.39}%
-\contentsline {subsubsection}{\nonumberline TPC-DS results}{19}{subsubsection*.46}%
-\contentsline {subsection}{\numberline {3.2.2}Results on randomly generated LPs}{19}{subsection.3.2.2}%
-\contentsline {section}{\numberline {3.3}Analysis}{19}{section.3.3}%
-\contentsline {subsection}{\numberline {3.3.1}Dataset Structure}{19}{subsection.3.3.1}%
-\contentsline {subsection}{\numberline {3.3.2}Analysis of dataset properties}{19}{subsection.3.3.2}%
-\contentsline {subsection}{\numberline {3.3.3}Why is highs so slow?}{19}{subsection.3.3.3}%
-\contentsline {chapter}{\numberline {4}Evaluation}{23}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Setup}{23}{section.4.1}%
-\contentsline {subsection}{\numberline {4.1.1}Evaluation metrics}{23}{subsection.4.1.1}%
-\contentsline {subsection}{\numberline {4.1.2}Evaluation baselines}{23}{subsection.4.1.2}%
-\contentsline {section}{\numberline {4.2}Results}{23}{section.4.2}%
-\contentsline {section}{\numberline {4.3}Discussion}{23}{section.4.3}%
-\contentsline {chapter}{\numberline {5}Conclusion}{24}{chapter.5}%
-\contentsline {chapter}{\nonumberline List of Figures}{25}{chapter*.47}%
-\contentsline {chapter}{\nonumberline List of Tables}{26}{chapter*.48}%
-\contentsline {chapter}{\nonumberline Bibliography}{27}{chapter*.49}%
+\contentsline {subsection}{\numberline {2.1.3}Geometric Interpretation}{3}{subsection.2.1.3}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

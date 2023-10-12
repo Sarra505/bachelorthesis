@@ -21,13 +21,15 @@ and a \verb|compareSolvers.cpp|, in which we can conduct our benchmarks.
 \begin{figure}[htpb]
     \centering
     \includegraphics[height=0.6\textheight]{figures/UML.png}
-    \caption{An UML Graph explaining the hierarchy of the implementation} \label{fig:tumslide}
+    \caption{An UML Graph explaining the hierarchy of the implementation}
     \label{fig:hierarchy}
 \end{figure}
 
 %------------------------------------------------------------------------
 \subsection{Tableau simplex solver}
-
+This solver is the simplest of the three solvers, it follows the steps of the standard simplex 
+algorithm in its tabular form. It uses dense matrices and vectors. Although the
+doPivotting()
 \begin{algorithm}
     \caption{Tableau Simplex Algorithm}
     \begin{algorithmic}[1]
@@ -107,8 +109,9 @@ Storing a dense matrix variable \( A \) of dimensions \( m \times n \) in C++, w
 \begin{itemize}
     \item using an array of arrays (two-dimensional array) or \texttt{vector<vector<double>>}. This array would contain
           $m$ arrays, representing the rows, each contains $n$ doubles, representing the matrix entries in each row.
-    \item using a one-dimensional array with rows stacked next to each other, \texttt{vector<vector<double>>}. This
-          array contains $m \times n$ entries. With the $a_{row,col}$ entry located at \texttt{A[row * (m + n) + col]}
+    \item using a one-dimensional array with rows stacked next to each other,
+          \texttt{vector<vector<double>>}. This array contains $m \times n$ entries.
+          With the $a_{row,col}$ entry located at \texttt{A[row * (m + n) + col]}
 \end{itemize}
 Note that even
 though there is a difference between  \texttt{array}, \texttt{vector} and \texttt{list}, we
@@ -168,12 +171,20 @@ otherwise (in our experiment) degeneracy.
 
 %------------------------------------------------------------------------
 \section{Experiments and Results}
-All the following results have been obtained on a personal computer with AMD 4000 series
-RYZEN, 16GB RAM running Ubuntu. Using the following settings:
+All the following results have been obtained on a system with the following settings:
 \begin{itemize}
-    \item Presolve techniques are not used
-    \item The computed optimal solutions have been validated using the scipy python library.
+    \item OS: Ubuntu 22.04.1 LTS x86\_64
+    \item Host: 82A2 Yoga Slim 7 14ARE05
+
+    \item CPU: AMD Ryzen 7 4800U with Radeon Graphics (16) @ 1.800GHz
+    \item GPU: AMD ATI 03:00.0 Renoir
+    \item Memory: 10409MiB / 15363MiB
 \end{itemize}
+
+Presolve techniques are not used, the solvers assume an input of the form explained
+in the UML graph \ref{fig:hierarchy} and in the format input as described in the following section.
+
+The computed optimal solutions have been validated using the scipy python library.
 
 %------------------------------------------------------------------------
 \subsection{Query datasets}
@@ -181,24 +192,8 @@ The input files \texttt{TPCH}, \texttt{TPCDS}, and \texttt{JOB} contain packing
 \gls{lp} problems. We have already established the mathematical derivation of how
 these query-related packing
 \gls{lp} problems are generated in \ref{subsection:cardinality-estimate}.
-There are two main formats for these problems:
-\texttt{lpp.txt} and \texttt{lp.txt}.
 
-The \texttt{lpp.txt} file provides a more human-readable representation of the
-packing \glspl{lp}, detailing each rule in a clear mathematical format.
-For instance, it might describe a problem with 8 rules,
-where each rule is represented as a linear inequality of variables
-(like \(v_0\), \(v_1\), etc.) with their respective coefficients:
-
-\begin{lstlisting}
-lpp:
-LP with 8 rules:
-v0*0.0540277 + v2*0.0540277 <= 1
-v0*0.0540277 + v3*0.0540277 <= 1
-...
-\end{lstlisting}
-
-On the other hand, the \texttt{lp.txt} file is structured for machine readability.
+The \texttt{lp.txt} file is structured for machine readability.
 In this format, each line represents a single \gls{lp}. The line starts with
 the number of rules in that problem. For each rule, the number of entries in
 the coefficient matrix is specified first, followed by pairs of values:
@@ -208,8 +203,9 @@ and then populate our sparse matrix representation quite efficiently.
 \begin{lstlisting}
 lp:
 8 2 0 0.0540277 2 0.0540277 ...
-\end{lstlisting}
-\begin{table}[!h]
+\end{lstlisting} \label{format_input}
+
+\begin{table}[!htb]
     \centering
     \caption{Benchmarks and workloads.}
     \begin{tabular}{|l|l|}
@@ -224,33 +220,35 @@ lp:
 \end{table}
 
 \subsubsection{The JOB dataset results}
-In the following table are some important statistical finds.
-\begin{figure}[h]
+In the table \ref{table_job_stats} are some important statistical finds following our
+experiments with the JOB dataset.
+This is the largest dataset of all three query datasets. It contains duplicated queries so we
+perform a removal of the duplicated LPs before. We collect the data and perform plotting and data summary
+using R scripts.
+
+\begin{figure}[!htb]
     \centering
-    \begin{subfigure}{0.45\textwidth}
-        \centering
-        \includegraphics[width=\linewidth]{figures/histo_iter_pfi.pdf}
-        \caption{Boxplot for number of iterations for PFI for JOB dataset}
-        \label{fig:num_iter_boxplot_pfi_job}
-    \end{subfigure}\hfill
-    \begin{subfigure}{0.45\textwidth}
-        \centering
-        \includegraphics[width=\linewidth]{figures/histogram_iter_tableau.pdf}
-        \caption{Boxplot for number of iterations for Tableau for JOB dataset}
-        \label{fig:num_iter_boxplot_tableau_job}
-    \end{subfigure}
-    \caption{Statistics about the number of iterations needed to solve JOB dataset}
-    \label{fig:both_figures}
+    \includegraphics[width=\textwidth]{figures/histo_iter_pfi.pdf}
+    \caption{Boxplot for number of iterations for PFI for JOB dataset}
+    \label{fig:num_iter_boxplot_pfi_job}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[!htb]
     \centering
-    \includegraphics[width=0.8\textwidth]{figures/lp_size_vs_time_job.pdf}
+    \includegraphics[width=\textwidth]{figures/histogram_iter_tableau.pdf}
+    \caption{Boxplot for number of iterations for Tableau for JOB dataset}
+    \label{fig:num_iter_boxplot_tableau_job}
+\end{figure}
+
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=\textwidth]{figures/lp_size_vs_time_job.pdf}
     \caption{Relation between LP size and time for the 3 simplex solvers for JOB dataset.}
     \label{fig:lp_size_vs_time_job}
 \end{figure}
 
-\begin{table}
+\begin{table}[!htb]
     \centering
     \caption{Statistics about JOB dataset}
     \begin{tabular}{lrrrr}
@@ -262,6 +260,7 @@ In the following table are some important statistical finds.
         Number of Variables       & 1.00   & 3.00    & 3.07    & 6.00    \\
         Constraint Matrix Density & 0.3684 & 0.6667  & 0.6703  & 1.0000  \\
         Solution Time Scipy       & 650    & 931     & 959     & 1802    \\
+        Solution Time Scipy       & 97.04  & 184.06  & 190.66  & 415.56  \\
         Solution Time Tableau     & 2.00   & 4.00    & 12.15   & 4274.00 \\
         Solution Time PFI         & 2.000  & 6.000   & 8.316   & 65.000  \\
         Solution Time MPFI        & 1.000  & 4.000   & 5.517   & 68.000  \\
@@ -271,27 +270,27 @@ In the following table are some important statistical finds.
         Optimal Value             & 0.3188 & 20.6702 & 21.8575 & 42.1804 \\
         \bottomrule
     \end{tabular}
-\end{table}
+\end{table} \label{table_job_stats}
 
 This is our results:
-\begin{table}[ht]
+\begin{table}[!htb]
     \centering
-    \caption{Number of LPs or Queries Solved by Hour}
+    \caption{Number of LPs or Queries Solved by Hour for the JOB dataset}
     \begin{tabular}{l|r}
         \toprule
         Method                     & Number of LPs/Queries \\
         \midrule
         Revised Simplex MPFU Umbra & 906,607,929           \\
-        Tableau Simplex            & 1,400,923,787           \\
-        Revised Simplex PFI        & 1,287,140,216          \\
+        Tableau Simplex            & 1,400,923,787         \\
+        Revised Simplex PFI        & 1,287,140,216         \\
         Scipy (method highs)       & 4,069,108             \\
-        Cplex                      &  17,849,851            \\
+        Cplex                      & 17,849,851            \\
         \bottomrule
     \end{tabular}
 \end{table}
 
 
-\begin{figure}[p] % 'p' places the figure on its own page
+\begin{figure}[p]
     \begin{adjustbox}{width=\paperwidth,center}
         \includegraphics[width=\paperwidth]{figures/all_scify_mpfi_pfi.png}
     \end{adjustbox}
@@ -300,10 +299,60 @@ This is our results:
     \label{fig:all_time_tpch}
 \end{figure}
 
+
+
+
 \subsubsection{TPC-DS results}
 
+%------------------------------------------------------------------------
 \subsection{Results on randomly generated LPs}
+We also test our solvers alongside Cplex, on packing LPs generated randomly. We want to 
+explore those results to investigate how these solvers scale, and if the speedup
+they provide is still substantial at larger LPs.
 
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/time_vs_size_random.pdf}
+    \caption{Relation between LP size and time for the 3 simplex solvers and Cplex for randomly generated
+    dataset with increasing LP size.}
+    \label{fig:time_vs_size_random}
+\end{figure}
+
+
+This is our results:
+\begin{table}[!htb]
+    \centering
+    \caption{Number of LPs or Queries Solved by Hour for the randomly generated dataset}
+    \begin{tabular}{l|r}
+        \toprule
+        Method                     & Number of LPs/Queries \\
+        \midrule
+        Revised Simplex MPFU Umbra & 13,520,349           \\
+        Tableau Simplex            & 6,963,530            \\
+        Revised Simplex PFI        &  24,352,331          \\
+        Cplex                      & 6,666,083             \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+We want to see the further evolution of this time profile, so we increase the number of generated LPs 
+and explore larger LPs. This provides us with the following results:
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=\linewidth]{figures/size_time_random_large.pdf}
+    \caption{Relation between LP size and time for the 3 simplex solvers for the randomly generated
+    dataset with increasing LP size ranging up to 220 rules and 220 variables.}
+    \label{fig:size_time_random_large}
+\end{figure}
+
+\begin{figure}[p]
+    \includegraphics[width=0.8\paperwidth, height=\paperheight, keepaspectratio]{figures/cplex_vs_all_random_large.pdf}
+    \caption{Relation between LP size and time for the 3 simplex solvers with CPLEX randomly generated
+    dataset with increasing LP size ranging up to 220 rules and 220 variables.}
+    \label{cplex_vs_all_random_large}
+\end{figure}
 %------------------------------------------------------------------------
 %------------------------------------------------------------------------
 \section{Analysis}
@@ -330,26 +379,26 @@ using \texttt{linprog} from SciPy with HiGHS as a method can be slower than usin
 
 \begin{enumerate}
     \item \textbf{Overhead from Python and SciPy}: When you use \texttt{linprog} from SciPy,
-     there's an overhead associated with Python's interpretation and SciPy's function calls.
-      This overhead might not be significant for small problems, but for larger LPs or when solving multiple LPs, it can add up.
-    
+          there's an overhead associated with Python's interpretation and SciPy's function calls.
+          This overhead might not be significant for small problems, but for larger LPs or when solving multiple LPs, it can add up.
+
     \item \textbf{Data Conversion}: \texttt{linprog} has to convert the problem data
-     into a format that HiGHS can understand. This conversion can introduce additional computational overhead.
-    
+          into a format that HiGHS can understand. This conversion can introduce additional computational overhead.
+
     \item \textbf{Additional Features}: \texttt{linprog} provides a unified interface for
-     multiple solvers, and it might perform some additional checks or operations that are not strictly necessary
-      when you know you're going to use HiGHS.
-    
+          multiple solvers, and it might perform some additional checks or operations that are not strictly necessary
+          when you know you're going to use HiGHS.
+
     \item \textbf{Version Differences}: Depending on how you installed SciPy and HiGHS,
-     there might be version differences between the HiGHS in SciPy and the standalone HiGHS. 
-     Newer versions of solvers often come with performance improvements, so if SciPy's version is older, it might be slower.
-    
-    \item \textbf{Default Parameters}: The default parameters set by \texttt{linprog} for HiGHS 
-    might not be the most optimal for your specific problem. When using the HiGHS interface directly, 
-    you have more control over these parameters.
+          there might be version differences between the HiGHS in SciPy and the standalone HiGHS.
+          Newer versions of solvers often come with performance improvements, so if SciPy's version is older, it might be slower.
+
+    \item \textbf{Default Parameters}: The default parameters set by \texttt{linprog} for HiGHS
+          might not be the most optimal for your specific problem. When using the HiGHS interface directly,
+          you have more control over these parameters.
 \end{enumerate}
 
-For these reasons, if performance is critical and you're solving large-scale LPs or solving many LPs, it might be beneficial to use 
+For these reasons, if performance is critical and you're solving large-scale LPs or solving many LPs, it might be beneficial to use
 the HiGHS interface directly. However, for many users, the convenience of using
- \texttt{linprog} and its unified interface might outweigh the performance benefits of using HiGHS directly.
+\texttt{linprog} and its unified interface might outweigh the performance benefits of using HiGHS directly.
 

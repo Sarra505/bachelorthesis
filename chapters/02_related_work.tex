@@ -56,7 +56,6 @@ Where $\mathbf{1}_m = \begin{bmatrix}
         1      \\
     \end{bmatrix}$
 
-
 This specific class of LPs has a simple structure that we can exploit, see
 Chapter \ref*{chapter:linearprogramming},
 to further optimize our implementation.
@@ -70,7 +69,7 @@ The two problems are linked in an interesting way:
 if one problem has an optimal solution, then so does the other,
 and their optimal solutions are equal.
 
-For instance, consider the primal \gls{lp} and its dual problem on the right:
+For instance, consider the primal-dual pair \gls{lp}:
 \[
     \begin{array}{c@{\quad}c@{\quad}c}
         \begin{aligned}
@@ -91,13 +90,71 @@ For instance, consider the primal \gls{lp} and its dual problem on the right:
     \end{array}
 \]
 
-\subsubsection{Geometric Interpretation}
-The linear programming problem can be understood geometrically as follows:
-The linear constraints constitute the vertices (corners) of a polytope
-defined by the feasible region the problem.
-The simplex algorithm starts at an initial vertex and moves along
+\subsection{Geometric Interpretation}
+In this part let's assume for simplicity that we have two decision variables
+in our LP problem, i.e. $\mathbf{x} \in \mathbb{R}^2 $
+is a two dimensional vector. This assumption will allow us to plot our problem on
+a 2D plane. An example is shown in figure \ref{fig:lp_problem_geom}.
+The linear programming problem \ref{LP_Problem} can be understood geometrically as follows:
+Each inequality in the set of constraints is represented by a line.
+Therefore, the feaible region $\chi$ of any LP problem can be described as the intersection of a finite
+number of hal-spaces, or lines, which is called a polyhedron, or in our 2D case, a polytope.
+The extreme points (corners) of a polytope are called vertices.
+They lie in the intersection of at most $n$ constraints, that define $\chi$. If more than
+$n$ lines, it is called degenerate.
+
+\begin{figure}
+    \centering
+    \begin{tikzpicture}
+        \begin{axis}[
+            xmin=-1, xmax=7,
+            ymin=-1, ymax=7,
+            axis lines=center,
+            axis on top=true,
+            domain=0:7,
+            ylabel=$y$,
+            xlabel=$x$,
+            ]
+
+            % Feasible regions with semi-transparent colors
+            \addplot[fill=blue, fill opacity=0.2, draw=none, domain=0:4] {4-x} \closedcycle;
+            \addplot[fill=red, fill opacity=0.2, draw=none, domain=0:3] {6-2*x} \closedcycle;
+
+
+
+            % Inequalities
+            \addplot[thick, domain=0:4, blue] {4-x};
+            \addplot[thick, domain=0:3, red] {6-2*x};
+
+            % Objective function (z = 3x + 2y = 12 as an example)
+            \addplot[dashed, domain=0:2, black] {2-x};
+            \draw[->, thick, black] (axis cs:1,1) -- (axis cs:2,2); % Arrow indicating direction of increase
+
+        \end{axis}
+    \end{tikzpicture}
+    \caption{Feasible region of the LP problem}
+\end{figure}
+
+\end{document}
+
+In this code, the \fill command is used to shade the feasible region, which is the area under both constraints. The arrow indicates the direction in which the objective function increases. Adjust the constraints and objective function as needed for your specific problem.
+
+
+The simplex algorithm that we will descibe later starts at an initial vertex and moves along
 the edges of the polytope to vertices with better objective
 values until the optimal solution is reached.
+
+
+\subsection{Feasibility, unboundedness}\label{feasibility}
+We described how in geometric terms, a linear programming (LP) problem is feasible if the
+polytope defining its feasible region $ \chi $ is not empty.
+In other words, the LP is infeasible if no feasible solution exists. $\chi = \emptyset$.
+Specifically, an LP problem is feasible if there exists
+a vector \( \mathbf{x^*} \) that satisfies all the imposed constraints of the problem.
+
+The LP is said to have unbounded solution if its
+solution can be made infinitely large without violating any of its constraints in the problem.
+Meaning its feasible region is infinite, or unbounded. An example is shown in Figure \ref{unbounded}.
 
 \begin{figure}[h]
     \centering
@@ -105,41 +162,41 @@ values until the optimal solution is reached.
         \begin{axis}[
                 xlabel=\(x_1\),
                 ylabel=\(x_2\),
-                xmin=0, xmax=10,
-                ymin=0, ymax=10,
+                xmin=-1, xmax=5,
+                ymin=-1, ymax=5,
                 grid=both,
                 minor tick num=1,
                 major grid style={gray!30},
                 minor grid style={gray!10},
                 axis lines=middle,
                 enlargelimits={abs=0.5},
-                legend pos=north east,
+                legend pos=north west,
             ]
 
             % Constraints
-            \addplot[blue, fill=blue!10, domain=0:8] {8 - 0.5*x} \closedcycle; % Example: x1 + 2x2 <= 8
-            \addplot[red, fill=red!10, domain=0:6] {6 - x} \closedcycle; % Example: x1 + x2 <= 6
+            \addplot[name path=constraint1, blue, thick, domain=0:5] {x + 1}; % x1 - x2 >= 1
+            \addplot[name path=axis, draw=none, domain=0:5] {0}; % x-axis
+            \addplot[blue!20] fill between[of=constraint1 and axis, soft clip={domain=0:5}];
 
-            % Objective function (for illustration, let's assume c1=2 and c2=3 and z=18)
-            \addplot[green, domain=0:9, thick, dashed] {(18 - 2*x)/3}; % Example: 2x1 + 3x2 = 18
+            % Objective function (for illustration, let's assume z=3)
+            \addplot[green, thick, dashed, domain=0:4] {3-x}; % x1 + x2 = 3
 
             % Arrow for objective function
-            \draw[->, thick, green] (4,10/3) -- (5,6); % Arrow for the objective function
+            \draw[->, thick, green] (2,1) -- (3,0); % Arrow for the objective function
 
-            \legend{
-                \(a_{11}x_1 + a_{12}x_2 \leq b_1\),
-                \(a_{21}x_1 + a_{22}x_2 \leq b_2\),
-                Objective function
-            }
+            % \legend{
+            %    \(x_1 - x_2 \geq 1\),
+            %    Objective function
+            %}
 
         \end{axis}
     \end{tikzpicture}
-    \caption{Graphical representation of the LP problem with directional arrows.}
-    \label{fig:lp_problem}
+    \caption{Graphical representation of an unbounded LP problem}
+    \label{unbounded}
 \end{figure}
 
-
-\subsection{Feasibility, unboundedness}\label{feasibility}
+The LP has an optimal solution, if there is a vertex \( \mathbf{x^*} \) such that
+$\mathbf{c}^T \mathbf{x} \leq \mathbf{c}^T \mathbf{x^*} $ for all $x \in \chi$.
 
 \subsection{The Standard Simplex Algorithm}
 In this subsection we will present the most widely used algorithm for solving
@@ -150,8 +207,8 @@ in the C++ language and we use it, among others, to solve our dataset.
 \subsubsection{The algorithm}
 To be approachable by the simplex algorithm, the \gls{lp} problem
 \ref{LP_Problem} needs to be cast in a
-computational or standard 7form \ref{LP_Problem_Comp}, that fulfills the requirement of the constraint matrix having to have
-full row rank and only equality  constraints are allowed.
+computational or standard 7form \ref{LP_Problem_Comp}, that fulfills the requirement of the
+constraint matrix having to have full row rank and only equality  constraints are allowed.
 To convert the inequalities to equations, we introduce slack variables
 \(s_1, s_2, \dots, s_m\). After introducing those variables
 let's look at the problem \ref{LP_Problem}, where the constraints are now linear equalities:
@@ -170,19 +227,24 @@ the simplex algorithm. To develop an intuition for how this algorithm works,
 it is helpful to view the strategy of the simplex algorithm as that of
 successive improvements until reaching an optimum. For instance, a maximization problem is optimized when the slack
 variables are “squeezed out,” maximizing the true variables’ effect on the objective
-function. Conversely, a minimization problem is optimized when the slack variables
-are “stuffed,” minimizing the true variables’ effect on the objective function.
+function.
 
-We already defined the concepts of feasibility and unboundedness.
-We then will define what a basis is. A feasible basis is a set containing the basic 
-variables and their values. Basic variables are set to 0 in the linear constraints.
+\subsubsection{Defining a Basis}
+If an LP problem has an optional solution, it is enough to searcg the finite number
+of vertices of the feasible region. Every vertex of the feasible region has at least
+one set of m linearly independent columns of $A$ associated with it. The set of indices
+of these columns is called a basis.
+
+Basic variables are represented by A feasible basis is a set containing the indices of basic
+variables. Basic variables are set to 0 in the linear constraints.
 For example an initial feasible basis for the problem, is the set of the decision variables.
-Meaning we set all the decision variables in the linear constraints to zero and 
-calculate the nonbasis variables' values 
+Meaning we set all the decision variables in the linear constraints to zero and
+calculate the nonbasis variables' values
 
+\subsubsection{Initialize the algorithm}
 
 The simplex method is first initialized by
-an initial feasible solution $\mathbf{\bar{x}}$, which is a vector of nonnegative numbers.
+an initial feasible solution $\mathbf{x^*_0}$, which is a vector of nonnegative numbers.
 This constitutes a feasible dictionary (or tableau), formally defined in \parencite{chvatal1983linear}.
 The simplex method then contructs a sequence of feasible dictionaries until reaching an optimum.
 This is how a simplex algorithm broadly looks like:
@@ -216,38 +278,44 @@ variable and the choice of the leaving variable.
 
 \begin{itemize}
     \item The choice of the entering variable: we choose a non-basic variable to enter the basis
-     and thus become basic. This is called Pricing. The choice usually depends on metrics 
-     like the largest increase in the objective function, or the largest coefficient. Bland'S
-     rule has been proved to guarantee termination.
+          and thus become basic. This is called Pricing. The choice usually depends on metrics
+          like the largest increase in the objective function, or the largest coefficient. Bland'S
+          rule has been proved to guarantee termination.
 
     \item The choice of the leaving variable: we choose a basic variable to leave the basis:
-    we do this by performing a ratio test.
+          we do this by performing a ratio test.
 \end{itemize}
 \subsubsection{Termination}
 
 \subsubsection{The runtime complexity}
 %Worst case vs. average case
+Since the idea of the simplex algorithm is to search the finite number of bases until a basis is
+found that belongs to the optimal vertex, and there are $\binom{m}{n}$ bases, this might take
+an exponential number of steps.
+In fact, Klee and Minty (1972) \parencite{klee1972good} constructed a worst-case example where
+$2^m -1$ iterations may be required, making the simplex'
+worst-case time complexity exponential, which we denote by \( O(2^m) \).
+
+It can be however argued that this is only one worst-case example. Indeed, the number
+of iterations usually encountred in practice or even in formal experimental studies of is much lower.
 With $m<50$ and $m+n<200$, where $m$ and $n$ are the number of constraints and variables in the \gls{lp}
 problem respectively, Dantzig observed that the number of iterations are usually less than $3m/2$
 and only rarely going to $3m$. However, there is no proof that for every
 problem the simplex algorithm for
 linear programming has a number of iterations or pivots that
 is majorized by a polynomial function.
-In fact, Klee and Minty (1972) \parencite{klee1972good} constructed a worst-case example where
-$2^m -1$ iterations may be required, making the simplex'
-worst-case time complexity exponential, which we denote by \( O(2^m) \).
-It can be however argued that this is only one worst-case example. Indeed, the number
-of iterations usually encountred in practice or even in formal experimental studies of is much lower.
+
 For packing linear programs, the worst-case time complexity of the Simplex algorithm
 remains exponential, even though there exists polynomial time implementations for it.
 \parencite{stille2010solution}.
 
-\subsection{Time complextity analysis of one iteration of the tableau simplex algorithm}
+\subsection{Time complexity analysis of one iteration of the tableau simplex algorithm}
+
 \subsection{The interior point method}
 
 \subsection{Revised Simplex Algorithm}
 While the standard or tableau simplex algorithm maintains and updates the entire tableau in its
-dense form at each iteration, and the pivotting step of this algorithm is 
+dense form at each iteration, and the pivotting step of this algorithm is
 highly costlywe have to update the entire matrix
 using row operations, the revised simplex
 method transforms only the inverse of the basis matrix, $mathbb{B}^{-1}$, thus
@@ -259,8 +327,8 @@ equivalency between Tableau and Revised simplex, and introduce the
 speedup the latter brings.
 Given a linear programming problem in standard form:
 \begin{align*}
-    \text{maximize} \quad   & \mathbb{c}^T \mathbb{x}    \\
-    \text{subject to} \quad & \mathbb{A}\mathbb{x} = \mathbb{b}   \\
+    \text{maximize} \quad   & \mathbb{c}^T \mathbb{x}           \\
+    \text{subject to} \quad & \mathbb{A}\mathbb{x} = \mathbb{b} \\
                             & \mathbb{x} \geq \mathbb{0}
 \end{align*}
 where \( A \) is an \( m \times n \) matrix,
@@ -394,7 +462,7 @@ where \( E = I + (a_q - B e_p) e_p^T \) is an \textit{eta matrix}.
 \subsubsection*{Forrest-Tomlin update form}
 
 \subsection{Cardinality Estimation}\label{subsection:cardinality-estimate}
-An important use case of linear programming solvers in the field of databases is 
+An important use case of linear programming solvers in the field of databases is
 cardinality estimation.
 In the context of query optimization, LP solvers can be useful to estimate query plan
 cardinalities and provide a reliable and good enough estimate to be used in selecting
@@ -482,7 +550,27 @@ ALGLIB implements a three-phase dual simplex method with additional degeneracy-b
 \end{itemize}
 
 \section{State-of-the-art LP solvers}
-Here we will discuss alternative approaches that are used today to solve LPs.
+Here we will discuss alternative approaches that are used today to solve LPs. Nowadays, the best
+existing open-source and commercial LP-systems are based on implementations that make use
+of various algorithms and techniques to speed up the solution of large scale LP problems.
+There exist various LP solvers today, like CPLEX (IBM), CBC, Gurobi, HIGHS... We present HIGHS Scipy, and 
+Cplex, because we are using them as a comparison to our solvers.
 \subsection{HIGHS Scipy}
+HiGHS, or High Performance Optimization Software is a software used to define,
+modify and solve large scale sparse linear optimization models.
+
+For LPs, HiGHS has implementations of both the revised simplex and interior point methods 
+\parencite{Huangfu2018}. 
+HiGHS has primal and
+ dual revised simplex solvers, originally written by Qi Huangfu and 
+ further developed by Julian Hall. 
+In our comparison, we don't make use of HiGHS directly but of Scipy's linprog, and using as 
+a method highs. It is mainly used to verify the accuracy of the optimal values 
+obtained by our solvers.
+
+\begin{lstlisting}[language=Python]
+    linprog(method='highs')
+\end{lstlisting}
+
 \subsection{Cplex}
 

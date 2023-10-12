@@ -2,11 +2,14 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Graphical representation of the LP problem with directional arrows.\relax }}{4}{figure.caption.7}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces An UML Graph explaining the hierarchy of the implementation\relax }}{14}{figure.caption.23}%
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Memory Layout of a 1D Dynamic Array\relax }}{16}{figure.caption.31}%
-\contentsline {figure}{\numberline {3.3}{\ignorespaces Memory Layout of a 2D Dynamic Array\relax }}{16}{figure.caption.32}%
-\contentsline {figure}{\numberline {3.4}{\ignorespaces A graph comparing the time performance of two of our solvers with scipy solver solving the tpch dataset\relax }}{20}{figure.caption.33}%
+\contentsline {figure}{\numberline {3.1}{\ignorespaces An UML Graph explaining the hierarchy of the implementation\relax }}{14}{figure.caption.28}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Memory Layout of a 1D Dynamic Array\relax }}{17}{figure.caption.35}%
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Memory Layout of a 2D Dynamic Array\relax }}{17}{figure.caption.36}%
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Statistics about the number of iterations needed to solve JOB dataset\relax }}{19}{figure.caption.40}%
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Relation between LP size and time for the 3 simplex solvers for JOB dataset.\relax }}{20}{figure.caption.41}%
+\contentsline {figure}{\numberline {3.6}{\ignorespaces A graph comparing the time performance of two of our solvers with scipy solver solving the tpch dataset\relax }}{21}{figure.caption.44}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

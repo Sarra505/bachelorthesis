@@ -254,6 +254,79 @@
       \field{pages}{159\bibrangedash 175}
       \range{pages}{17}
     \endentry
+    \entry{10.14778/2850583.2850594}{article}{}
+      \name{author}{6}{}{%
+        {{un=0,uniquepart=base,hash=963c74f650ce23bb4617efc8276c5afb}{%
+           family={Leis},
+           familyi={L\bibinitperiod},
+           given={Viktor},
+           giveni={V\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=0e05974fb7be79c42dc4b1391088c31f}{%
+           family={Gubichev},
+           familyi={G\bibinitperiod},
+           given={Andrey},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=5b13f7fa15efb925175fe6d2ad0a564a}{%
+           family={Mirchev},
+           familyi={M\bibinitperiod},
+           given={Atanas},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=9a9b1ccfbe3e81e38a1c1136ca101f64}{%
+           family={Boncz},
+           familyi={B\bibinitperiod},
+           given={Peter},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=2466c24cd22361559679d58bb1d8da60}{%
+           family={Kemper},
+           familyi={K\bibinitperiod},
+           given={Alfons},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=856106a72d787bcea4281fca718cd7d7}{%
+           family={Neumann},
+           familyi={N\bibinitperiod},
+           given={Thomas},
+           giveni={T\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {VLDB Endowment}%
+      }
+      \strng{namehash}{57bca9c2f57cdfb84d5ebf96803d627e}
+      \strng{fullhash}{478f9786a47e22ce50438f4dc5685d56}
+      \strng{bibnamehash}{478f9786a47e22ce50438f4dc5685d56}
+      \strng{authorbibnamehash}{478f9786a47e22ce50438f4dc5685d56}
+      \strng{authornamehash}{57bca9c2f57cdfb84d5ebf96803d627e}
+      \strng{authorfullhash}{478f9786a47e22ce50438f4dc5685d56}
+      \field{labelalpha}{Lei+15}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Finding a good join order is crucial for query performance. In this paper, we introduce the Join Order Benchmark (JOB) and experimentally revisit the main components in the classic query optimizer architecture using a complex, real-world data set and realistic multi-join queries. We investigate the quality of industrial-strength cardinality estimators and find that all estimators routinely produce large errors. We further show that while estimates are essential for finding a good join order, query performance is unsatisfactory if the query engine relies too heavily on these estimates. Using another set of experiments that measure the impact of the cost model, we find that it has much less influence on query performance than the cardinality estimates. Finally, we investigate plan enumeration techniques comparing exhaustive dynamic programming with heuristic algorithms and find that exhaustive enumeration improves performance despite the sub-optimal cardinality estimates.}
+      \field{issn}{2150-8097}
+      \field{journaltitle}{Proc. VLDB Endow.}
+      \field{month}{11}
+      \field{number}{3}
+      \field{title}{How Good Are Query Optimizers, Really?}
+      \field{volume}{9}
+      \field{year}{2015}
+      \field{pages}{204\bibrangedash 215}
+      \range{pages}{12}
+      \verb{doi}
+      \verb 10.14778/2850583.2850594
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.14778/2850583.2850594
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.14778/2850583.2850594
+      \endverb
+    \endentry
     \entry{microsoft2023cardinality}{online}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=140864078aeca1c7c35b4beb33c53c34}{%
@@ -334,6 +407,62 @@
       \field{title}{Solution techniques for specific bin packing problems with applications to assembly line optimization}
       \field{type}{phdthesis}
       \field{year}{2010}
+    \endentry
+    \entry{tpcds2022}{misc}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=ece4d773af27880068a004913385e50e}{%
+           family={{TPC-DS Benchmark}},
+           familyi={T\bibinitperiod}}}%
+      }
+      \strng{namehash}{ece4d773af27880068a004913385e50e}
+      \strng{fullhash}{ece4d773af27880068a004913385e50e}
+      \strng{bibnamehash}{ece4d773af27880068a004913385e50e}
+      \strng{authorbibnamehash}{ece4d773af27880068a004913385e50e}
+      \strng{authornamehash}{ece4d773af27880068a004913385e50e}
+      \strng{authorfullhash}{ece4d773af27880068a004913385e50e}
+      \field{labelalpha}{TPC23}
+      \field{sortinit}{T}
+      \field{sortinithash}{9af77f0292593c26bde9a56e688eaee9}
+      \field{extraalpha}{1}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Last Accessed: 2023/10/9}
+      \field{title}{TPC-DS Benchmark}
+      \field{year}{2023}
+      \verb{urlraw}
+      \verb https://www.tpc.org/tpcds
+      \endverb
+      \verb{url}
+      \verb https://www.tpc.org/tpcds
+      \endverb
+    \endentry
+    \entry{tpch}{misc}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=70d56a4cd5f89251d488846611b3e432}{%
+           family={{TPC-H Benchmark}},
+           familyi={T\bibinitperiod}}}%
+      }
+      \strng{namehash}{70d56a4cd5f89251d488846611b3e432}
+      \strng{fullhash}{70d56a4cd5f89251d488846611b3e432}
+      \strng{bibnamehash}{70d56a4cd5f89251d488846611b3e432}
+      \strng{authorbibnamehash}{70d56a4cd5f89251d488846611b3e432}
+      \strng{authornamehash}{70d56a4cd5f89251d488846611b3e432}
+      \strng{authorfullhash}{70d56a4cd5f89251d488846611b3e432}
+      \field{labelalpha}{TPC23}
+      \field{sortinit}{T}
+      \field{sortinithash}{9af77f0292593c26bde9a56e688eaee9}
+      \field{extraalpha}{2}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Last Accessed: 2023/10/9}
+      \field{title}{TPC-H Benchmark}
+      \field{year}{2023}
+      \verb{urlraw}
+      \verb https://www.tpc.org/tpch
+      \endverb
+      \verb{url}
+      \verb https://www.tpc.org/tpch
+      \endverb
     \endentry
   \enddatalist
 \endrefsection

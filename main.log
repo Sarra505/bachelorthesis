@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.12) (preloaded format=pdflatex 2023.2.6)  4 OCT 2023 20:16
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.12) (preloaded format=pdflatex 2023.2.6)  12 OCT 2023 12:47
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -715,17 +715,26 @@ File: pgfmodulematrix.code.tex 2023-01-15 v3.1.10 (3.1.10)
 \tikz@expandcount=\count429
  (/home/sarrabenmed/.miktex/texmfs/install/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarytopaths.code.tex
 File: tikzlibrarytopaths.code.tex 2023-01-15 v3.1.10 (3.1.10)
-))) (/home/sarrabenmed/.miktex/texmfs/install/tex/latex/pgfplots/pgfplots.sty (/home/sarrabenmed/.miktex/texmfs/install/tex/generic/pgfplots/pgfplots.revision.tex)
+))) (/home/sarrabenmed/.miktex/texmfs/install/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryshapes.geometric.code.tex
+File: tikzlibraryshapes.geometric.code.tex 2023-01-15 v3.1.10 (3.1.10)
+ (/home/sarrabenmed/.miktex/texmfs/install/tex/generic/pgf/libraries/shapes/pgflibraryshapes.geometric.code.tex
+File: pgflibraryshapes.geometric.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)) (/home/sarrabenmed/.miktex/texmfs/install/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryarrows.code.tex
+File: tikzlibraryarrows.code.tex 2023-01-15 v3.1.10 (3.1.10)
+ (/home/sarrabenmed/.miktex/texmfs/install/tex/generic/pgf/libraries/pgflibraryarrows.code.tex
+File: pgflibraryarrows.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\arrowsize=\dimen256
+))
+(/home/sarrabenmed/.miktex/texmfs/install/tex/latex/pgfplots/pgfplots.sty (/home/sarrabenmed/.miktex/texmfs/install/tex/generic/pgfplots/pgfplots.revision.tex)
 Package: pgfplots 2021/05/15 v1.18.1 Data Visualization (1.18.1)
  (/home/sarrabenmed/.miktex/texmfs/install/tex/generic/pgfplots/pgfplots.code.tex (/home/sarrabenmed/.miktex/texmfs/install/tex/generic/pgfplots/pgfplotscore.code.tex
 \t@pgfplots@toka=\toks35
 \t@pgfplots@tokb=\toks36
 \t@pgfplots@tokc=\toks37
-\pgfplots@tmpa=\dimen256
+\pgfplots@tmpa=\dimen257
 \c@pgfplots@coordindex=\count430
 \c@pgfplots@scanlineindex=\count431
- (/home/sarrabenmed/.miktex/texmfs/install/tex/generic/pgfplots/sys/pgfplotssysgeneric.code.tex))
-(/home/sarrabenmed/.miktex/texmfs/install/tex/generic/pgfplots/libs/pgfplotslibrary.code.tex) (/home/sarrabenmed/.miktex/texmfs/install/tex/generic/pgfplots/oldpgfcompatib/pgfplotsoldpgfsupp_loader.code.tex (/home/sarrabenmed/.miktex/texmfs/install/tex/generic/pgf/libraries/pgflibraryfpu.code.tex)
+ (/home/sarrabenmed/.miktex/texmfs/install/tex/generic/pgfplots/sys/pgfplotssysgeneric.code.tex)) (/home/sarrabenmed/.miktex/texmfs/install/tex/generic/pgfplots/libs/pgfplotslibrary.code.tex) (/home/sarrabenmed/.miktex/texmfs/install/tex/generic/pgfplots/oldpgfcompatib/pgfplotsoldpgfsupp_loader.code.tex (/home/sarrabenmed/.miktex/texmfs/install/tex/generic/pgf/libraries/pgflibraryfpu.code.tex)
 Package pgfplots: loading complementary utilities for your pgf version...
 \t@pgf@toka=\toks38
 \t@pgf@tokb=\toks39
@@ -738,24 +747,24 @@ Package pgfplots: loading complementary utilities for your pgf version...
 ) (/home/sarrabenmed/.miktex/texmfs/install/tex/generic/pgfplots/liststructure/pgfplotsdeque.code.tex) (/home/sarrabenmed/.miktex/texmfs/install/tex/generic/pgfplots/util/pgfplotsbinary.code.tex (/home/sarrabenmed/.miktex/texmfs/install/tex/generic/pgfplots/util/pgfplotsbinary.data.code.tex)) (/home/sarrabenmed/.miktex/texmfs/install/tex/generic/pgfplots/util/pgfplotsutil.verb.code.tex) (/home/sarrabenmed/.miktex/texmfs/install/tex/generic/pgfplots/libs/pgflibrarypgfplots.surfshading.code.tex
 \c@pgfplotslibrarysurf@no=\count434
  (/home/sarrabenmed/.miktex/texmfs/install/tex/generic/pgfplots/sys/pgflibrarypgfplots.surfshading.pgfsys-pdftex.def))) (/home/sarrabenmed/.miktex/texmfs/install/tex/generic/pgfplots/util/pgfplotscolormap.code.tex (/home/sarrabenmed/.miktex/texmfs/install/tex/generic/pgfplots/util/pgfplotscolor.code.tex)) (/home/sarrabenmed/.miktex/texmfs/install/tex/generic/pgfplots/pgfplotsstackedplots.code.tex) (/home/sarrabenmed/.miktex/texmfs/install/tex/generic/pgfplots/pgfplotsplothandlers.code.tex (/home/sarrabenmed/.miktex/texmfs/install/tex/generic/pgfplots/pgfplotsmeshplothandler.code.tex (/home/sarrabenmed/.miktex/texmfs/install/tex/generic/pgfplots/pgfplotsmeshplotimage.code.tex))) (/home/sarrabenmed/.miktex/texmfs/install/tex/generic/pgfplots/pgfplots.scaling.code.tex) (/home/sarrabenmed/.miktex/texmfs/install/tex/generic/pgfplots/pgfplotscoordprocessing.code.tex) (/home/sarrabenmed/.miktex/texmfs/install/tex/generic/pgfplots/pgfplots.errorbars.code.tex) (/home/sarrabenmed/.miktex/texmfs/install/tex/generic/pgfplots/pgfplots.markers.code.tex) (/home/sarrabenmed/.miktex/texmfs/install/tex/generic/pgfplots/pgfplotsticks.code.tex) (/home/sarrabenmed/.miktex/texmfs/install/tex/generic/pgfplots/pgfplots.paths.code.tex) (/home/sarrabenmed/.miktex/texmfs/install/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarydecorations.code.tex (/home/sarrabenmed/.miktex/texmfs/install/tex/generic/pgf/modules/pgfmoduledecorations.code.tex
-\pgfdecoratedcompleteddistance=\dimen257
-\pgfdecoratedremainingdistance=\dimen258
-\pgfdecoratedinputsegmentcompleteddistance=\dimen259
-\pgfdecoratedinputsegmentremainingdistance=\dimen260
-\pgf@decorate@distancetomove=\dimen261
+\pgfdecoratedcompleteddistance=\dimen258
+\pgfdecoratedremainingdistance=\dimen259
+\pgfdecoratedinputsegmentcompleteddistance=\dimen260
+\pgfdecoratedinputsegmentremainingdistance=\dimen261
+\pgf@decorate@distancetomove=\dimen262
 \pgf@decorate@repeatstate=\count435
-\pgfdecorationsegmentamplitude=\dimen262
-\pgfdecorationsegmentlength=\dimen263
+\pgfdecorationsegmentamplitude=\dimen263
+\pgfdecorationsegmentlength=\dimen264
 )
 \tikz@lib@dec@box=\box69
 ) (/home/sarrabenmed/.miktex/texmfs/install/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarydecorations.pathmorphing.code.tex (/home/sarrabenmed/.miktex/texmfs/install/tex/generic/pgf/libraries/decorations/pgflibrarydecorations.pathmorphing.code.tex)) (/home/sarrabenmed/.miktex/texmfs/install/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarydecorations.pathreplacing.code.tex (/home/sarrabenmed/.miktex/texmfs/install/tex/generic/pgf/libraries/decorations/pgflibrarydecorations.pathreplacing.code.tex)) (/home/sarrabenmed/.miktex/texmfs/install/tex/generic/pgfplots/libs/tikzlibrarypgfplots.contourlua.code.tex)
 \pgfplots@numplots=\count436
-\pgfplots@xmin@reg=\dimen264
-\pgfplots@xmax@reg=\dimen265
-\pgfplots@ymin@reg=\dimen266
-\pgfplots@ymax@reg=\dimen267
-\pgfplots@zmin@reg=\dimen268
-\pgfplots@zmax@reg=\dimen269
+\pgfplots@xmin@reg=\dimen265
+\pgfplots@xmax@reg=\dimen266
+\pgfplots@ymin@reg=\dimen267
+\pgfplots@ymax@reg=\dimen268
+\pgfplots@zmin@reg=\dimen269
+\pgfplots@zmax@reg=\dimen270
 ) (/home/sarrabenmed/.miktex/texmfs/install/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryplotmarks.code.tex
 File: tikzlibraryplotmarks.code.tex 2023-01-15 v3.1.10 (3.1.10)
  (/home/sarrabenmed/.miktex/texmfs/install/tex/generic/pgf/libraries/pgflibraryplotmarks.code.tex
@@ -764,23 +773,23 @@ File: pgflibraryplotmarks.code.tex 2023-01-15 v3.1.10 (3.1.10)
 Package: pgfplotstable 2021/05/15 v1.18.1 Table typesetting and Pretty-printing (1.18.1)
  (/home/sarrabenmed/.miktex/texmfs/install/tex/generic/pgfplots/numtable/pgfplotstable.code.tex (/home/sarrabenmed/.miktex/texmfs/install/tex/generic/pgfplots/numtable/pgfplotstable.coltype.code.tex))) (/home/sarrabenmed/.miktex/texmfs/install/tex/latex/booktabs/booktabs.sty
 Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
-\heavyrulewidth=\dimen270
-\lightrulewidth=\dimen271
-\cmidrulewidth=\dimen272
-\belowrulesep=\dimen273
-\belowbottomsep=\dimen274
-\aboverulesep=\dimen275
-\abovetopsep=\dimen276
-\cmidrulesep=\dimen277
-\cmidrulekern=\dimen278
-\defaultaddspace=\dimen279
+\heavyrulewidth=\dimen271
+\lightrulewidth=\dimen272
+\cmidrulewidth=\dimen273
+\belowrulesep=\dimen274
+\belowbottomsep=\dimen275
+\aboverulesep=\dimen276
+\abovetopsep=\dimen277
+\cmidrulesep=\dimen278
+\cmidrulekern=\dimen279
+\defaultaddspace=\dimen280
 \@cmidla=\count437
 \@cmidlb=\count438
-\@aboverulesep=\dimen280
-\@belowrulesep=\dimen281
+\@aboverulesep=\dimen281
+\@belowrulesep=\dimen282
 \@thisruleclass=\count439
 \@lastruleclass=\count440
-\@thisrulewidth=\dimen282
+\@thisrulewidth=\dimen283
 ) (/home/sarrabenmed/.miktex/texmfs/install/tex/latex/microtype/microtype.sty
 Package: microtype 2023/03/13 v3.1a Micro-typographical refinements (RS)
 \MT@toks=\toks42
@@ -791,7 +800,7 @@ LaTeX Info: Redefining \leftprotrusion on input line 1060.
 \MT@prot@toks=\toks43
 LaTeX Info: Redefining \rightprotrusion on input line 1078.
 LaTeX Info: Redefining \textls on input line 1368.
-\MT@outer@kern=\dimen283
+\MT@outer@kern=\dimen284
 LaTeX Info: Redefining \textmicrotypecontext on input line 1988.
 \MT@listname@count=\count442
  (/home/sarrabenmed/.miktex/texmfs/install/tex/latex/microtype/microtype-pdftex.def
@@ -807,14 +816,14 @@ File: microtype.cfg 2023/03/13 v3.1a microtype main configuration file (RS)
 Package: caption 2022/03/01 v3.6b Customizing captions (AR)
  (/home/sarrabenmed/.miktex/texmfs/install/tex/latex/caption/caption3.sty
 Package: caption3 2022/03/17 v2.3b caption3 kernel (AR)
-\caption@tempdima=\dimen284
-\captionmargin=\dimen285
-\caption@leftmargin=\dimen286
-\caption@rightmargin=\dimen287
-\caption@width=\dimen288
-\caption@indent=\dimen289
-\caption@parindent=\dimen290
-\caption@hangindent=\dimen291
+\caption@tempdima=\dimen285
+\captionmargin=\dimen286
+\caption@leftmargin=\dimen287
+\caption@rightmargin=\dimen288
+\caption@width=\dimen289
+\caption@indent=\dimen290
+\caption@parindent=\dimen291
+\caption@hangindent=\dimen292
 Package caption Info: KOMA-Script document class detected.
  (/home/sarrabenmed/.miktex/texmfs/install/tex/latex/caption/caption-koma.sto
 File: caption-koma.sto 2020/09/21 v2.0b Adaption of the caption package to the KOMA-Script document classes (AR)
@@ -825,7 +834,7 @@ Package caption Info: listings package is loaded.
 )
 Package scrhack Info: hyperref hack deactivated because of
 (scrhack)             detection of KOMA-Script class, that doesn't
-(scrhack)             need that hack, on input line 28.
+(scrhack)             need that hack, on input line 29.
  (/home/sarrabenmed/.miktex/texmfs/install/tex/latex/hyperref/hyperref.sty
 Package: hyperref 2022-11-13 v7.00u Hypertext links for LaTeX
  (/home/sarrabenmed/.miktex/texmfs/install/tex/generic/kvdefinekeys/kvdefinekeys.sty
@@ -847,7 +856,7 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
 \c@section@level=\count445
 )
-\@linkdim=\dimen292
+\@linkdim=\dimen293
 \Hy@linkcounter=\count446
 \Hy@pagecounter=\count447
  (/home/sarrabenmed/.miktex/texmfs/install/tex/latex/hyperref/pd1enc.def
@@ -874,15 +883,15 @@ Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks ON on input line 4410.
 \c@Hy@tempcnt=\count449
 LaTeX Info: Redefining \url on input line 4748.
-\XeTeXLinkMargin=\dimen293
+\XeTeXLinkMargin=\dimen294
  (/home/sarrabenmed/.miktex/texmfs/install/tex/generic/bitset/bitset.sty
 Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
  (/home/sarrabenmed/.miktex/texmfs/install/tex/generic/bigintcalc/bigintcalc.sty
 Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO)
 ))
 \Fld@menulength=\count450
-\Field@Width=\dimen294
-\Fld@charsize=\dimen295
+\Field@Width=\dimen295
+\Fld@charsize=\dimen296
 Package hyperref Info: Hyper figures OFF on input line 6027.
 Package hyperref Info: Link nesting OFF on input line 6032.
 Package hyperref Info: Hyper index ON on input line 6035.
@@ -925,10 +934,10 @@ Package: amstext 2021/08/26 v2.01 AMS text
  (/home/sarrabenmed/.miktex/texmfs/install/tex/latex/amsmath/amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
 \@emptytoks=\toks44
-\ex@=\dimen296
+\ex@=\dimen297
 )) (/home/sarrabenmed/.miktex/texmfs/install/tex/latex/amsmath/amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
-\pmbraise@=\dimen297
+\pmbraise@=\dimen298
 ) (/home/sarrabenmed/.miktex/texmfs/install/tex/latex/amsmath/amsopn.sty
 Package: amsopn 2022/04/08 v2.04 operator names
 )
@@ -949,7 +958,7 @@ LaTeX Info: Redefining \big on input line 722.
 LaTeX Info: Redefining \Big on input line 723.
 LaTeX Info: Redefining \bigg on input line 724.
 LaTeX Info: Redefining \Bigg on input line 725.
-\big@size=\dimen298
+\big@size=\dimen299
 LaTeX Font Info:    Redeclaring font encoding OML on input line 743.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 744.
 \macc@depth=\count461
@@ -967,12 +976,12 @@ LaTeX Info: Redefining \Relbar on input line 971.
 \column@=\count466
 \maxfields@=\count467
 \andhelp@=\toks46
-\eqnshift@=\dimen299
-\alignsep@=\dimen300
-\tagshift@=\dimen301
-\tagwidth@=\dimen302
-\totwidth@=\dimen303
-\lineht@=\dimen304
+\eqnshift@=\dimen300
+\alignsep@=\dimen301
+\tagshift@=\dimen302
+\tagwidth@=\dimen303
+\totwidth@=\dimen304
+\lineht@=\dimen305
 \@envbody=\toks47
 \multlinegap=\skip93
 \multlinetaggap=\skip94
@@ -1028,13 +1037,17 @@ Package tocbasic Info: setting babel extension for `loa' on input line 95.
 \c@algorithm=\count476
 ) (/home/sarrabenmed/.miktex/texmfs/install/tex/latex/tools/tabularx.sty
 Package: tabularx 2020/01/15 v2.11c `tabularx' package (DPC)
-\TX@col@width=\dimen305
-\TX@old@table=\dimen306
-\TX@old@col=\dimen307
-\TX@target=\dimen308
-\TX@delta=\dimen309
+\TX@col@width=\dimen306
+\TX@old@table=\dimen307
+\TX@old@col=\dimen308
+\TX@target=\dimen309
+\TX@delta=\dimen310
 \TX@cols=\count477
 \TX@ftn=\toks52
+) (/home/sarrabenmed/.miktex/texmfs/install/tex/latex/caption/subcaption.sty
+Package: subcaption 2022/01/07 v1.5 Sub-captions (AR)
+\c@subfigure=\count478
+\c@subtable=\count479
 ) (/home/sarrabenmed/.miktex/texmfs/install/tex/latex/adjustbox/adjustbox.sty
 Package: adjustbox 2022/10/17 v1.3a Adjusting TeX boxes (trim, clip, ...)
  (/home/sarrabenmed/.miktex/texmfs/install/tex/latex/xkeyval/xkeyval.sty
@@ -1043,7 +1056,7 @@ Package: xkeyval 2022/06/16 v2.9 package option processing (HA)
 \XKV@toks=\toks53
 \XKV@tempa@toks=\toks54
 )
-\XKV@depth=\count478
+\XKV@depth=\count480
 File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
 )) (/home/sarrabenmed/.miktex/texmfs/install/tex/latex/adjustbox/adjcalc.sty
 Package: adjcalc 2012/05/16 v1.1 Provides advanced setlength with multiple back-ends (calc, etex, pgfmath)
@@ -1053,31 +1066,31 @@ Package: trimclip 2020/08/19 v1.2 Trim and clip general TeX material
 Package: collectbox 2022/10/17 v0.4c Collect macro arguments as boxes
 \collectedbox=\box75
 )
-\tc@llx=\dimen310
-\tc@lly=\dimen311
-\tc@urx=\dimen312
-\tc@ury=\dimen313
+\tc@llx=\dimen311
+\tc@lly=\dimen312
+\tc@urx=\dimen313
+\tc@ury=\dimen314
 Package trimclip Info: Using driver 'tc-pdftex.def'.
  (/home/sarrabenmed/.miktex/texmfs/install/tex/latex/adjustbox/tc-pdftex.def
 File: tc-pdftex.def 2019/01/04 v2.2 Clipping driver for pdftex
 ))
-\adjbox@Width=\dimen314
-\adjbox@Height=\dimen315
-\adjbox@Depth=\dimen316
-\adjbox@Totalheight=\dimen317
-\adjbox@pwidth=\dimen318
-\adjbox@pheight=\dimen319
-\adjbox@pdepth=\dimen320
-\adjbox@ptotalheight=\dimen321
+\adjbox@Width=\dimen315
+\adjbox@Height=\dimen316
+\adjbox@Depth=\dimen317
+\adjbox@Totalheight=\dimen318
+\adjbox@pwidth=\dimen319
+\adjbox@pheight=\dimen320
+\adjbox@pdepth=\dimen321
+\adjbox@ptotalheight=\dimen322
  (/home/sarrabenmed/.miktex/texmfs/install/tex/latex/ifoddpage/ifoddpage.sty
 Package: ifoddpage 2022/10/18 v1.2 Conditionals for odd/even page detection
-\c@checkoddpage=\count479
+\c@checkoddpage=\count481
 ) (/home/sarrabenmed/.miktex/texmfs/install/tex/latex/varwidth/varwidth.sty
 Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
 \@vwid@box=\box76
-\sift@deathcycles=\count480
-\@vwid@loff=\dimen322
-\@vwid@roff=\dimen323
+\sift@deathcycles=\count482
+\@vwid@loff=\dimen323
+\@vwid@roff=\dimen324
 )) (/home/sarrabenmed/.miktex/texmfs/install/tex/latex/tools/afterpage.sty
 Package: afterpage 2014/10/28 v1.08 After-Page Package (DPC)
 \AP@output=\toks55
@@ -1095,25 +1108,25 @@ Package: xfor 2009/02/05 v1.05 (NLCT)
 Package: datatool-base 2019/09/27 v2.32 (NLCT)
  (/home/sarrabenmed/.miktex/texmfs/install/tex/latex/substr/substr.sty
 Package: substr 2009/10/20 v1.2 Handle substrings
-\c@su@anzahl=\count481
+\c@su@anzahl=\count483
 ) (/home/sarrabenmed/.miktex/texmfs/install/tex/latex/datatool/datatool-fp.sty
 Package: datatool-fp 2019/09/27 v2.32 (NLCT)
  (/home/sarrabenmed/.miktex/texmfs/install/tex/latex/fp/fp.sty
 Package: fp 1995/04/02
  `Fixed Point Package', Version 0.8, April 2, 1995 (C) Michael Mehlich (/home/sarrabenmed/.miktex/texmfs/install/tex/latex/fp/defpattern.sty
 Package: defpattern 1994/10/12
-\actioncount=\count482
+\actioncount=\count484
 ) (/home/sarrabenmed/.miktex/texmfs/install/tex/latex/fp/fp-basic.sty
 Package: fp-basic 1996/05/13
-\FP@xs=\count483
-\FP@xia=\count484
-\FP@xib=\count485
-\FP@xfa=\count486
-\FP@xfb=\count487
-\FP@rega=\count488
-\FP@regb=\count489
-\FP@regs=\count490
-\FP@times=\count491
+\FP@xs=\count485
+\FP@xia=\count486
+\FP@xib=\count487
+\FP@xfa=\count488
+\FP@xfb=\count489
+\FP@rega=\count490
+\FP@regb=\count491
+\FP@regs=\count492
+\FP@times=\count493
 ) (/home/sarrabenmed/.miktex/texmfs/install/tex/latex/fp/fp-addons.sty
 Package: fp-addons 1995/03/15
 ) (/home/sarrabenmed/.miktex/texmfs/install/tex/latex/fp/fp-snap.sty
@@ -1126,7 +1139,7 @@ Package: fp-trigo 1995/04/14
 Package: fp-pas 1994/08/29
 ) (/home/sarrabenmed/.miktex/texmfs/install/tex/latex/fp/fp-random.sty
 Package: fp-random 1995/02/23
-\FPseed=\count492
+\FPseed=\count494
 ) (/home/sarrabenmed/.miktex/texmfs/install/tex/latex/fp/fp-eqn.sty
 Package: fp-eqn 1995/04/03
 ) (/home/sarrabenmed/.miktex/texmfs/install/tex/latex/fp/fp-upn.sty
@@ -1135,14 +1148,14 @@ Package: fp-upn 1996/10/21
 Package: fp-eval 1995/04/03
 )))
 \@dtl@toks=\toks58
-\@dtl@tmpcount=\count493
+\@dtl@tmpcount=\count495
 \dtl@tmplength=\skip98
-\dtl@sortresult=\count494
-\@dtl@numgrpsepcount=\count495
-\@dtl@datatype=\count496
-\dtl@codeA=\count497
-\dtl@codeB=\count498
-\@dtl@foreach@level=\count499
+\dtl@sortresult=\count496
+\@dtl@numgrpsepcount=\count497
+\@dtl@datatype=\count498
+\dtl@codeA=\count499
+\dtl@codeB=\count500
+\@dtl@foreach@level=\count501
 ) (/home/sarrabenmed/.miktex/texmfs/install/tex/latex/tracklang/tracklang.sty
 Package: tracklang 2022/12/13 v1.6.1 (NLCT) Track Languages
  (/home/sarrabenmed/.miktex/texmfs/install/tex/generic/tracklang/tracklang.tex)) (/home/sarrabenmed/.miktex/texmfs/install/tex/latex/translator/translator.sty
@@ -1152,7 +1165,7 @@ File: glossaries-english.ldf 2014/11/23 v1.0
 ) (/home/sarrabenmed/.miktex/texmfs/install/tex/latex/glossaries-german/glossaries-german.ldf
 File: glossaries-german.ldf 2014/11/23 v1.0
 )
-\gls@level=\count500
+\gls@level=\count502
 \@gls@tmpb=\toks59
 \gls@tmplen=\skip99
 \glskeylisttok=\toks60
@@ -1172,17 +1185,17 @@ Package: longtable 2021-09-01 v4.17 Multi-page Table package (DPC)
 \LTright=\skip102
 \LTpre=\skip103
 \LTpost=\skip104
-\LTchunksize=\count501
-\LTcapwidth=\dimen324
+\LTchunksize=\count503
+\LTcapwidth=\dimen325
 \LT@head=\box79
 \LT@firsthead=\box80
 \LT@foot=\box81
 \LT@lastfoot=\box82
 \LT@gbox=\box83
-\LT@cols=\count502
-\LT@rows=\count503
-\c@LT@tables=\count504
-\c@LT@chunks=\count505
+\LT@cols=\count504
+\LT@rows=\count505
+\c@LT@tables=\count506
+\c@LT@chunks=\count507
 \LT@p@ftn=\toks64
 )
 Class scrbook Info: longtable captions redefined on input line 47.
@@ -1192,20 +1205,20 @@ Class scrbook Info: longtable captions redefined on input line 47.
 Package: glossary-super 2022/11/03 v4.52 (NLCT)
  (/home/sarrabenmed/.miktex/texmfs/install/tex/latex/supertabular/supertabular.sty
 Package: supertabular 2020/02/02 v4.1g the supertabular environment
-\c@tracingst=\count506
-\ST@wd=\dimen325
+\c@tracingst=\count508
+\ST@wd=\dimen326
 \ST@rightskip=\skip107
 \ST@leftskip=\skip108
 \ST@parfillskip=\skip109
-\ST@pageleft=\dimen326
-\ST@headht=\dimen327
-\ST@tailht=\dimen328
-\ST@pagesofar=\dimen329
-\ST@pboxht=\dimen330
-\ST@lineht=\dimen331
-\ST@prevht=\dimen332
-\ST@toadd=\dimen333
-\ST@dimen=\dimen334
+\ST@pageleft=\dimen327
+\ST@headht=\dimen328
+\ST@tailht=\dimen329
+\ST@pagesofar=\dimen330
+\ST@pboxht=\dimen331
+\ST@lineht=\dimen332
+\ST@prevht=\dimen333
+\ST@toadd=\dimen334
+\ST@dimen=\dimen335
 \ST@pbox=\box84
 )) (/home/sarrabenmed/.miktex/texmfs/install/tex/latex/glossaries/styles/glossary-tree.sty
 Package: glossary-tree 2022/11/03 v4.52 (NLCT)
@@ -1215,11 +1228,11 @@ Package: glossary-tree 2022/11/03 v4.52 (NLCT)
 \glo@main@file=\write6
 \openout6 = `main.glo'.
 
-Package glossaries Info: Writing glossary file main.glo on input line 36.
+Package glossaries Info: Writing glossary file main.glo on input line 38.
 \glo@acronym@file=\write7
 \openout7 = `main.acn'.
 
-Package glossaries Info: Writing glossary file main.acn on input line 36.
+Package glossaries Info: Writing glossary file main.acn on input line 38.
  (pages/glossary.tex))
 Package csquotes Info: Checking for multilingual support...
 Package csquotes Info: ... found 'babel' package.
@@ -1307,16 +1320,16 @@ Package biblatex Info: Reference section=0 on input line 22.
 Package biblatex Info: Reference segment=0 on input line 22.
  (/home/sarrabenmed/.miktex/texmfs/install/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count507
-\scratchdimen=\dimen335
+\scratchcounter=\count509
+\scratchdimen=\dimen336
 \scratchbox=\box85
-\nofMPsegments=\count508
-\nofMParguments=\count509
+\nofMPsegments=\count510
+\nofMParguments=\count511
 \everyMPshowfont=\toks65
-\MPscratchCnt=\count510
-\MPscratchDim=\dimen336
-\MPnumerator=\count511
-\makeMPintoPDFobject=\count512
+\MPscratchCnt=\count512
+\MPscratchDim=\dimen337
+\MPnumerator=\count513
+\makeMPintoPDFobject=\count514
 \everyMPtoPDFconversion=\toks66
 ) (/home/sarrabenmed/.miktex/texmfs/install/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -1324,7 +1337,7 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 48
  (/home/sarrabenmed/.miktex/texmfs/install/tex/latex/00miktex/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
-\c@lstlisting=\count513
+\c@lstlisting=\count515
 Package scrhack Info: undefining \float@addtolists on input line 22.
 
 Package pgfplots notification 'compat/show suggested version=true': document has been generated with the most recent feature set (\pgfplotsset{compat=1.18}).
@@ -1374,7 +1387,7 @@ Class scrbook Info: loading recommended package `bookmark'.
 Package: bookmark 2020-11-06 v1.29 PDF bookmarks (HO)
  (/home/sarrabenmed/.miktex/texmfs/install/tex/latex/bookmark/bkm-pdftex.def
 File: bkm-pdftex.def 2020-11-06 v1.29 bookmark driver for pdfTeX (HO)
-\BKM@id=\count514
+\BKM@id=\count516
 )) (main.glsdefs)
 Package nag Info: Command \hc@caption not defined, skipping amendment on input line 22.
  (pages/cover.tex [1
@@ -1466,23 +1479,40 @@ Overfull \hbox (1.11548pt too wide) in paragraph at lines 11--3
 
 ]
 chapter 2.
-LaTeX Font Info:    Trying to load font information for U+fplmbb on input line 19.
+LaTeX Font Info:    Trying to load font information for U+fplmbb on input line 22.
 (/home/sarrabenmed/.miktex/texmfs/install/tex/latex/psnfss/ufplmbb.fd
 File: ufplmbb.fd 2003/10/30 Fontinst v1.914 font definitions for U/fplmbb.
 ) [2
 
 
-] [3]
-Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on input line 96.
+]
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[3] [4]
+Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on input line 192.
 Package microtype Info: Character `029' is missing
 (microtype)             in font `T1/pplx/m/sc/10.95'.
 (microtype)             Ignoring protrusion settings for this character.
-LaTeX Font Info:    Trying to load font information for TS1+pplx on input line 118.
+LaTeX Font Info:    Trying to load font information for TS1+pplx on input line 218.
  (/home/sarrabenmed/.miktex/texmfs/install/tex/latex/psnfss/ts1pplx.fd
 File: ts1pplx.fd 2004/09/06 font definitions for TS1/pplx.
-) [4] [5] [6] [7] [8] [9] [10] [11]) (chapters/03_linear_programming_approach.tex [12]
+) [5] [6]
+Missing character: There is no c in font fplmbb!
+Missing character: There is no x in font fplmbb!
+Missing character: There is no x in font fplmbb!
+Missing character: There is no b in font fplmbb!
+Missing character: There is no x in font fplmbb!
+Missing character: There is no 0 in font fplmbb!
+Missing character: There is no c in font fplmbb!
+Missing character: There is no x in font fplmbb!
+Missing character: There is no x in font fplmbb!
+Missing character: There is no b in font fplmbb!
+Missing character: There is no x in font fplmbb!
+Missing character: There is no 0 in font fplmbb!
+[7] [8] [9] [10] [11]) (chapters/03_linear_programming_approach.tex [12]
 chapter 3.
-LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 16.
+LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 20.
 (/home/sarrabenmed/.miktex/texmfs/install/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 2022/07/10 v2.5l Standard LaTeX font definitions
 )
@@ -1490,220 +1520,63 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `cmtt' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
-<figures/UML.png, id=264, 621.32124pt x 910.40125pt>
+<figures/UML.png, id=292, 621.32124pt x 910.40125pt>
 File: figures/UML.png Graphic file (type png)
 <use figures/UML.png>
-Package pdftex.def Info: figures/UML.png  used on input line 19.
+Package pdftex.def Info: figures/UML.png  used on input line 23.
 (pdftex.def)             Requested size: 227.26862pt x 333.00352pt.
  [13
 
 
-] [14 <./figures/UML.png>]
-Overfull \hbox (6.12227pt too wide) in paragraph at lines 49--49
+] [14 <./figures/UML.png>] [15]
+Overfull \hbox (6.12227pt too wide) in paragraph at lines 84--84
 []          \T1/cmtt/m/n/10.95 int *rowIdx;  // Row indices corresponding to the non-zero values[] 
  []
 
 
-Overfull \hbox (51.38924pt too wide) in paragraph at lines 49--49
+Overfull \hbox (51.38924pt too wide) in paragraph at lines 84--84
 []          \T1/cmtt/m/n/10.95 int *colPtr;  // Points to the index in `values` where each column starts[] 
  []
 
 
-Overfull \hbox (50.58612pt too wide) in paragraph at lines 75--77
+Overfull \hbox (50.58612pt too wide) in paragraph at lines 110--112
 []\T1/pplx/m/n/10.95 (-20) using a one-dimensional array with rows stacked next to each other, \T1/cmtt/m/n/10.95 vector<vector<double>>\T1/pplx/m/n/10.95 (-20) .
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 107--107
-[]|\T1/pplx/m/n/10.95 (+20) Dynamic array.
- []
-
-
-Underfull \hbox (badness 1642) in paragraph at lines 107--107
-\T1/pplx/m/n/10.95 (+20) Size is fixed at
- []
-
-
-Underfull \hbox (badness 3989) in paragraph at lines 107--107
-[]|\T1/pplx/m/n/10.95 (+20) Dynamic linked
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 107--107
-[]|\T1/pplx/m/n/10.95 (+20) Automatic
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 107--107
-\T1/pplx/m/n/10.95 (+20) memory
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 107--107
-\T1/pplx/m/n/10.95 (+20) management.
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 107--107
-\T1/pplx/m/n/10.95 (+20) Can reallocate
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 107--107
-[]|\T1/pplx/m/n/10.95 (+20) All memory
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 107--107
-\T1/pplx/m/n/10.95 (+20) management is
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 107--107
-[]|\T1/pplx/m/n/10.95 (+20) Automatic
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 107--107
-\T1/pplx/m/n/10.95 (+20) memory
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 107--107
-[]|\T1/pplx/m/n/10.95 (+20) Not applicable
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 107--107
-[]|\T1/pplx/m/n/10.95 (+20) Fast appending
- []
-
-
-Underfull \hbox (badness 5893) in paragraph at lines 107--107
-\T1/pplx/m/n/10.95 (+20) to the end or
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 107--107
-\T1/pplx/m/n/10.95 (+20) Must traverse
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 107--107
-\T1/pplx/m/n/10.95 (+20) from start or
- []
-
-
-Underfull \hbox (badness 5578) in paragraph at lines 107--107
-\T1/pplx/m/n/10.95 (+20) end to desired
- []
-
-
-Underfull \hbox (badness 2698) in paragraph at lines 107--107
-\T1/pplx/m/n/10.95 (+20) index with any
- []
-
-
-Underfull \hbox (badness 2698) in paragraph at lines 107--107
-\T1/pplx/m/n/10.95 (+20) index with any
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 107--107
-[]|\T1/pplx/m/n/10.95 (+20) Can iterate
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 107--107
-\T1/pplx/m/n/10.95 (+20) forward (and
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 107--107
-\T1/pplx/m/n/10.95 (+20) backward if
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 107--107
-[]|\T1/pplx/m/n/10.95 (+20) Not applicable
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 107--107
-[]|\T1/pplx/m/n/10.95 (+20) Fast
- []
-
-
-Overfull \hbox (1.07686pt too wide) in paragraph at lines 107--107
-\T1/pplx/m/n/10.95 (-20) insertion/deletion
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 107--107
-[]|\T1/pplx/m/n/10.95 (+20) Provides smart
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 107--107
-[]|\T1/pplx/m/n/10.95 (+20) Use when
- []
-
-
-Overfull \hbox (10.17674pt too wide) in paragraph at lines 107--107
-\T1/pplx/m/n/10.95 (-20) insertions/deletions
- []
-
-
-Underfull \hbox (badness 2828) in paragraph at lines 107--107
-[]|\T1/pplx/m/n/10.95 (+20) Use when data
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 107--107
-\T1/pplx/m/n/10.95 (+20) size is known
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 107--107
-\T1/pplx/m/n/10.95 (+20) where compiler
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 107--107
-\T1/pplx/m/n/10.95 (+20) manages the
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 107--107
-[]|\T1/pplx/m/n/10.95 (+20) Use when
- []
-
-
-Underfull \hbox (badness 2644) in paragraph at lines 107--107
-\T1/pplx/m/n/10.95 (+20) needed or only
- []
-
-
-LaTeX Warning: Float too large for page by 10.82582pt on input line 108.
-
-[15]
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-Overfull \hbox (2.27928pt too wide) in paragraph at lines 140--146
+[16] [17]
+Overfull \hbox (2.27928pt too wide) in paragraph at lines 180--186
 \T1/pplx/m/n/10.95 (-20) established the mathematical derivation of how these query-related packing [][]LP[] problems
  []
 
-[16] [17] [18]
-<figures/all_scify_mpfi_pfi.png, id=320, 1850.112pt x 989.3763pt>
+<figures/histo_iter_pfi.pdf, id=335, 403.5075pt x 257.96375pt>
+File: figures/histo_iter_pfi.pdf Graphic file (type pdf)
+<use figures/histo_iter_pfi.pdf>
+Package pdftex.def Info: figures/histo_iter_pfi.pdf  used on input line 232.
+(pdftex.def)             Requested size: 188.21371pt x 120.32584pt.
+<figures/histogram_iter_tableau.pdf, id=336, 403.5075pt x 257.96375pt>
+File: figures/histogram_iter_tableau.pdf Graphic file (type pdf)
+<use figures/histogram_iter_tableau.pdf>
+Package pdftex.def Info: figures/histogram_iter_tableau.pdf  used on input line 238.
+(pdftex.def)             Requested size: 188.21371pt x 120.32584pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<figures/lp_size_vs_time_job.pdf, id=337, 403.5075pt x 257.96375pt>
+File: figures/lp_size_vs_time_job.pdf Graphic file (type pdf)
+<use figures/lp_size_vs_time_job.pdf>
+Package pdftex.def Info: figures/lp_size_vs_time_job.pdf  used on input line 248.
+(pdftex.def)             Requested size: 334.60571pt x 213.91696pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<figures/all_scify_mpfi_pfi.png, id=338, 1850.112pt x 989.3763pt>
 File: figures/all_scify_mpfi_pfi.png Graphic file (type png)
 <use figures/all_scify_mpfi_pfi.png>
-Package pdftex.def Info: figures/all_scify_mpfi_pfi.png  used on input line 244.
+Package pdftex.def Info: figures/all_scify_mpfi_pfi.png  used on input line 296.
 (pdftex.def)             Requested size: 597.50793pt x 319.52054pt.
-) (chapters/04_evaluation.tex [19] [20 <./figures/all_scify_mpfi_pfi.png>] [21]
+[18] [19 <./figures/histo_iter_pfi.pdf> <./figures/histogram_iter_tableau.pdf>] [20 <./figures/lp_size_vs_time_job.pdf>] [21 <./figures/all_scify_mpfi_pfi.png>]) (chapters/04_evaluation.tex [22]
 chapter 4.
-) (chapters/05_conclusion.tex [22
+) (chapters/05_conclusion.tex [23
 
 
 ]
@@ -1731,7 +1604,7 @@ Package glossaries Warning: Entry `btran' has already been defined in the preamb
 
 Package glossaries Warning: Entry `pfi' has already been defined in the preamble (in which case remove the duplicate definition) or you have just updated to glossaries.sty v4.47 (in which case delete `main.glsdefs') on input line 19.
 
-) [23
+) [24
 
 
 ]
@@ -1740,7 +1613,7 @@ Package tocbasic Info: character protrusion at lof deactivated on input line 56.
 \tf@lof=\write11
 \openout11 = `main.lof'.
 
- [24
+ [25
 
 
 ]
@@ -1752,7 +1625,7 @@ Package tocbasic Info: character protrusion at lot deactivated on input line 57.
 
 No file main.gls.
 No file main.acr.
-[25
+[26
 
 
 ]
@@ -1768,10 +1641,10 @@ Overfull \hbox (12.2373pt too wide) in paragraph at lines 60--60
  []
 
 No complaints by nag.
-[26
+[27
 
 
-] (main.aux)
+] [28] (main.aux)
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
 Package logreq Info: Writing requests to 'main.run.xml'.
@@ -1779,13 +1652,13 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 57938 strings out of 478312
- 1272577 string characters out of 5840164
- 2346157 words of memory out of 5000000
- 76591 multiletter control sequences out of 15000+600000
- 578038 words of font info for 330 fonts, out of 8000000 for 9000
+ 59600 strings out of 478312
+ 1315887 string characters out of 5840164
+ 2379620 words of memory out of 5000000
+ 78166 multiletter control sequences out of 15000+600000
+ 582213 words of font info for 359 fonts, out of 8000000 for 9000
  2 hyphenation exceptions out of 8191
- 115i,12n,109p,10932b,2459s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 115i,19n,109p,10932b,2459s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
 pdfTeX warning (dest): name{glo:dbms} has been referenced but does not exist, replaced by a fixed one
 
@@ -1805,9 +1678,9 @@ pdfTeX warning (dest): name{glo:ftran} has been referenced but does not exist, r
 pdfTeX warning (dest): name{glo:lp} has been referenced but does not exist, replaced by a fixed one
 
  </home/sarrabenmed/.miktex/texmfs/data/fonts/pk/ljfour/jknappen/ec/dpi600/ectt1095.pk>{/home/sarrabenmed/.miktex/texmfs/install/fonts/enc/dvips/base/8r.enc}</home/sarrabenmed/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmex10.pfb></home/sarrabenmed/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmmi10.pfb></home/sarrabenmed/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmr10.pfb></home/sarrabenmed/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy10.pfb></home/sarrabenmed/.miktex/texmfs/install/fonts/type1/public/mathpazo/fplmbb.pfb></home/sarrabenmed/.miktex/texmfs/install/fonts/type1/public/mathpazo/fplmr.pfb></home/sarrabenmed/.miktex/texmfs/install/fonts/type1/public/mathpazo/fplmri.pfb></home/sarrabenmed/.miktex/texmfs/install/fonts/type1/public/fpl/fplrc8a.pfb></home/sarrabenmed/.miktex/texmfs/install/fonts/type1/public/amsfonts/symbols/msbm10.pfb></home/sarrabenmed/.miktex/texmfs/install/fonts/type1/urw/palatino/uplb8a.pfb></home/sarrabenmed/.miktex/texmfs/install/fonts/type1/urw/palatino/uplr8a.pfb></home/sarrabenmed/.miktex/texmfs/install/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on main.pdf (33 pages, 1118637 bytes).
+Output written on main.pdf (35 pages, 1159657 bytes).
 PDF statistics:
- 625 PDF objects out of 1000 (max. 8388607)
- 142 named destinations out of 1000 (max. 500000)
- 95031 words of extra memory for PDF output out of 106986 (max. 10000000)
+ 740 PDF objects out of 1000 (max. 8388607)
+ 173 named destinations out of 1000 (max. 500000)
+ 101246 words of extra memory for PDF output out of 106986 (max. 10000000)
 

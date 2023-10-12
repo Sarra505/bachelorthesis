@@ -74,3 +74,34 @@
   year={2013},
   publisher={JHU press}
 }
+@article{10.14778/2850583.2850594,
+author = {Leis, Viktor and Gubichev, Andrey and Mirchev, Atanas and Boncz, Peter and Kemper, Alfons and Neumann, Thomas},
+title = {How Good Are Query Optimizers, Really?},
+year = {2015},
+issue_date = {November 2015},
+publisher = {VLDB Endowment},
+volume = {9},
+number = {3},
+issn = {2150-8097},
+url = {https://doi.org/10.14778/2850583.2850594},
+doi = {10.14778/2850583.2850594},
+abstract = {Finding a good join order is crucial for query performance. In this paper, we introduce the Join Order Benchmark (JOB) and experimentally revisit the main components in the classic query optimizer architecture using a complex, real-world data set and realistic multi-join queries. We investigate the quality of industrial-strength cardinality estimators and find that all estimators routinely produce large errors. We further show that while estimates are essential for finding a good join order, query performance is unsatisfactory if the query engine relies too heavily on these estimates. Using another set of experiments that measure the impact of the cost model, we find that it has much less influence on query performance than the cardinality estimates. Finally, we investigate plan enumeration techniques comparing exhaustive dynamic programming with heuristic algorithms and find that exhaustive enumeration improves performance despite the sub-optimal cardinality estimates.},
+journal = {Proc. VLDB Endow.},
+month = {nov},
+pages = {204–215},
+numpages = {12}
+}
+@misc{tpcds2022,
+    author = {{TPC-DS Benchmark}},
+    title = {TPC-DS Benchmark},
+    year = {2023},
+    url = {https://www.tpc.org/tpcds},
+    note = {Last Accessed: 2023/10/9}
+}
+@misc{tpch,
+    author = {{TPC-H Benchmark}},
+    title = {TPC-H Benchmark},
+    year = {2023}, 
+    url = {https://www.tpc.org/tpch},
+    note = {Last Accessed: 2023/10/9}  
+}

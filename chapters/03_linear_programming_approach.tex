@@ -1,15 +1,19 @@
 % !TeX root = ../main.tex
 % Add the above to each chapter to make compiling the PDF easier in some editors.
-
+%------------------------------------------------------------------------
 \chapter{Tuning Linear Programming Solvers for Query Optimization}\label{chapter:linearprogramming}
 
-\section{Proposal}
+%------------------------------------------------------------------------
+%------------------------------------------------------------------------
+\section{Proposal or Implementation}
 Our contribution consists in conducting experiments on small packing LP problems that are generated from
 real-life queries as mentioned in \ref{subsection:cardinality-estimate} as well as randomly generated
 LPs with varying sizes. We use different LP solvers, and different update methods to solves these LPs.
 We then proceed to compare results based on time and memory performance. We also build an analysis of our datasets' properties.
 Finally, we aim to give a recommendation on how to build the best performing LP solver based on the
 particularities of the LP problems.
+
+%------------------------------------------------------------------------
 \subsection{Implementation hierarchy}
 The final code repository contains 3 different solvers as shown in the
 UML graph \ref{fig:hierarchy}
@@ -20,7 +24,38 @@ and a \verb|compareSolvers.cpp|, in which we can conduct our benchmarks.
     \caption{An UML Graph explaining the hierarchy of the implementation} \label{fig:tumslide}
     \label{fig:hierarchy}
 \end{figure}
+
+%------------------------------------------------------------------------
 \subsection{Tableau simplex solver}
+
+\begin{algorithm}
+    \caption{Tableau Simplex Algorithm}
+    \begin{algorithmic}[1]
+        \State \textbf{Input:} Packing LP maximisation problem in computational form
+        \State \textbf{Output:} Optimal value $z$
+
+        \State \textbf{Step 1:} Pricing: Find pivot column, or entering variable using Bland's rule
+        \State \hspace{\algorithmicindent} $enteringVars \gets \text{findPivotColumnCandidates}()$
+        \State \hspace{\algorithmicindent} \textbf{if} no entering variable found \textbf{then}
+        \State \hspace{\algorithmicindent} \hspace{\algorithmicindent} \text{print} "Optimal value reached."
+        \State \hspace{\algorithmicindent} \hspace{\algorithmicindent} \Return $z$
+        \State \hspace{\algorithmicindent} \textbf{end if}
+        \State \hspace{\algorithmicindent} $pivotColumn \gets enteringVars[0]$
+
+        \State \textbf{Step 2:} Find pivot row, or leaving variable using the ratio test
+        \State \hspace{\algorithmicindent} $pivotRow \gets \text{findPivotRow}(pivotColumn)$
+        \State \hspace{\algorithmicindent} \textbf{if} no leaving variable \textbf{then}
+        \State \hspace{\algorithmicindent} \hspace{\algorithmicindent} \text{print} "The given LP is unbounded."
+        \State \hspace{\algorithmicindent} \hspace{\algorithmicindent} \Return $\infty$
+        \State \hspace{\algorithmicindent} \textbf{end if}
+
+        \State \textbf{Step 3:} Update the tableau using pivotting and update the objective function value
+        \State \hspace{\algorithmicindent} $\text{doPivotting}(pivotRow, pivotColumn, z)$
+
+        \State \textbf{Goto Step 1}
+    \end{algorithmic}
+\end{algorithm}
+%------------------------------------------------------------------------
 \subsection{Data structures}
 
 \subsubsection{Dense Matrix}
@@ -76,7 +111,7 @@ Storing a dense matrix variable \( A \) of dimensions \( m \times n \) in C++, w
           array contains $m \times n$ entries. With the $a_{row,col}$ entry located at \texttt{A[row * (m + n) + col]}
 \end{itemize}
 Note that even
-though there is a difference (see Table \ref{table:array}) between  \texttt{array}, \texttt{vector} and \texttt{list}, we
+though there is a difference between  \texttt{array}, \texttt{vector} and \texttt{list}, we
 choose \texttt{std::vector}, or dynamoic array, in all our implementation, because it suits our purpouses.
 We also opt for 1D array as opposed to 2D array for better memory complexity and speed.
 We explain this choice:
@@ -88,24 +123,6 @@ the 2D array due to its contiguous memory allocation, which reduces cache misses
 However, the 2D dynamic array loses cache locality and consumes more memory because of its non-contiguous
 memory allocation. While the 2D dynamic array introduces an
 extra level of indirection, the 1D array has its own overhead stemming from index calculations.
-\begin{table}[h]
-    \centering
-    \caption{Comparison between \texttt{std::vector}, \texttt{std::array}, and \texttt{std::list}}
-    \begin{tabularx}{\textwidth}{lXXX}
-        \toprule
-        \textbf{Feature/Property}   & \textbf{std::vector}                                                                                                             & \textbf{std::array}                                                                                & \textbf{std::list}                                                                          \\
-        \midrule
-        \textbf{Dynamic vs Static}  & Dynamic array. Can grow in size.                                                                                                 & Static in essence. Size is fixed at compile time.                                                  & Dynamic linked structure.                                                                   \\
-        \textbf{Memory Management}  & Automatic memory management. Can reallocate and move data.                                                                       & All memory management is on the user.                                                              & Automatic memory management.                                                                \\
-        \textbf{Appending}          & Fast appending to the end.                                                                                                       & Not applicable (fixed size).                                                                       & Fast appending to the end or beginning.                                                     \\
-        \textbf{Access}             & Instant access to all elements.                                                                                                  & Instant access to all elements.                                                                    & Sequential access. Must traverse from start or end to desired element.                      \\
-        \textbf{Iteration}          & Can iterate forth and back at any index with any step.                                                                           & Can iterate forth and back at any index with any step.                                             & Can iterate forward (and backward if doubly-linked).                                        \\
-        \textbf{Insertion/Deletion} & Can insert/delete in the middle, but can be expensive.                                                                           & Not applicable (fixed size).                                                                       & Fast insertion/deletion at any position.                                                    \\
-        \textbf{Error Handling}     & Provides smart pointers that can throw exceptions for out-of-bounds access.                                                      & No built-in error handling for out-of-bounds access.                                               & No built-in error handling for out-of-bounds access.                                        \\
-        \textbf{Use Cases}          & Use when needing random access, and data might grow but not unpredictably. Avoid if frequent insertions/deletions in the middle. & Use when data size is known and won't change. Suitable for cases where compiler manages the array. & Use when frequent structure modifications are needed or only sequential access is required. \\
-        \bottomrule
-    \end{tabularx}
-\end{table} \label{table:array}
 
 \begin{figure}[h]
     \centering
@@ -135,7 +152,30 @@ extra level of indirection, the 1D array has its own overhead stemming from inde
     \end{tikzpicture}
 \end{figure}
 
-\section{Experimental Design}
+
+%------------------------------------------------------------------------
+\subsection{Revised Simplex Solver}
+
+
+%------------------------------------------------------------------------
+\subsection{Stability}
+Mention zero tolerances: A zero tolerance epsilon2 saefguards against divisions
+by extremely small numbers, which tend to produce the most dangerous rounding errors, and
+may even lead to degeneracy. diagonal entry in eta matrix should be fairly far from
+otherwise (in our experiment) degeneracy.
+
+%------------------------------------------------------------------------
+
+%------------------------------------------------------------------------
+\section{Experiments and Results}
+All the following results have been obtained on a personal computer with AMD 4000 series
+RYZEN, 16GB RAM running Ubuntu. Using the following settings:
+\begin{itemize}
+    \item Presolve techniques are not used
+    \item The computed optimal solutions have been validated using the scipy python library.
+\end{itemize}
+
+%------------------------------------------------------------------------
 \subsection{Query datasets}
 The input files \texttt{TPCH}, \texttt{TPCDS}, and \texttt{JOB} contain packing
 \gls{lp} problems. We have already established the mathematical derivation of how
@@ -169,7 +209,106 @@ and then populate our sparse matrix representation quite efficiently.
 lp:
 8 2 0 0.0540277 2 0.0540277 ...
 \end{lstlisting}
+\begin{table}[!h]
+    \centering
+    \caption{Benchmarks and workloads.}
+    \begin{tabular}{|l|l|}
+        \hline
+        Benchmark                                & Number of Queries \\
+        \hline
+        JOB \parencite{10.14778/2850583.2850594} & 2230              \\
+        TPC-H \parencite{tpch}                   & 16                \\
+        TPC-DS \parencite{tpcds2022}             & 148               \\
+        \hline
+    \end{tabular}
+\end{table}
 
+\subsubsection{The JOB dataset results}
+In the following table are some important statistical finds.
+\begin{figure}[h]
+    \centering
+    \begin{subfigure}{0.45\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{figures/histo_iter_pfi.pdf}
+        \caption{Boxplot for number of iterations for PFI for JOB dataset}
+        \label{fig:num_iter_boxplot_pfi_job}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.45\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{figures/histogram_iter_tableau.pdf}
+        \caption{Boxplot for number of iterations for Tableau for JOB dataset}
+        \label{fig:num_iter_boxplot_tableau_job}
+    \end{subfigure}
+    \caption{Statistics about the number of iterations needed to solve JOB dataset}
+    \label{fig:both_figures}
+\end{figure}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/lp_size_vs_time_job.pdf}
+    \caption{Relation between LP size and time for the 3 simplex solvers for JOB dataset.}
+    \label{fig:lp_size_vs_time_job}
+\end{figure}
+
+\begin{table}
+    \centering
+    \caption{Statistics about JOB dataset}
+    \begin{tabular}{lrrrr}
+        \toprule
+        Variable                  & Min    & Median  & Mean    & Max     \\
+        \midrule
+        LP size                   & 2.00   & 54.00   & 94.56   & 475.00  \\
+        Number of Rules           & 1.000  & 6.000   & 7.037   & 19.000  \\
+        Number of Variables       & 1.00   & 3.00    & 3.07    & 6.00    \\
+        Constraint Matrix Density & 0.3684 & 0.6667  & 0.6703  & 1.0000  \\
+        Solution Time Scipy       & 650    & 931     & 959     & 1802    \\
+        Solution Time Tableau     & 2.00   & 4.00    & 12.15   & 4274.00 \\
+        Solution Time PFI         & 2.000  & 6.000   & 8.316   & 65.000  \\
+        Solution Time MPFI        & 1.000  & 4.000   & 5.517   & 68.000  \\
+        Number Iterations Tableau & 2.000  & 4.000   & 4.829   & 14.000  \\
+        Number Iterations PFI     & 2.000  & 4.000   & 4.621   & 11.000  \\
+        Number Iterations MPFI    & 2.000  & 4.000   & 4.671   & 13.000  \\
+        Optimal Value             & 0.3188 & 20.6702 & 21.8575 & 42.1804 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+This is our results:
+\begin{table}[ht]
+    \centering
+    \caption{Number of LPs or Queries Solved by Hour}
+    \begin{tabular}{l|r}
+        \toprule
+        Method                     & Number of LPs/Queries \\
+        \midrule
+        Revised Simplex MPFU Umbra & 906,607,929           \\
+        Tableau Simplex            & 1,400,923,787           \\
+        Revised Simplex PFI        & 1,287,140,216          \\
+        Scipy (method highs)       & 4,069,108             \\
+        Cplex                      &  17,849,851            \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+
+\begin{figure}[p] % 'p' places the figure on its own page
+    \begin{adjustbox}{width=\paperwidth,center}
+        \includegraphics[width=\paperwidth]{figures/all_scify_mpfi_pfi.png}
+    \end{adjustbox}
+    \caption{A graph comparing the time performance of two of
+        our solvers with scipy solver solving the tpch dataset}
+    \label{fig:all_time_tpch}
+\end{figure}
+
+\subsubsection{TPC-DS results}
+
+\subsection{Results on randomly generated LPs}
+
+%------------------------------------------------------------------------
+%------------------------------------------------------------------------
+\section{Analysis}
+
+%------------------------------------------------------------------------
 \subsection{Dataset Structure}
 Our dataset stucture:
 as opposed to what the linear programming research has dealt with, which is
@@ -179,74 +318,38 @@ sparse matrices but not as sparse as it would have been if the problem was large
 small matrices that are not small enough to be dense.
 (they still have quite a number of non-zeroes).
 
+%------------------------------------------------------------------------
 \subsection{Analysis of dataset properties}
 In  this subsection we will conduct an analysis of our dataset properties. What are the
 particularites of the structure of these LP problems, is their any patterns in their solution
 process. This anaylsis is based on observing the statistical results we obtained from
 running different solvers on these problems. This will later provide us with insight
 regarding optimization of these problems.
+\subsection{Why is highs so slow?}
+using \texttt{linprog} from SciPy with HiGHS as a method can be slower than using the HiGHS interface directly, and there are a few reasons for this:
 
-\begin{algorithm}
-    \caption{Tableau Simplex Algorithm}
-    \begin{algorithmic}[1]
-        \State \textbf{Input:} Packing LP maximisation problem in computational form
-        \State \textbf{Output:} Optimal value $z$
+\begin{enumerate}
+    \item \textbf{Overhead from Python and SciPy}: When you use \texttt{linprog} from SciPy,
+     there's an overhead associated with Python's interpretation and SciPy's function calls.
+      This overhead might not be significant for small problems, but for larger LPs or when solving multiple LPs, it can add up.
+    
+    \item \textbf{Data Conversion}: \texttt{linprog} has to convert the problem data
+     into a format that HiGHS can understand. This conversion can introduce additional computational overhead.
+    
+    \item \textbf{Additional Features}: \texttt{linprog} provides a unified interface for
+     multiple solvers, and it might perform some additional checks or operations that are not strictly necessary
+      when you know you're going to use HiGHS.
+    
+    \item \textbf{Version Differences}: Depending on how you installed SciPy and HiGHS,
+     there might be version differences between the HiGHS in SciPy and the standalone HiGHS. 
+     Newer versions of solvers often come with performance improvements, so if SciPy's version is older, it might be slower.
+    
+    \item \textbf{Default Parameters}: The default parameters set by \texttt{linprog} for HiGHS 
+    might not be the most optimal for your specific problem. When using the HiGHS interface directly, 
+    you have more control over these parameters.
+\end{enumerate}
 
-        \State \textbf{Step 1:} Pricing: Find pivot column, or entering variable using Bland's rule
-        \State \hspace{\algorithmicindent} $enteringVars \gets \text{findPivotColumnCandidates}()$
-        \State \hspace{\algorithmicindent} \textbf{if} no entering variable found \textbf{then}
-        \State \hspace{\algorithmicindent} \hspace{\algorithmicindent} \text{print} "Optimal value reached."
-        \State \hspace{\algorithmicindent} \hspace{\algorithmicindent} \Return $z$
-        \State \hspace{\algorithmicindent} \textbf{end if}
-        \State \hspace{\algorithmicindent} $pivotColumn \gets enteringVars[0]$
+For these reasons, if performance is critical and you're solving large-scale LPs or solving many LPs, it might be beneficial to use 
+the HiGHS interface directly. However, for many users, the convenience of using
+ \texttt{linprog} and its unified interface might outweigh the performance benefits of using HiGHS directly.
 
-        \State \textbf{Step 2:} Find pivot row, or leaving variable using the ratio test
-        \State \hspace{\algorithmicindent} $pivotRow \gets \text{findPivotRow}(pivotColumn)$
-        \State \hspace{\algorithmicindent} \textbf{if} no leaving variable \textbf{then}
-        \State \hspace{\algorithmicindent} \hspace{\algorithmicindent} \text{print} "The given LP is unbounded."
-        \State \hspace{\algorithmicindent} \hspace{\algorithmicindent} \Return $\infty$
-        \State \hspace{\algorithmicindent} \textbf{end if}
-
-        \State \textbf{Step 3:} Update the tableau using pivotting and update the objective function value
-        \State \hspace{\algorithmicindent} $\text{doPivotting}(pivotRow, pivotColumn, z)$
-
-        \State \textbf{Goto Step 1}
-    \end{algorithmic}
-\end{algorithm}
-
-Mention zero tolerances: A zero tolerance epsilon2 saefguards against divisions
-by extremely small numbers, which tend to produce the most dangerous rounding errors, and
-may even lead to degeneracy. diagonal entry in eta matrix should be fairly far from
-otherwise (in our experiment) degeneracy.
-
-
-\section{Analysis}
-Some metrics:
-\begin{itemize}
-    \item number of iterations
-    \item runtime
-    \item number of loops ?
-    \item for matrix : number of columns and rows, nonzeros and density
-\end{itemize}
-
-\section{Results}
-All the following results have been obtained on a personal computer with AMD 4000 series
-RYZEN, 16GB RAM running Ubuntu. Using the following settings:
-\begin{itemize}
-    \item Presolve techniques are not used
-    \item scaling techniques are not used
-    \item The computed optimal solutions have been validated using the scipy python library.
-\end{itemize}
-
-
-\begin{figure}[p] % 'p' places the figure on its own page
-    \begin{adjustbox}{width=\paperwidth,center}
-        \includegraphics[width=\paperwidth]{figures/all_scify_mpfi_pfi.png}
-    \end{adjustbox}
-    \caption{A graph comparing the time performance of two of 
-    our solvers with scipy solver solving the tpch dataset}
-    \label{fig:all_time_tpch}
-\end{figure}
-
-
-%

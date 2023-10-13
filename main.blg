@@ -1,17 +1,17 @@
 [0] Config.pm:306> INFO - This is Biber 2.18
 [0] Config.pm:309> INFO - Logfile is 'main.blg'
-[52] biber:340> INFO - === Do Okt 12, 2023, 20:43:00
-[62] Biber.pm:418> INFO - Reading 'main.bcf'
-[117] Biber.pm:978> INFO - Found 13 citekeys in bib section 0
-[128] Biber.pm:4401> INFO - Processing section 0
-[136] Biber.pm:4592> INFO - Looking for bibtex file 'bibliography.bib' for section 0
-[137] bibtex.pm:1713> INFO - LaTeX decoding ...
-[148] bibtex.pm:1518> INFO - Found BibTeX data source 'bibliography.bib'
-[230] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
-[230] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[230] Biber.pm:4221> INFO - Sorting list 'anyt/global//global/global' of type 'entry' with template 'anyt' and locale 'en-US'
-[230] Biber.pm:4227> INFO - No sort tailoring available for locale 'en-US'
-[243] bbl.pm:654> INFO - Writing 'main.bbl' with encoding 'UTF-8'
-[249] bbl.pm:757> INFO - Output to main.bbl
-[249] Biber.pm:130> WARN - legacy month field 'nov' in entry '10.14778/2850583.2850594' is not an integer - this will probably not sort properly.
-[249] Biber.pm:132> INFO - WARNINGS: 1
+[55] biber:340> INFO - === Sa Okt 14, 2023, 01:25:39
+[67] Biber.pm:418> INFO - Reading 'main.bcf'
+[123] Biber.pm:978> INFO - Found 12 citekeys in bib section 0
+[134] Biber.pm:4401> INFO - Processing section 0
+[142] Biber.pm:4592> INFO - Looking for bibtex file 'bibliography.bib' for section 0
+[144] bibtex.pm:1713> INFO - LaTeX decoding ...
+[154] bibtex.pm:1518> INFO - Found BibTeX data source 'bibliography.bib'
+[232] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[233] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[233] Biber.pm:4221> INFO - Sorting list 'anyt/global//global/global' of type 'entry' with template 'anyt' and locale 'en-US'
+[233] Biber.pm:4227> INFO - No sort tailoring available for locale 'en-US'
+[245] bbl.pm:654> INFO - Writing 'main.bbl' with encoding 'UTF-8'
+[250] bbl.pm:757> INFO - Output to main.bbl
+[250] Biber.pm:130> WARN - legacy month field 'nov' in entry '10.14778/2850583.2850594' is not an integer - this will probably not sort properly.
+[251] Biber.pm:132> INFO - WARNINGS: 1

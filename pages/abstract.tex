@@ -1,5 +1,27 @@
 \chapter{\abstractname}
 
-%TODO: Abstract
+Our aim with this project is to implement, 
+investigate and compare different methods 
+and techniques to solve small linear programming problems representing
+ the problem of cardinality estimation. A way to estimate realistic and
+useful upper bounds of query sizes is through linear programming.
+ Studies have 
+shown that cardinality estimation is the major root of many issues in 
+query optimization, which is why we want a 
+practical estimate to choose
+the best from data plans to run efficient queries.
+For this purpouse, the cardinality
+estimation problem can be represented in the form of a packing linear programming problem with
+the intention of assuming worst-case join sizes and seeing how
+large the query can get. The result is
+hundreds of relatively small LP that we collect in datasets and solve them 
+with different methods and algorithms. We then draw conclusions based on the results of
+our experiments, benchmarks and the previous work done on similar packing LP problems.
+This should guide us into constructing a thorough analysis of the particularities of
+these LP problems, what's unique about their structure and if their solution
+process follows any patterns. We then discuss and draw hypotheses on the ways this 
+analysis can be exploited to further optimize the solution process: which methods or 
+combination of methods deliver the best time and memory complexity.
+
 
 

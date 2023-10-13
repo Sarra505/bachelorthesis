@@ -324,6 +324,30 @@ This is our results:
 
 
 \subsubsection{TPC-DS results}
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=\linewidth]{figures/methods_time_tpcds.pdf}
+    \caption{A graph comparing the time performance of two of
+    our solvers with scipy solver solving the tpcds dataset}
+    \label{fig:methods_time_tpcds}
+\end{figure}
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=\linewidth]{figures/num_iter_tpcds_mpfi.pdf}
+    \caption{Boxplot for number of iterations for MPFI for TPCDS dataset}
+    \label{fig:num_iter_tpcds_mpfi}
+\end{figure}
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=\linewidth]{figures/num_iter_pfi_tpcds.pdf}
+    \caption{Boxplot for number of iterations for PFI for TPCDS dataset}
+    \label{fig:num_iter_pfi_tpcds}
+\end{figure}
+
+
 \subsubsection{TPC-H results}
 
 
@@ -512,7 +536,7 @@ compared to revised simplex with PFI and MPFI update methods.
 
 Also, starting from $\texttt{lp\_size} \geq 15,000$ approximately, we observe in Figure
 \ref{cplex_vs_all_random_large} that Cplex starts outperforming our solvers.
-  
+
 \subsection{Why is highs so slow?}
 using \texttt{linprog} from SciPy with HiGHS as a method can be 
 slower than using the HiGHS interface directly, mainly due to the overhead, 

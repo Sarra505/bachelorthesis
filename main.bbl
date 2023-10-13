@@ -362,33 +362,6 @@
       \verb https://learn.microsoft.com/en-us/sql/relational-databases/performance/cardinality-estimation-sql-server?view=sql-server-ver16
       \endverb
     \endentry
-    \entry{ngo2022information}{inproceedings}{}
-      \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=39f0b4f45a7cc49c2d93ad4644319d9c}{%
-           family={Ngo},
-           familyi={N\bibinitperiod},
-           given={Hung\bibnamedelima Q},
-           giveni={H\bibinitperiod\bibinitdelim Q\bibinitperiod},
-           givenun=0}}%
-      }
-      \list{organization}{1}{%
-        {Schloss Dagstuhl-Leibniz-Zentrum für Informatik}%
-      }
-      \strng{namehash}{39f0b4f45a7cc49c2d93ad4644319d9c}
-      \strng{fullhash}{39f0b4f45a7cc49c2d93ad4644319d9c}
-      \strng{bibnamehash}{39f0b4f45a7cc49c2d93ad4644319d9c}
-      \strng{authorbibnamehash}{39f0b4f45a7cc49c2d93ad4644319d9c}
-      \strng{authornamehash}{39f0b4f45a7cc49c2d93ad4644319d9c}
-      \strng{authorfullhash}{39f0b4f45a7cc49c2d93ad4644319d9c}
-      \field{labelalpha}{Ngo22}
-      \field{sortinit}{N}
-      \field{sortinithash}{22369a73d5f88983a108b63f07f37084}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{booktitle}{25th International Conference on Database Theory (ICDT 2022)}
-      \field{title}{On an Information Theoretic Approach to Cardinality Estimation (Invited Talk)}
-      \field{year}{2022}
-    \endentry
     \entry{stille2010solution}{thesis}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=f5d6804d16ae41780d3f7bf35f9127cd}{%

@@ -16,6 +16,8 @@
 \contentsline {figure}{\numberline {3.8}{\ignorespaces Relation between LP size and time for the 3 simplex solvers and Cplex for randomly generated dataset with increasing LP size.\relax }}{27}{figure.caption.55}%
 \contentsline {figure}{\numberline {3.9}{\ignorespaces Relation between LP size and time for the 3 simplex solvers for the randomly generated dataset with increasing LP size ranging up to 220 rules and 220 variables.\relax }}{27}{figure.caption.57}%
 \contentsline {figure}{\numberline {3.10}{\ignorespaces Relation between LP size and time for the 3 simplex solvers with CPLEX randomly generated dataset with increasing LP size ranging up to 220 rules and 220 variables.\relax }}{28}{figure.caption.58}%
+\contentsline {figure}{\numberline {3.11}{\ignorespaces Speedup of the three solvers (how many times faster they are) compared to CPLEX for the randomly generated dataset for increasing LP size\relax }}{29}{figure.caption.59}%
+\contentsline {figure}{\numberline {3.12}{\ignorespaces Speedup of the three solvers (how many times faster they are) compared to CPLEX for the randomly generated dataset for the LP size up to 1000\relax }}{29}{figure.caption.60}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

@@ -1,12 +1,12 @@
 # Fdb version 4
-["biber main"] 1697136179 "main.bcf" "main.bbl" "main" 1697158207 0
+["biber main"] 1697136179 "main.bcf" "main.bbl" "main" 1697196339 0
   "bibliography.bib" 1697118576 4602 8e7b26e240b7a1fa01d8f23d4f9523ce ""
-  "main.bcf" 1697158206 108205 4ccac3b527dee12629d2a443bab5197b "pdflatex"
+  "main.bcf" 1697196339 108205 4ccac3b527dee12629d2a443bab5197b "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1697158202 "/home/sarrabenmed/bachelorthesis/main.tex" "main.pdf" "main" 1697158207 0
+["pdflatex"] 1697196335 "/home/sarrabenmed/bachelorthesis/main.tex" "main.pdf" "main" 1697196339 0
   "/home/sarrabenmed/.miktex/texmfs/data/fonts/map/pdftex/pdftex.map" 1696436519 82507 a9eef8696c92627b87e9975edea03b2a ""
   "/home/sarrabenmed/.miktex/texmfs/data/fonts/pk/ljfour/jknappen/ec/dpi600/ectt1095.pk" 1688652033 21972 1735e37194d3dbc589cfa76769a7ee73 ""
   "/home/sarrabenmed/.miktex/texmfs/data/miktex/data/le/pdftex/pdflatex.fmt" 1675691360 19995822 3ba435298a4ae7210b99e52e40e59b3b ""
@@ -378,7 +378,7 @@
   "/home/sarrabenmed/bachelorthesis/main.tex" 1696254686 1990 22d55c298824159ab7150f5eceb24d13 ""
   "chapters/01_introduction.tex" 1696159804 1845 ca0c0e995733a172da6e966646f8a47a ""
   "chapters/02_related_work.tex" 1697136523 31122 57c272f2174c5518ca9aaed52b0ae01a ""
-  "chapters/03_linear_programming_approach.tex" 1697157894 19703 4ba896b199bbf4a4dd5fbdbbd3c40e3c ""
+  "chapters/03_linear_programming_approach.tex" 1697196331 24893 4344899620d7fa8d38fd485277cae90c ""
   "chapters/04_evaluation.tex" 1697158196 295 3050b78673d7b02b6a77eda34a12a972 ""
   "chapters/05_conclusion.tex" 1693992460 158 be10a56603e80c6add71f0d49b2f97a0 ""
   "figures/UML.png" 1696424728 558143 62bf43c679cf9852565f352390bf0862 ""
@@ -392,16 +392,16 @@
   "figures/speedup_vs_cplex_random_200.pdf" 1697157379 5130 eda3737689e7c7116c3c6dd5d277ff0d ""
   "figures/time_vs_size_random.pdf" 1697126132 5784 fd4e234ee061db98237a71a3ddeced26 ""
   "main.acr" 0 -1 0 ""
-  "main.aux" 1697158206 32330 494e51bef5274194b0853254afba0dff "pdflatex"
+  "main.aux" 1697196339 33485 0f8ad9f1aed9116f287a9059adf7dd6c "pdflatex"
   "main.bbl" 1697136181 19698 0c2ea576f7e22fcc2a6bbf5fdeb5d2c0 "biber main"
   "main.gls" 0 -1 0 ""
-  "main.glsdefs" 1697158206 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "main.lof" 1697158206 2897 53bbce835fb0864d046a464f01168db5 "pdflatex"
-  "main.lot" 1697158206 770 e16f3a6e895c6061553ff79dcec15355 "pdflatex"
-  "main.out" 1697158205 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "main.run.xml" 1697158206 2406 2a7295332f2500a5f57e5a95935970e8 "pdflatex"
+  "main.glsdefs" 1697196339 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "main.lof" 1697196339 2897 b904c7134df0ac4b4b19380d4067e741 "pdflatex"
+  "main.lot" 1697196339 767 fdbbc0dfc79b6de48ca3ec158e15c016 "pdflatex"
+  "main.out" 1697196337 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "main.run.xml" 1697196339 2406 2a7295332f2500a5f57e5a95935970e8 "pdflatex"
   "main.tex" 1696254686 1990 22d55c298824159ab7150f5eceb24d13 ""
-  "main.toc" 1697158206 5319 3354c7aeb0073a2916982a5b319ec2e2 "pdflatex"
+  "main.toc" 1697196339 5695 9e71635c505cb034f1f0b2ab6d7b8319 "pdflatex"
   "pages/abstract.tex" 1671567459 43 2535c4e8b795bf6f48522f67111feae5 ""
   "pages/acknowledgments.tex" 1671567459 214 2aab6aaae2367df7751a31108caef437 ""
   "pages/cover.tex" 1671567459 904 264d137cd37b69231b54df6d091411a5 ""

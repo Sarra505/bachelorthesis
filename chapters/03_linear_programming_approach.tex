@@ -27,9 +27,9 @@ and a \verb|compareSolvers.cpp|, in which we can conduct our benchmarks.
 
 %------------------------------------------------------------------------
 \subsection{Tableau simplex solver}
-This solver is the simplest of the three solvers, it follows the steps of the standard simplex 
+This solver is the simplest of the three solvers, it follows the steps of the standard simplex
 algorithm in its tabular form. It uses dense matrices and vectors. Although the
-doPivotting() is costly, the simplicity of this algorithm makes it suitable for 
+doPivotting() is costly, the simplicity of this algorithm makes it suitable for
 smaller problems.
 \begin{algorithm}
     \caption{Tableau Simplex Algorithm}
@@ -176,23 +176,41 @@ All the following results have been obtained on a system with the following sett
 \begin{itemize}
     \item OS: Ubuntu 22.04.1 LTS x86\_64
     \item Host: 82A2 Yoga Slim 7 14ARE05
-
     \item CPU: AMD Ryzen 7 4800U with Radeon Graphics (16) @ 1.800GHz
     \item GPU: AMD ATI 03:00.0 Renoir
-    \item Memory: 10409MiB / 15363MiB
+    \item RAM: 10409MiB / 15363MiB
 \end{itemize}
 
 Presolve techniques are not used, the solvers assume an input of the form explained
-in the UML graph \ref{fig:hierarchy} and in the format input as described in the following section.
+in the UML graph \ref{fig:hierarchy} and in the format input as described
+in the following section.
 
-The computed optimal solutions have been validated using the scipy python library.
+The computed optimal solutions have been validated using the scipy python library,
+our solvers terminate and deliver correct optimum.
+
+\subsubsection{Note on cache locality}
+Through our experiments, we have noticed that if we call our C++ solvers
+consecutively, this may affect the recorded exectuin times and thus make our benchmarks
+unreliable or inaccurate. This may be due to cache locality: If the second solver is working
+on data that was recently processed by the first solver, it might benefit from cache locality,
+as some of the required data
+might still be in the cache. This can lead to faster execution times for the second solver.
+However, if the first solver used a significant amount of memory and displaced data relevant
+to the second solver from the cache, then the second solver might experience cache misses.
+Cache misses
+can slow down the execution as the CPU has to fetch the required data from the main memory.
+We detect varying results when we switch the order in which we call our solvers, and so
+this effect is likely significant.
+Our solution to avoid this is by isolating the solvers, and calling each one independently
+(by commenting out any calls to the others). This is our approach to receive
+accurate performance measures, and be able to compare the solvers reliably.
 
 %------------------------------------------------------------------------
 \subsection{Query datasets}
 The input files \texttt{TPCH}, \texttt{TPCDS}, and \texttt{JOB} contain packing
 \gls{lp} problems. We have already established the mathematical derivation of how
 these query-related packing
-\gls{lp} problems are generated in \ref{subsection:cardinality-estimate}.
+\gls{lp} problems are generated in \ref{section:cardinality-estimate}.
 
 The \texttt{lp.txt} file is structured for machine readability.
 In this format, each line represents a single \gls{lp}. The line starts with
@@ -208,7 +226,7 @@ lp:
 
 \begin{table}[!htb]
     \centering
-    \caption{Benchmarks and workloads.}
+    \caption{Benchmarks and number of queries.}
     \begin{tabular}{|l|l|}
         \hline
         Benchmark                                & Number of Queries \\
@@ -218,6 +236,7 @@ lp:
         TPC-DS \parencite{tpcds2022}             & 148               \\
         \hline
     \end{tabular}
+    \label{job_tpch_tpcds}
 \end{table}
 
 \subsubsection{The JOB dataset results}
@@ -261,7 +280,7 @@ using R scripts.
         Number of Variables       & 1.00   & 3.00    & 3.07    & 6.00    \\
         Constraint Matrix Density & 0.3684 & 0.6667  & 0.6703  & 1.0000  \\
         Solution Time Scipy       & 650    & 931     & 959     & 1802    \\
-        Solution Time Scipy       & 97.04  & 184.06  & 190.66  & 415.56  \\
+        Solution Time Cplex       & 97.04  & 184.06  & 190.66  & 415.56  \\
         Solution Time Tableau     & 2.00   & 4.00    & 12.15   & 4274.00 \\
         Solution Time PFI         & 2.000  & 6.000   & 8.316   & 65.000  \\
         Solution Time MPFI        & 1.000  & 4.000   & 5.517   & 68.000  \\
@@ -271,7 +290,8 @@ using R scripts.
         Optimal Value             & 0.3188 & 20.6702 & 21.8575 & 42.1804 \\
         \bottomrule
     \end{tabular}
-\end{table} \label{table_job_stats}
+    \label{table_job_stats}
+\end{table} 
 
 This is our results:
 \begin{table}[!htb]
@@ -288,7 +308,8 @@ This is our results:
         Cplex                      & 17,849,851            \\
         \bottomrule
     \end{tabular}
-\end{table}
+    \label{table_lps_hr_job}
+\end{table} 
 
 
 \begin{figure}[p]
@@ -302,12 +323,36 @@ This is our results:
 
 
 
-
 \subsubsection{TPC-DS results}
+\subsubsection{TPC-H results}
+
 
 %------------------------------------------------------------------------
 \subsection{Results on randomly generated LPs}
-We also test our solvers alongside Cplex, on packing LPs generated randomly. We want to 
+We also test our solvers alongside Cplex, on packing LPs generated randomly.
+
+We use a python script as a generator for packing linear programming (LP) problems.
+It creates LP problem instances
+based on the specified number of rules and variables.
+For each rule, a random number of entries, ranging from 1 to
+the total number of variables, is determined.
+For every entry in a rule, a unique column number is randomly selected from
+the available variables, ensuring that the same column is not used more than once for
+the same rule. A random coefficient, between 0.1 and 1.0, is then assigned to
+this column. The entire LP problem is represented as a space-separated string,
+where the first entry denotes the number of rules, followed by the number of
+entries for each rule, and then the column-coefficient pairs.
+The main part of
+the script generates a series of such LP problems, incrementally increasing the
+number of rules and variables for each problem, and writes them to a text file.
+This is how we get our randomly generated packing LPs with increasing sizes in the same format
+as the query datasets.
+
+We run our solvers, and also Cplex on this dataset, which provide us with numerical results
+in the figures: \ref{fig:time_vs_size_random}, \ref{fig:lps_per_hour_random}, \ref{fig:size_time_random_large},
+\ref{fig:speedup_cplex_less_1000.pdf}, and \ref{fig:speedup_cplex_random.pdf}.
+
+We want to
 explore those results to investigate how these solvers scale, and if the speedup
 they provide is still substantial at larger LPs.
 
@@ -316,51 +361,51 @@ they provide is still substantial at larger LPs.
     \centering
     \includegraphics[width=0.8\textwidth]{figures/time_vs_size_random.pdf}
     \caption{Relation between LP size and time for the 3 simplex solvers and Cplex for randomly generated
-    dataset with increasing LP size.}
+        dataset with increasing LP size.}
     \label{fig:time_vs_size_random}
 \end{figure}
 
 
-This is our results:
 \begin{table}[!htb]
     \centering
-    \caption{Number of LPs or Queries Solved by Hour for the randomly generated dataset}
+    \caption{Number of LPs Solved by Hour for the randomly generated dataset}
     \begin{tabular}{l|r}
         \toprule
-        Method                     & Number of LPs/Queries \\
+        Method                     & Number of LPs \\
         \midrule
-        Revised Simplex MPFU Umbra & 13,520,349           \\
-        Tableau Simplex            & 6,963,530            \\
-        Revised Simplex PFI        &  24,352,331          \\
-        Cplex                      & 6,666,083             \\
+        Revised Simplex MPFU Umbra & 13,520,349    \\
+        Tableau Simplex            & 6,963,530     \\
+        Revised Simplex PFI        & 24,352,331    \\
+        Cplex                      & 6,666,083     \\
         \bottomrule
     \end{tabular}
-\end{table}
+    \label{fig:lps_per_hour_random}
+\end{table} 
 
-We want to see the further evolution of this time profile, so we increase the number of generated LPs 
-and explore larger LPs. This provides us with the following results:
+We get the time profile in Figure \ref{fig:time_vs_size_random}.
+We want to see the further evolution of this time profile, so we increase the number of generated LPs
+and explore larger LPs, see Figure \ref{fig:size_time_random_large}.
 
 \begin{figure}[!htb]
     \centering
     \includegraphics[width=\linewidth]{figures/size_time_random_large.pdf}
     \caption{Relation between LP size and time for the 3 simplex solvers for the randomly generated
-    dataset with increasing LP size ranging up to 220 rules and 220 variables.}
+        dataset with increasing LP size ranging up to 220 rules and 220 variables.}
     \label{fig:size_time_random_large}
 \end{figure}
 
 \begin{figure}[p]
     \includegraphics[width=0.8\paperwidth, height=\paperheight, keepaspectratio]{figures/cplex_vs_all_random_large.pdf}
     \caption{Relation between LP size and time for the 3 simplex solvers with CPLEX randomly generated
-    dataset with increasing LP size ranging up to 220 rules and 220 variables.}
+        dataset with increasing LP size ranging up to 220 rules and 220 variables.}
     \label{cplex_vs_all_random_large}
 \end{figure}
-
 
 \begin{figure}[!htb]
     \centering
     \includegraphics[width=\linewidth]{figures/speedup_vs_cplex_random_200.pdf}
     \caption{Speedup of the three solvers (how many times faster they are) compared to CPLEX for
-    the randomly generated dataset for increasing LP size}
+        the randomly generated dataset for increasing LP size}
     \label{fig:speedup_cplex_random.pdf}
 \end{figure}
 
@@ -368,56 +413,108 @@ and explore larger LPs. This provides us with the following results:
     \centering
     \includegraphics[width=\linewidth]{figures/speedup_cplex_less_1000.pdf}
     \caption{Speedup of the three solvers (how many times faster they are) compared to CPLEX for
-    the randomly generated dataset for the LP size up to 1000}
+        the randomly generated dataset for the LP size up to 1000}
     \label{fig:speedup_cplex_less_1000.pdf}
 \end{figure}
 
 %------------------------------------------------------------------------
 %------------------------------------------------------------------------
 \section{Analysis}
+In the following section we will conduct an analysis of our various numerical results
+and benchmarks.
+We will discuss the
+particularites of the structure of these LP problems, and if there are any
+patterns in their solution
+process. This analysis is based on observing the statistical results we obtained from
+running different solvers on these problems. This will provide us with insight
+regarding the optimization of these problems.
+
+We will also analyse and compare the time performance for our implementation solvers,
+Umbra's revised simplex with the Middle \gls{pfi} update variant, Cplex and HiGHS.
+
 
 %------------------------------------------------------------------------
-\subsection{Dataset Structure}
-Our dataset stucture:
-as opposed to what the linear programming research has dealt with, which is
-very large problems, we are dealing with hundreds of small problems. These are represented
+\subsection{Analysis JOB dataset}
+
+\subsubsection{Structure and properties}
+In  this subsection we will conduct an analysis the JOB dataset properties.
+
+A opposed to what the linear programming research has dealt with, which is
+very large problems, we are dealing with hundreds of small problems. The statistics
+collected about the JOB dataset in the Table \ref{table_job_stats} prove this, since the LP size range is small, (number
+of rules ranging from 1 to 19 and number of variables between 1 and 6).
+
+Given the size of these LPs one might think the constraint matrices involved
+are practically dense, however our results show differently. If we look at the densities
+in the Table \ref{table_job_stats} we can see that the constraint matrix average density
+for the JOB queries is around $0.6703$.
+
+These matrices are represented
 in the revised simplex algorithm by
-sparse matrices but not as sparse as it would have been if the problem was large,
+sparse matrices but not as sparse as it would have been if the problem was large, i.e.
 small matrices that are not small enough to be dense.
-(they still have quite a number of non-zeroes).
+
+\subsubsection{Time efficiency}
+From the table \ref{table_lps_hr_job}, we can see that the Tableau solver
+outperforms the two other revised simplex solvers and Cplex. It records
+the largest Query-Per-Hour metric, around $ 1.4 \texttt{billion}$ queries per hour.
+The time profiles of the three solvers show that for the queries that have
+an LP size less than 250 (we define the LP size as the product of the number 
+of variables and the number of rules this LP has $\texttt{lp\_size} = m \times n$)
+Tableau is the best out of the three. 
+However, from $\texttt{lp\_size} \geq 250$ PFI outperforms the tableau method.
+Meanwhile, the MPFI delivers the worst execution time out of the three solvers, for
+this JOB dataset of small queries. 
+
+Also, Cplex is slower than all other solvers for this dataset.
+
+These results may be due to several reasons. We think most likely reason,
+according to theoretical analysis of the functionalities of these solvers, and the documentation
+of Cplex, is based on the small size of these LP problems.
+
+\begin{itemize}
+    \item Overhead of Cplex: Cplex, being a commercial solver, is designed to handle
+    large-scale LPs. To do this, it incorporates many (in our case unnecessary) advanced techniques like 
+    long initialization phases, presolving,
+    where it attempts to simplify the LP, analyze it, identify special structures... While
+    this can be highly beneficial for large and more complex problems, for small ones it 
+    introduces unnecessary overhead.
+    \item Simplicity of Tableau solver: our solver is very basic, skips unnecessary
+    preprocessing or initialization. The bottleneck of the Tableau simplex solver
+    is the Pivoting step, which includes row operations on dense matrices.
+    For small problems, the data might fit entirely within the CPU cache, 
+    making certain operations faster. The 1D dense matrix data structure may be a good 
+    choice for this reason.
+    \item Overhead of revised simplex methods: in the revised simplex method we start by
+    preparing the sparse matrix format. This data structure offers a beneficial speedup 
+    for larger sparser problems, but for small problems it represents an unnecessary 
+    overhead, compared to the Tableau simplex, even though the latter uses a dense 
+    representaion of the tableau, but in 1D vector, which may be more cache-friendly.
+    The Revised Simplex method updates the matrix by enqueing an eta file to the pivots,
+    but it still applies two basis multiplications BTRAN and FTRAN
+    , which can be slower than the Pivoting operation of Tableau, especially for
+     small problems.
+
+\end{itemize}
+
+It's worth noting that while the Tableau Simplex might be faster for some small LPs, 
+it can be 
+much slower than the Revised Simplex or CPLEX for larger or more complex problems. 
+This is what we will discuss in  the next part of the analysis.
 
 %------------------------------------------------------------------------
-\subsection{Analysis of dataset properties}
-In  this subsection we will conduct an analysis of our dataset properties. What are the
-particularites of the structure of these LP problems, is their any patterns in their solution
-process. This anaylsis is based on observing the statistical results we obtained from
-running different solvers on these problems. This will later provide us with insight
-regarding optimization of these problems.
+\subsection{Analysis of experiments on randomly generated LPs}
+For small LP sizes, we observed that a basic implementation like tableau simplex
+ouperform the revised simplex implementations as well as Cplex. However, for
+larger LPs we come across other results. 
+From figure \ref{fig:size_time_random_large} we see that Tableau does not scale well,
+compared to revised simplex with PFI and MPFI update methods.
+
+Also, starting from $\texttt{lp\_size} \geq 15,000$ approximately, we observe in Figure
+\ref{cplex_vs_all_random_large} that Cplex starts outperforming our solvers.
+  
 \subsection{Why is highs so slow?}
-using \texttt{linprog} from SciPy with HiGHS as a method can be slower than using the HiGHS interface directly, and there are a few reasons for this:
-
-\begin{enumerate}
-    \item \textbf{Overhead from Python and SciPy}: When you use \texttt{linprog} from SciPy,
-          there's an overhead associated with Python's interpretation and SciPy's function calls.
-          This overhead might not be significant for small problems, but for larger LPs or when solving multiple LPs, it can add up.
-
-    \item \textbf{Data Conversion}: \texttt{linprog} has to convert the problem data
-          into a format that HiGHS can understand. This conversion can introduce additional computational overhead.
-
-    \item \textbf{Additional Features}: \texttt{linprog} provides a unified interface for
-          multiple solvers, and it might perform some additional checks or operations that are not strictly necessary
-          when you know you're going to use HiGHS.
-
-    \item \textbf{Version Differences}: Depending on how you installed SciPy and HiGHS,
-          there might be version differences between the HiGHS in SciPy and the standalone HiGHS.
-          Newer versions of solvers often come with performance improvements, so if SciPy's version is older, it might be slower.
-
-    \item \textbf{Default Parameters}: The default parameters set by \texttt{linprog} for HiGHS
-          might not be the most optimal for your specific problem. When using the HiGHS interface directly,
-          you have more control over these parameters.
-\end{enumerate}
-
-For these reasons, if performance is critical and you're solving large-scale LPs or solving many LPs, it might be beneficial to use
-the HiGHS interface directly. However, for many users, the convenience of using
-\texttt{linprog} and its unified interface might outweigh the performance benefits of using HiGHS directly.
+using \texttt{linprog} from SciPy with HiGHS as a method can be 
+slower than using the HiGHS interface directly, mainly due to the overhead, 
+additional features and encapsulation.
 

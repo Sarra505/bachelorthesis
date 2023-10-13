@@ -1,6 +1,6 @@
 INFO:  latexindent.pl version 3.20.2, 2023-02-04, a script to indent .tex files
        latexindent.pl lives here: /home/sarrabenmed/.miktex/texmfs/install/scripts/latexindent/
-       Thu Oct 12 16:36:53 2023
+       Fri Oct 13 11:59:22 2023
        Filename: /home/sarrabenmed/bachelorthesis/chapters/__latexindent_temp_03_linear_programming_approach.tex
 INFO:  Processing switches:
        -y|--yaml: YAML settings specified via command line

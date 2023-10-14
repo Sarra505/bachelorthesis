@@ -62,6 +62,37 @@
       \field{pages}{1737\bibrangedash 1767}
       \range{pages}{31}
     \endentry
+    \entry{alizadeh1995interior}{article}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=20557f7a218dbfba2cf4192fc1aa506e}{%
+           family={Alizadeh},
+           familyi={A\bibinitperiod},
+           given={Farid},
+           giveni={F\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {SIAM}%
+      }
+      \strng{namehash}{20557f7a218dbfba2cf4192fc1aa506e}
+      \strng{fullhash}{20557f7a218dbfba2cf4192fc1aa506e}
+      \strng{bibnamehash}{20557f7a218dbfba2cf4192fc1aa506e}
+      \strng{authorbibnamehash}{20557f7a218dbfba2cf4192fc1aa506e}
+      \strng{authornamehash}{20557f7a218dbfba2cf4192fc1aa506e}
+      \strng{authorfullhash}{20557f7a218dbfba2cf4192fc1aa506e}
+      \field{labelalpha}{Ali95}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{SIAM journal on Optimization}
+      \field{number}{1}
+      \field{title}{Interior point methods in semidefinite programming with applications to combinatorial optimization}
+      \field{volume}{5}
+      \field{year}{1995}
+      \field{pages}{13\bibrangedash 51}
+      \range{pages}{39}
+    \endentry
     \entry{chvatal1983linear}{book}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=76e781465fa327a48c5a4a9d1b551fe5}{%
@@ -87,6 +118,34 @@
       \field{labeltitlesource}{title}
       \field{title}{Linear programming}
       \field{year}{1983}
+    \endentry
+    \entry{cplex2009v12}{article}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=c3706a619d9ef3d65f4bd0d6b530e90d}{%
+           family={Cplex},
+           familyi={C\bibinitperiod},
+           given={IBM\bibnamedelima ILOG},
+           giveni={I\bibinitperiod\bibinitdelim I\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{c3706a619d9ef3d65f4bd0d6b530e90d}
+      \strng{fullhash}{c3706a619d9ef3d65f4bd0d6b530e90d}
+      \strng{bibnamehash}{c3706a619d9ef3d65f4bd0d6b530e90d}
+      \strng{authorbibnamehash}{c3706a619d9ef3d65f4bd0d6b530e90d}
+      \strng{authornamehash}{c3706a619d9ef3d65f4bd0d6b530e90d}
+      \strng{authorfullhash}{c3706a619d9ef3d65f4bd0d6b530e90d}
+      \field{labelalpha}{Cpl09}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{International Business Machines Corporation}
+      \field{number}{53}
+      \field{title}{V12. 1: User’s Manual for CPLEX}
+      \field{volume}{46}
+      \field{year}{2009}
+      \field{pages}{157}
+      \range{pages}{1}
     \endentry
     \entry{dantzig1990origins}{incollection}{}
       \name{author}{1}{}{%
@@ -149,6 +208,41 @@
       \field{pages}{64\bibrangedash 67}
       \range{pages}{4}
     \endentry
+    \entry{graefe1993volcano}{inproceedings}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=5635912fadd35b7cccc50d61503c072e}{%
+           family={Graefe},
+           familyi={G\bibinitperiod},
+           given={Goetz},
+           giveni={G\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=d596cf0d427463c7f200ee2c7c33cc78}{%
+           family={McKenna},
+           familyi={M\bibinitperiod},
+           given={William\bibnamedelima J},
+           giveni={W\bibinitperiod\bibinitdelim J\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{organization}{1}{%
+        {IEEE}%
+      }
+      \strng{namehash}{c324aaff15c28dc425d3bc5d8bd21202}
+      \strng{fullhash}{c324aaff15c28dc425d3bc5d8bd21202}
+      \strng{bibnamehash}{c324aaff15c28dc425d3bc5d8bd21202}
+      \strng{authorbibnamehash}{c324aaff15c28dc425d3bc5d8bd21202}
+      \strng{authornamehash}{c324aaff15c28dc425d3bc5d8bd21202}
+      \strng{authorfullhash}{c324aaff15c28dc425d3bc5d8bd21202}
+      \field{labelalpha}{GM93}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Proceedings of IEEE 9th international conference on data engineering}
+      \field{title}{The volcano optimizer generator: Extensibility and efficient search}
+      \field{year}{1993}
+      \field{pages}{209\bibrangedash 218}
+      \range{pages}{10}
+    \endentry
     \entry{golub2013matrix}{book}{}
       \name{author}{2}{}{%
         {{un=0,uniquepart=base,hash=8b856da92ad549d323acc679ecf7f474}{%
@@ -181,6 +275,42 @@
       \field{title}{Matrix computations}
       \field{year}{2013}
     \endentry
+    \entry{huangfu2015novel}{article}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=c717029f6b70cf7c1026f315880ca282}{%
+           family={Huangfu},
+           familyi={H\bibinitperiod},
+           given={Qi},
+           giveni={Q\bibinitperiod},
+           givenun=0}}%
+        {{un=1,uniquepart=given,hash=4bef926b4d65e71e3368fbd88d8b805f}{%
+           family={Hall},
+           familyi={H\bibinitperiod},
+           given={JA\bibnamedelima Julian},
+           giveni={J\bibinitperiod\bibinitdelim J\bibinitperiod},
+           givenun=1}}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{217f62034a2d625dc6f9f224367635cb}
+      \strng{fullhash}{217f62034a2d625dc6f9f224367635cb}
+      \strng{bibnamehash}{217f62034a2d625dc6f9f224367635cb}
+      \strng{authorbibnamehash}{217f62034a2d625dc6f9f224367635cb}
+      \strng{authornamehash}{217f62034a2d625dc6f9f224367635cb}
+      \strng{authorfullhash}{217f62034a2d625dc6f9f224367635cb}
+      \field{labelalpha}{HH15}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Computational Optimization and Applications}
+      \field{title}{Novel update techniques for the revised simplex method}
+      \field{volume}{60}
+      \field{year}{2015}
+      \field{pages}{587\bibrangedash 608}
+      \range{pages}{22}
+    \endentry
     \entry{Huangfu2018}{article}{}
       \name{author}{2}{}{%
         {{un=0,uniquepart=base,hash=b8390b28eb7705707650d11e6d479d4f}{%
@@ -189,12 +319,12 @@
            given={Q.},
            giveni={Q\bibinitperiod},
            givenun=0}}%
-        {{un=0,uniquepart=base,hash=c454bcef6bc4f48080bcdec7e5bf52ae}{%
+        {{un=1,uniquepart=given,hash=c454bcef6bc4f48080bcdec7e5bf52ae}{%
            family={Hall},
            familyi={H\bibinitperiod},
            given={J.\bibnamedelimi A.\bibnamedelimi J.},
            giveni={J\bibinitperiod\bibinitdelim A\bibinitperiod\bibinitdelim J\bibinitperiod},
-           givenun=0}}%
+           givenun=1}}%
       }
       \strng{namehash}{a8350195cb2f2f5eee82f581b3ca9e57}
       \strng{fullhash}{a8350195cb2f2f5eee82f581b3ca9e57}
@@ -335,6 +465,72 @@
       \verb https://doi.org/10.14778/2850583.2850594
       \endverb
     \endentry
+    \entry{leis2018query}{article}{}
+      \name{author}{7}{}{%
+        {{un=0,uniquepart=base,hash=963c74f650ce23bb4617efc8276c5afb}{%
+           family={Leis},
+           familyi={L\bibinitperiod},
+           given={Viktor},
+           giveni={V\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=3fd94a48970e21c7db575a558fc87619}{%
+           family={Radke},
+           familyi={R\bibinitperiod},
+           given={Bernhard},
+           giveni={B\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=0e05974fb7be79c42dc4b1391088c31f}{%
+           family={Gubichev},
+           familyi={G\bibinitperiod},
+           given={Andrey},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=5b13f7fa15efb925175fe6d2ad0a564a}{%
+           family={Mirchev},
+           familyi={M\bibinitperiod},
+           given={Atanas},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=9a9b1ccfbe3e81e38a1c1136ca101f64}{%
+           family={Boncz},
+           familyi={B\bibinitperiod},
+           given={Peter},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=2466c24cd22361559679d58bb1d8da60}{%
+           family={Kemper},
+           familyi={K\bibinitperiod},
+           given={Alfons},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=856106a72d787bcea4281fca718cd7d7}{%
+           family={Neumann},
+           familyi={N\bibinitperiod},
+           given={Thomas},
+           giveni={T\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{7601a1b0ffe6549025b1e5f3f3da869a}
+      \strng{fullhash}{61784e18bf01d7bcdfcbdb7d4ccd044b}
+      \strng{bibnamehash}{61784e18bf01d7bcdfcbdb7d4ccd044b}
+      \strng{authorbibnamehash}{61784e18bf01d7bcdfcbdb7d4ccd044b}
+      \strng{authornamehash}{7601a1b0ffe6549025b1e5f3f3da869a}
+      \strng{authorfullhash}{61784e18bf01d7bcdfcbdb7d4ccd044b}
+      \field{labelalpha}{Lei+18}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{The VLDB Journal}
+      \field{title}{Query optimization through the looking glass, and what we found running the join order benchmark}
+      \field{volume}{27}
+      \field{year}{2018}
+      \field{pages}{643\bibrangedash 668}
+      \range{pages}{26}
+    \endentry
     \entry{microsoft2023cardinality}{online}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=140864078aeca1c7c35b4beb33c53c34}{%
@@ -385,6 +581,39 @@
       \field{journaltitle}{(No Title)}
       \field{title}{Advanced linear programming: computation and practice}
       \field{year}{1981}
+    \endentry
+    \entry{neumann2020umbra}{inproceedings}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=856106a72d787bcea4281fca718cd7d7}{%
+           family={Neumann},
+           familyi={N\bibinitperiod},
+           given={Thomas},
+           giveni={T\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=4079a92ce5df93f11686ed6b88399e39}{%
+           family={Freitag},
+           familyi={F\bibinitperiod},
+           given={Michael\bibnamedelima J},
+           giveni={M\bibinitperiod\bibinitdelim J\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{d0acf0d05371e858d4bd834331ab77cd}
+      \strng{fullhash}{d0acf0d05371e858d4bd834331ab77cd}
+      \strng{bibnamehash}{d0acf0d05371e858d4bd834331ab77cd}
+      \strng{authorbibnamehash}{d0acf0d05371e858d4bd834331ab77cd}
+      \strng{authornamehash}{d0acf0d05371e858d4bd834331ab77cd}
+      \strng{authorfullhash}{d0acf0d05371e858d4bd834331ab77cd}
+      \field{labelalpha}{NF20}
+      \field{sortinit}{N}
+      \field{sortinithash}{22369a73d5f88983a108b63f07f37084}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{CIDR}
+      \field{title}{Umbra: A Disk-Based System with In-Memory Performance.}
+      \field{volume}{20}
+      \field{year}{2020}
+      \field{pages}{29}
+      \range{pages}{1}
     \endentry
     \entry{stille2010solution}{thesis}{}
       \name{author}{1}{}{%
@@ -470,6 +699,7 @@
       \endverb
     \endentry
   \enddatalist
+  \missing{Umbra}
 \endrefsection
 \endinput
 

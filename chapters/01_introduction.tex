@@ -5,57 +5,33 @@
 
 
 \chapter{Introduction}\label{chapter:introduction}
-In the ever-evolving landscape of computer science and informatics, 
-the quest for optimizing query performance in databases remains a 
-critical and ongoing challenge. Query optimization lies at the heart 
-of efficient database management systems, and its impact reverberates 
-throughout a wide range of applications, from e-commerce platforms to 
-scientific research. At the core of this challenge is the cardinality 
-estimation problem, a fundamental issue that has far-reaching consequences 
-in the world of query optimization.
-
-Our bachelor's thesis in informatics embarks on a journey to 
-address this challenge by exploring various methods and techniques 
-to tackle small linear programming (LP) problems that represent 
-the cardinality estimation problem. We endeavor to provide practical 
-estimates that guide the selection of data plans for running efficient
- queries, thereby enhancing the overall performance of database systems.
+In this chapter we motivate the purpouse of our research and present an overview of its structure, highlighting the importance of  reliable cardinality estimation in the field of query optimization. Our contribution's relevance lies in selecting the best method or combination of methods to solve hundreds of small LP problems efficiently, optimizing for time and memory. Cardinality estimation problem can be solved using linear programming, so our research opens doors for a faster cardinality estimation, and, in turn, efficient query execution.
 
 \section{Motivation}
 
-Cardinality estimation, as our research reveals, is a proverbial 
-"Achilles' heel" in the domain of query optimization. 
-The accuracy of cardinality estimates significantly influences 
-the choice of query execution plans, and consequently, 
-the efficiency of database queries. Inaccurate estimates 
-can lead to suboptimal query plans, causing performance bottlenecks, 
-and even system-wide degradation. Therefore, our project aims to 
-shed light on this pivotal challenge.
-
-To understand and address the cardinality estimation problem, 
-we frame it as a packing linear programming problem. We do so 
-with the intent of simulating worst-case scenarios regarding 
-join sizes and assessing the query's potential size under such 
-conditions. This approach yields hundreds of relatively small 
-LP instances that we gather in datasets, each ready to be solved 
-using a variety of methods and algorithms.
-
-\section{The Research Approach}
-
-Our research methodology is multifaceted. We systematically 
-conduct experiments and benchmarks on these LP problems, drawing 
-upon previous work on similar packing LP problems to inform our 
-investigations. Through rigorous experimentation, we aim to distill
- insights into the unique characteristics of these LP problems and 
- uncover any underlying patterns in their solution processes.
-
-In the subsequent chapters of this thesis, we delve into the 
-background and related work, providing a comprehensive overview
- of linear programming and its various facets. We explore duality, 
- geometric interpretations, feasibility, unboundedness, simplex algorithms,
-  runtime complexities, and interior point methods. Additionally, we delve 
-  into the AGM bound, which plays a pivotal role in cardinality estimation, 
-  and we examine state-of-the-art LP solvers like HIGHS Scipy and Cplex.
+The quest for optimizing query execution in databases is a critical
+challenge. The query optimizer attempts 
+to determine the most efficient way to execute a given query by considering the possible 
+query plans \parencite{leis2018query}. 
+These plans are all equivalent in their final output, but vary in their
+cost, that is, the amount of time that they need to run.
+Cost-based query optimizers select query plans that have the lowest estimated cost to
+execute. One parameter that plays an important role in this selection process 
+is the cardinality estimates 
+of these plans. Therefore, improving cardinality estimation leads to better estimated costs 
+and, in turn, faster execution plans \parencite{graefe1993volcano}.
+Linear Programming (LP) is a mathematical modeling technique to calculate the optimum of a linear function
+given a set of linear constraits \parencite{chvatal1983linear}.
+Cardinality estimation can be represented through linear programming \parencite{atserias2013size}.
+Our aim with this project is to implement, 
+investigate and compare different methods suitable for solving hundreds of small LP 
+problems. These methods include the standard simplex algorithm and the revised simplex algorithm.
+ We test our methods alongside Umbra's cardinality estimator, which uses revised simplex algorithm
+with MPFI \parencite{neumann2020umbra}. 
+By running various benchmarks, we conduct an analysis on the structure of these LP problems,
+we compare the time profiles for the different methods tested and finally 
+make a recommendation on the methods or combination of methods that deliver the best time and memory 
+complexity.
 
 \section{Chapter Overview}
 
@@ -64,16 +40,17 @@ This thesis is structured as follows:
 \begin{itemize}
   \item \textbf{Chapter 2: Background and Related Work} - Provides a 
   foundational understanding of linear programming, duality, 
-  and the intricacies of LP solvers. We also explore cardinality
+  and an overview of the different LP solvers. We also explore cardinality
    estimation and state-of-the-art LP solvers.
   \item \textbf{Chapter 3: Tuning Linear Programming Solvers for Query
    Optimization} - Introduces our proposal and implementation, 
    including the hierarchy, tableau simplex solver, data structures, 
    revised simplex solver, and stability considerations.
-  \item \textbf{Chapter 4: Evaluation} - Presents an in-depth analysis 
-  of our experiments, including the analysis of the JOB dataset, experiments 
-  on randomly generated LPs, and insights into the performance of HIGHS Scipy.
-   We also discuss limitations and outline potential avenues for future work.
+  \item \textbf{Chapter 4: Evaluation} - Presents our results. Starting by 
+  an in-depth analysis 
+  of our results, including the analysis of the query dataset, and the
+   randomly generated LPs.
+   We also discuss limitations and outline potential future work.
   \item \textbf{Chapter 5: Conclusion} - Summarizes our findings 
   and contributions, reiterating the importance of cardinality estimation 
   in query optimization, and discusses the implications of our research.

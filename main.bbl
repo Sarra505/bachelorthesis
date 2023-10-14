@@ -362,6 +362,30 @@
       \verb https://learn.microsoft.com/en-us/sql/relational-databases/performance/cardinality-estimation-sql-server?view=sql-server-ver16
       \endverb
     \endentry
+    \entry{murtagh1981advanced}{article}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=526716673e2774d29fe7664b6d7a68b5}{%
+           family={Murtagh},
+           familyi={M\bibinitperiod},
+           given={Bruce\bibnamedelima A},
+           giveni={B\bibinitperiod\bibinitdelim A\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{526716673e2774d29fe7664b6d7a68b5}
+      \strng{fullhash}{526716673e2774d29fe7664b6d7a68b5}
+      \strng{bibnamehash}{526716673e2774d29fe7664b6d7a68b5}
+      \strng{authorbibnamehash}{526716673e2774d29fe7664b6d7a68b5}
+      \strng{authornamehash}{526716673e2774d29fe7664b6d7a68b5}
+      \strng{authorfullhash}{526716673e2774d29fe7664b6d7a68b5}
+      \field{labelalpha}{Mur81}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{(No Title)}
+      \field{title}{Advanced linear programming: computation and practice}
+      \field{year}{1981}
+    \endentry
     \entry{stille2010solution}{thesis}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=f5d6804d16ae41780d3f7bf35f9127cd}{%

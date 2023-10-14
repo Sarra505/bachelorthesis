@@ -3,16 +3,19 @@
 
 \chapter{Background and Related work}\label{chapter:relatedwork}
 
-\section{Background}
-In this chapter we will talk about optimization, in particular the field
+In this chapter, we delve into the background and
+related work that forms the foundation for our research on
+solving small linear programming problems related to cardinality estimation.
+We will talk about optimization, in particular the field
 of linear programming. We will elaborate on
 the most widely used algorithms and techniques to tackle this problem,
 and we present some use cases and benchmarks.
 A major use case of linear programming solvers is cardinality estimation, which
-is a crucial step in the pipeline of query optimization. We will present
-the background and related work needed to understand our contribution.
+is a crucial step in the pipeline of query optimization.
 
-\section{Linear Programming}
+\section{Linear Programming Fundamentals}
+
+\subsection{Linear Programming problem}
 Informally, \gls{lp} is a method to calculate the best possible outcome from a given set
 of requirements. A concrete real-world application of such a method is
 for instance aiming to maxmize profit in a business, given some constraints on your variables
@@ -37,7 +40,7 @@ use the matrix representation of the problem.
 
 To derive the setting for our contribution,
 we also explore a special instance of \gls{lp} problems called packing \gls{lp}.
-\subsubsection{Packing LP}
+\subsection{Packing LP}
 One LP problem class that we are dealing with is called the packing LP problem. It is a special instance where:
 \( \mathbf{c}  = \mathbf{b} =  \begin{bmatrix}
     1 & 1 & \dots & 1
@@ -56,9 +59,6 @@ Where $\mathbf{1}_m = \begin{bmatrix}
         1      \\
     \end{bmatrix}$
 
-This specific class of LPs has a simple structure that we can exploit, see
-Chapter \ref*{chapter:linearprogramming},
-to further optimize our implementation.
 
 \subsection{Duality}\label{duality}
 
@@ -98,24 +98,24 @@ a 2D plane. An example is shown in figure \ref{fig:lp_geom}.
 The linear programming problem \ref{LP_Problem} can be understood geometrically as follows:
 Each inequality in the set of constraints is represented by a line.
 Therefore, the feasible region $\chi$ of any LP problem can be described as the intersection delimited
- by those lines, which is called a polyhedron, or in our 2D case, a polytope.
- The feasible region is the set of all feasible points, or vertices.
- A feasible vertex is a point at which, when substituted into the constraints, they are satisfied.
- The corners of the polytope are called vertices.
-They lie in the intersection of at most $n$ constraints. If a vertex lies in the 
+by those lines, which is called a polyhedron, or in our 2D case, a polytope.
+The feasible region is the set of all feasible points, or vertices.
+A feasible vertex is a point at which, when substituted into the constraints, they are satisfied.
+The corners of the polytope are called vertices.
+They lie in the intersection of at most $n$ constraints. If a vertex lies in the
 intersection of more than $n$ lines, it is called degenerate.
 
 \begin{figure}
     \centering
     \begin{tikzpicture}
         \begin{axis}[
-            xmin=-1, xmax=7,
-            ymin=-1, ymax=7,
-            axis lines=center,
-            axis on top=true,
-            domain=0:7,
-            ylabel=$y$,
-            xlabel=$x$,
+                xmin=-1, xmax=7,
+                ymin=-1, ymax=7,
+                axis lines=center,
+                axis on top=true,
+                domain=0:7,
+                ylabel=$y$,
+                xlabel=$x$,
             ]
 
             % Feasible regions with semi-transparent colors
@@ -211,8 +211,8 @@ $\mathbf{c}^T \mathbf{x} \leq \mathbf{c}^T \mathbf{x^*} $ for all $\mathbf{x} \i
         \path [line] (solution) -- node {is} (vertex);
 
     \end{tikzpicture}
-    \caption{Conceptual relationship between an optimal basis, an optimal solution, 
-    and an optimal vertex.}
+    \caption{Conceptual relationship between an optimal basis, an optimal solution,
+        and an optimal vertex.}
 \end{figure} \label{equivalence_terms}
 
 \subsection{The Standard Simplex Algorithm}
@@ -247,44 +247,45 @@ variables are “squeezed out,” maximizing the true variables’ effect on the
 function.
 
 \subsubsection{Defining a Basis}
-So far we have used the terms feasible and optimal vertex, solution, point interchangeably to refer 
+So far we have used the terms feasible and optimal vertex, solution,
+point interchangeably to refer
 to the optimum of a LP problem. Now we will explore the concept of feasible and optimal basis. All the
-concepts are however equivalent, see \ref{equivalence_terms}, yet the simplex algorithm uses the 
+concepts are however equivalent, see \ref{equivalence_terms}, yet the simplex algorithm uses the
 basis terminology.
 
 In  linear algebra, a basis of a vector space is a set of vectors that:
 \begin{itemize}
-    \item Spans the space: This means that every vector in the vector space 
-    can be expressed as a linear combination of the basis vectors.
-    \item Is linearly independent: This means that no vector in the basis can be 
-    expressed as a linear combination of the other basis vectors.
+    \item Spans the space: This means that every vector in the vector space
+          can be expressed as a linear combination of the basis vectors.
+    \item Is linearly independent: This means that no vector in the basis can be
+          expressed as a linear combination of the other basis vectors.
 \end{itemize}
 
-In simpler terms, a basis provides a set of "building blocks" from which all other vectors in the 
+In simpler terms, a basis provides a set of "building blocks" from which all other vectors in the
 space can be constructed without any redundancy.
 
 If an LP problem has an optimal solution, it is enough to search the finite number
 of vertices of the feasible region. Every vertex, or corner point of the feasible region has at least
 one set of $m$ linearly independent columns of $A$ associated with it. The set of indices
-of these columns is called a basis. 
+of these columns is called a basis.
 
-A basis can be seen as a basis matrix, consisting of the 
-$m$ linearly independent columns of $A$ associated with it. 
+A basis can be seen as a basis matrix, consisting of the
+$m$ linearly independent columns of $A$ associated with it.
 
 A feasible basis contains the indices of basic
-variables. A feasible basis is a basis for which all the basic variables have 
+variables. A feasible basis is a basis for which all the basic variables have
 non-negative values when the other variables (non-basic variables) are set to zero.
 
 
 \subsubsection{The algorithm}
-As we have seen, slack variables are introduced to convert inequalities 
-into equations, and these slack variables can form an initial feasible basis. 
-In this case, the decision variables are set to zero, and the slack variables are set to 
+As we have seen, slack variables are introduced to convert inequalities
+into equations, and these slack variables can form an initial feasible basis.
+In this case, the decision variables are set to zero, and the slack variables are set to
 the values on the right-hand side of the constraints.
- This provides a starting point for the Simplex method.
+This provides a starting point for the Simplex method.
 
- If the the right-hand side is a vector of nonnegative numbers, i.e. $mathbb{b} \geq 0 $, then
- the problem is said to be initially feasible.
+If the the right-hand side is a vector of nonnegative numbers, i.e. $mathbb{b} \geq 0 $, then
+the problem is said to be initially feasible.
 
 This constitutes a feasible dictionary (or tableau), formally defined in \parencite{chvatal1983linear}.
 The simplex method then contructs a sequence of feasible dictionaries until reaching an optimum.
@@ -295,19 +296,21 @@ The rest of the steps of the simplex algorithm are broadly presented in the foll
     \begin{algorithmic}[1]
         \Procedure{Simplex}{$\mathbf{c}, \mathbf{A}, \mathbf{b}$}
         \State Initialize a feasible basic solution
-        \State Search for an entering variable, pricing
-        \If{no entering variable exists}
-        \State \Return "Optimal solution found"
-        \EndIf
-        \State Search for a leaving variable using the minimum ratio test
-        \If{no positive pivot element in the column}
-        \State \Return "Unbounded"
-        \EndIf
-        \State Perform the pivot operation
-        \State Update the basic and non-basic variables
-        \State \Return current basic solution
+        \While{true}
+            \State Search for an entering variable (pricing)
+            \If{no entering variable exists}
+                \State \Return "Optimal solution found"
+            \EndIf
+            \State Search for a leaving variable using the minimum ratio test
+            \If{no positive pivot element in the column}
+                \State \Return "Unbounded"
+            \EndIf
+            \State Perform the pivot operation
+            \State Update the basic and non-basic variables
+        \EndWhile
         \EndProcedure
     \end{algorithmic}
+    \label{algo:simplex_tableau}
 \end{algorithm}
 
 
@@ -317,51 +320,51 @@ variable and the choice of the leaving variable.
 \begin{itemize}
     \item Pricing: The choice of the entering variable: we choose a non-basic variable to enter the basis
           and thus become basic. This is called Pricing. The choice usually depends on metrics
-          like the largest increase in the objective function, or the largest coefficient. 
+          like the largest increase in the objective function, or the largest coefficient.
           Bland's rule has been proved to guarantee termination:
-          Choose the entering variable as the non-basic variable with 
+          Choose the entering variable as the non-basic variable with
           the smallest index that has a negative reduced cost for a maximization problem:
-    \[
-    j = \min \{ j : c_j < 0 \}
-    \]
+          \[
+              j = \min \{ j : c_j < 0 \}
+          \]
 
     \item Ratio test: the choice of the leaving variable: we choose a basic variable to leave the basis:
           we do this by performing a ratio test.
           For the chosen entering variable, compute the ratios for all positive values in its column:
-    \[
-    \text{ratio}_i = \frac{b_i}{a_{ij}}
-    \]
-    Choose the leaving variable as the basic variable  has the smallest non-negative ratio:
-    \[
-    i = \min \left\{ i : \text{ratio}_i = \min_{a_{ij} > 0} \frac{b_i}{a_{ij}} \right\}
-    \]
+          \[
+              \text{ratio}_i = \frac{b_i}{a_{ij}}
+          \]
+          Choose the leaving variable as the basic variable  has the smallest non-negative ratio:
+          \[
+              i = \min \left\{ i : \text{ratio}_i = \min_{a_{ij} > 0} \frac{b_i}{a_{ij}} \right\}
+          \]
 \end{itemize}
 
-After selecting an entering variable and a leaving variable, we perform Pivoting, or 
-updating the tableau. 
+After selecting an entering variable and a leaving variable, we perform Pivoting, or
+updating the tableau.
 
 \subsubsection{Termination}
 \begin{enumerate}
     \item \textit{Optimality:}
-    The algorithm terminates when there are no more negative coefficients in the objective function
-     row for a maximization problem (or no more candidates for entering variables).
+          The algorithm terminates when there are no more negative coefficients in the objective function
+          row for a maximization problem (or no more candidates for entering variables).
 
     \item \textit{Unboundedness:}
-    If all the entries in the column of the entering variable are non-positive during the pivot
-     operations, the problem is unbounded.
+          If all the entries in the column of the entering variable are non-positive during the pivot
+          operations, the problem is unbounded.
 
     \item \textit{Cycling:}
-    The algorithm might enter a cycle, revisiting the same basic feasible solutions. Bland's rule 
-    can prevent this.
+          The algorithm might enter a cycle, revisiting the same basic feasible solutions. Bland's rule
+          can prevent this.
 
     \item \textit{Maximum Iterations:}
-    A set maximum number of iterations can be used to prevent indefinite running due to 
-    numerical issues or other unforeseen circumstances. We set a bound on number of steps in our 
-    implementations. This bound is equal to the maximum value a 32-bit unsigned integer can take, or 
-    $4294967295$.
+          A set maximum number of iterations can be used to prevent indefinite running due to
+          numerical issues or other unforeseen circumstances. We set a bound on number of steps in our
+          implementations. This bound is equal to the maximum value a 32-bit unsigned integer can take, or
+          $4294967295$.
 \end{enumerate}
 
-\subsection{The runtime complexity of the simplex algorithm}
+\subsubsection{The runtime complexity of the simplex algorithm}
 %Worst case vs. average case
 Since the idea of the simplex algorithm is to search the finite number of bases until a basis is
 found that belongs to the optimal vertex, and there are $\binom{m}{n}$ bases, this might take
@@ -385,8 +388,8 @@ remains exponential, even though there exists polynomial time implementations fo
 
 \subsubsection{Time complexity analysis of one step}
 Given a linear program with \( m \) constraints and \( n \) variables, the tableau for the
- simplex algorithm will be of size \( (m+1) \times (n+m+1) \). 
- The time complexity of one iteration of the tableau simplex algorithm can be broken down as follows:
+simplex algorithm will be of size \( (m+1) \times (n+m+1) \).
+The time complexity of one iteration of the tableau simplex algorithm can be broken down as follows:
 
 \begin{itemize}
     \item Identifying the entering variable (choosing from $m$ non-basic variables): \( O(m) \)
@@ -395,11 +398,121 @@ Given a linear program with \( m \) constraints and \( n \) variables, the table
 \end{itemize}
 
 Thus, the overall time complexity of one iteration is \( O(m \times n) \).
+This is considered large, especially knowing that there may be an
+exponential number of iterations. This is why we proceed to define
+other solution methods that
+succeeded to achieve a better time performance.
 
 \subsection{The interior point method}
+The interior point method is a mathematical optimization
+technique used to solve linear programming (LP) and
+nonlinear programming (NLP) problems.
+At its core, this method is based on the concept of iteratively
+moving through the interior of the feasible region of a convex
+optimization problem. Mathematically, it can be described as follows:
 
+Consider an LP problem in standard form:
+
+\[
+    \begin{aligned}
+        \text{Minimize:} \quad   & c^Tx     \\
+        \text{Subject to:} \quad & Ax = b   \\
+                                 & x \geq 0
+    \end{aligned}
+\]
+
+Where:
+\begin{align*}
+     & c \text{ is a vector of coefficients representing the objective function to be minimized.} \\
+     & x \text{ is a vector of decision variables.}                                               \\
+     & A \text{ is a matrix representing the system of linear constraints.}                       \\
+     & b \text{ is a vector of constants.}
+\end{align*}
+
+The interior point method
+introduces a barrier or penalty function to the objective function,
+which effectively discourages solutions near the boundary of the feasible
+region. This barrier function is typically defined as $-\sum \log(x_i)$,
+where $x_i$ represents the elements of the vector $x$.
+The optimization problem then becomes:
+
+\[
+    \begin{aligned}
+        \text{Minimize:} \quad & c^Tx - \mu \sum \log(x_i)
+    \end{aligned}
+\]
+
+Where $\mu$ is a parameter controlling the trade-off between
+optimizing the original objective function and staying within
+the interior of the feasible region.
+
+The key mathematical insight of the interior point method is that
+as $\mu$ approaches zero, the solution converges toward the optimal
+solution of the original LP problem. The method iteratively updates $\mu$
+and the solution vector $x$ until a suitable solution within the interior
+of the feasible region is found. This approach enables efficient and robust
+optimization of linear and nonlinear programming problems, making it a
+valuable tool in various fields, including engineering, economics, and
+operations research.
+
+\begin{algorithm}[H]
+    \caption{Interior Point Method for Linear Programming}
+    \begin{algorithmic}[1]
+        \Procedure{InteriorPoint}{$A, b, c, x_0, \mu, \epsilon$}
+        \State Initialize $x$ to $x_0$
+        \While{not converged (e.g., $||Ax - b|| > \epsilon$)}
+        \State Compute the Newton direction $d$ by solving:
+        \State \quad $Hd = -(c + A^T\lambda)$
+        \State \quad $Ad = b - Ax$
+        \State Update the barrier parameter:
+        \State \quad $\mu \leftarrow \frac{\mu}{\text{updateFactor}}$
+        \State Update $x$ and $\lambda$:
+        \State \quad $x \leftarrow x + \alpha d$
+        \State \quad $\lambda \leftarrow \lambda + \alpha \mu Ad$
+        \EndWhile
+        \State \textbf{return} $x$ \Comment{Optimal solution}
+        \EndProcedure
+    \end{algorithmic}
+\end{algorithm}
+
+\subsubsection{Time Complexity Analysis}
+The time complexity of the interior
+point method for linear programming is determined by
+the number of iterations required for convergence.
+In practice, the number of iterations is often polynomial in
+the problem size, which includes the number of decision variables and
+constraints.
+Each iteration involves solving a system of linear equations,
+particularly: $Hd = -(c + A^T\lambda)$
+
+Where:
+\begin{itemize}
+    \item $H$ is a symmetric positive definite matrix (related to the Hessian of the Lagrangian).
+    \item $d$ is the Newton direction.
+    \item $c$ is the vector of coefficients representing the objective function.
+    \item $A$ is the constraint matrix.
+    \item $\lambda$ is the vector of dual variables.
+\end{itemize}
+
+
+which can be done efficiently, especially if $H$ and $A$ are sparse (e.g. using Cholesky, LU decomposition).
+We can express the overall time complexity
+of the interior point method as follows:
+
+\[
+    O(k \cdot (f(n, m) + g(n)))
+\]
+
+Where:
+\begin{itemize}
+    \item $k$ is the number of iterations.
+    \item $f(n, m)$ represents the cost per iteration, which is polynomial in $n$ and $m$.
+    \item $g(n)$ represents any additional preprocessing or initialization costs, which are typically polynomial in $n$.
+\end{itemize}
+Therefore, the overall time complexity of the interior point method is polynomial.
 \subsection{Revised Simplex Algorithm}
-While the standard or tableau simplex algorithm maintains and updates the entire tableau in its
+While the standard or tableau simplex algorithm maintains and updates the
+entire tableau in its
 dense form at each iteration, and the pivotting step of this algorithm is
 highly costly as we have to update the entire matrix
 using row operations.
@@ -451,25 +564,29 @@ Otherwise, compute the step length:
 Update the solution:
 \[ x_B = x_B - \theta d \]
 \[ x_j = \theta \]
-and adjust the sets of basic and non-basic variables.
+and update the sets of basic and non-basic variables.
 
-This proof elucidates that only variables required to "recreate" exactly the tableau at
+This proof elucidates that the only variables required to "recreate" exactly the tableau at
 each step, without performing the costly pivotting operation are:
 \begin{itemize}
     \item the indices of basic and non-basic variables
     \item $B^{-1}$ the inverse of the basis matrix. This is used to solve two types of linear equations
           during an iteration, see step 1 and 3 in \ref{algo:revised}.
+          In the actual implementation, there is no need to compute or store the $B^{-1}$.
+          We just use the basis matrix $B^{-1}$ to solve these linear systems of
+          equations. Therefore in practice, we only store $B$.
     \item the current values of the basic variables, or the current basic feasible solution $x_B = B^{-1}b$
 \end{itemize}
 
 The algorithm is elaborated in \ref{algo:revised}. As we can see, step 1 and 3 represent the solving of
-two types of systems , \gls{ftran} and \gls{btran}. This can be done using a multiplication with
-the basis matrix inverse'.
+two types of systems , \gls{ftran} and \gls{btran}.
 
-However, having to recompute the inverse of a matrix is costly.
+However, having to recompute the inverse of a matrix, or in our actual
+implementation, solve a linear equation system may be costly.
 
 \subsubsection{Inverting a square matrix}
-For a square matrix of size \(n \times n\), the time complexity of LU decomposition
+For a square matrix of size \(n \times n\), the time complexity of LU
+decomposition
 \parencite{golub2013matrix},
 which is one of the
 most prominent methods to invert a matrix, is $O(n^3) $.
@@ -478,7 +595,9 @@ This is why it is desirable to employ another tool to efficiently
 update the inverse of the basis matrix $B^{-1}$
 without having to recompute it from scratch each time.
 Such tools are called update methods,
-and we will later describe the \gls{pfi}, the modified \gls{pfi} and Forrest-Tomlin update method.
+and we will later describe the \gls{pfi},
+the modified \gls{pfi} and we also describe Forrest-Tomlin update method
+in the future work section.
 
 \begin{algorithm}
     \caption{Revised Simplex Algorithm}
@@ -508,34 +627,141 @@ and we will later describe the \gls{pfi}, the modified \gls{pfi} and Forrest-Tom
 
         \item \textbf{Return} Optimal solution \( B^{-1}b \)
     \end{enumerate}
-\end{algorithm}\label{algo:revised}
+    \label{algo:revised}
+\end{algorithm}
 
-\subsubsection*{The product form inverse update method}
-We will discuss the PFI, introduced by George Dantzig \parencite{dantzig1954product}.
-The revised simplex method needs a way to represent the inverse of the
-basis matrix in each step, this is because, when
-finding the entering and leaving variables in each iteration,
-we need the inverse $B^{-1}$ to solve the \gls{btran}
-and \gls{ftran} systems in Step 1 and 3 in \ref{algo:revised}.
-Having to reinvert the basis matrix in each step is costly, which is why
-an INVERT operation is applied only once at the beginning, on the initial basis
-$B_0$. Inverting a matrix using LU decomposition requires $O(n^3)$.
-a representaion of the inverse of the basis is kept tr
-Given a basis matrix \( B \) and its inverse \( B^{-1} \),
-suppose $p$ is the index of the basic variable leaving the basis at this step,
-and the vector $a_q$ is the entering column, or the solution of the \gls{ftran}
-system, see \ref{algo:revised} Step 3.
-\begin{align*}
-    \hat{B} & = B + (a_q - B e_p) e_p^T     \\
-            & = B (I + (a_q - B e_p) e_p^T) \\
-            & = B E
-\end{align*}
-where \( E = I + (a_q - B e_p) e_p^T \) is an \textit{eta matrix}.
+\subsubsection{The product form inverse update method}
+
+We will discuss the Product Form of the Inverse (PFI), introduced by
+George Dantzig \parencite{dantzig1954product}. In the revised simplex method,
+there's a need to represent the inverse of the basis matrix and efficiently
+solve the BTRAN and FTRAN systems in Step 1 and 3 of Algorithm \ref{algo:revised}
+in each iteration to find the entering and leaving variables.
+
+To avoid the costly reinversion of the basis matrix in each step,
+we apply an INVERT operation only once at the beginning, on the initial basis
+matrix $B_0$. Inverting a matrix using LU decomposition requires $O(n^3)$
+operations.
+
+Instead of solving the systems $yB = c_B$ and $Bd = a$ from
+scratch, we utilize an update method known as the product form of the inverse.
+
+Given a basis matrix \(B\) and its inverse \(B^{-1}\),
+let $p$ be the index of the basic variable leaving the basis in
+this step, and let the vector \(a_q\) represent the entering column,
+which is the solution of the FTRAN system (see Algorithm \ref{algo:revised},
+Step 3). We can express this update as follows:
+
+\[
+    \hat{B} = B + (a_q - B e_p) e_p^T = B (I + (a_q - B e_p) e_p^T) = B E
+\]
+
+Here, \(E = I + (a_q - B e_p) e_p^T\) is referred to as an \textit{eta matrix}.
+
+In other words, if \(B_k\) denotes the basis matrix after \(k\)
+iterations of the simplex method, and each \(B_k\) differs from the
+preceding \(B_{k-1}\) in only one column, we have the following update equation:
+
+\[
+    B_k = B_{k-1}E_k \label{eq:basis_update}
+\]
+
+with \(E_k\) representing the identity matrix whose \(p\)th column
+is replaced by \(d\), and is referred to as an \textit{eta matrix}.
+Consequently, when the initial basis consists of slack variables,
+we have \(B_0 = I\), and successive applications of
+Equation \ref{eq:basis_update} yield:
+
+\[
+    B_k = E_1E_2 \cdot E_k \label{eq:eta_factorization}
+\]
+
+This eta factorization of \(B\) provides an optimized way
+to solve the two systems:
+
+Solving the system \(yB_k = c_B\) becomes solving:
+
+\[
+    (((yE_1)E_2) \ldots )E_{k} = c_B
+\]
+
+Solving the system \(B_kd = a\) becomes solving:
+
+\[
+    E_1(E_2( \ldots (E_{k}d))) = a
+\]
+
+\textbf{Time Complexity of Direct Solution:}
+Solving the system \(yB_k = c_B\) or \(B_kd = a\)  directly using
+Gaussian elimination or LU decomposition has a time complexity of \(O(m^3)\),
+where \(m\) is the dimension of $B_k$, i.e. the number of rules.
+
+
+\textbf{Time complexity Using Eta Factorization:}
+Solving \(E_i x = y\) or  \(xE_i = y\) for x in each iteration involves
+simple vector operations and matrix multiplication,
+which has a time complexity of \(O(n^2)\).
+Therefore, applying the eta factorization \(B_k = E_1E_2 \ldots E_k\)
+takes a time complexity of \(O(kn^2)\), where $k$ is the number of eta vectors,
+or the current iteration count.
+
+
+\textbf{Comparing the Two Methods:}
+\begin{itemize}
+    \item Direct Solution: \(O(m^3)\) for both systems.
+    \item Using Eta Factorization: \(O(km^2)\) for both systems,
+          where \(k\) is the number of iterations.
+\end{itemize}
+
+In summary, when using the eta factorization method,
+the time complexity for solving both systems becomes \(O(km^2)\),
+which depends on the number of iterations (\(k\)) and the number of
+constraints (\(m\)).
 
 
 \subsubsection{The modified product form inverse}
+The Middle Product Form (MPF) update integrates
+updates in product form into the middle of factors L and U.
+This update
+can be described as follows:
 
-\subsubsection{Forrest-Tomlin update form}
+Given:
+\[ \bar{B} = LU + (aq - Bep)e^T_p \]
+The transformation from \(\bar{B}\) to the form in terms of \(L\) and \(U\) is:
+\[ \bar{B} = L(I + (\tilde{aq} - up)\tilde{e}^T_p )U \]
+where
+\[ \tilde{aq} = L^{-1}aq \]
+\[ \tilde{e^T_p} = e^T_p U^{-1} \]
+\[ up = Uep \]
+
+Also:
+\[ \bar{B}^{-1} = U^{-1}(I - \frac{1}{\mu} (\tilde{aq} - up)\tilde{e}^T_p )L^{-1} \]
+where
+\[ \mu = 1 + \tilde{e^T_p}(\tilde{aq} - up) = \hat{apq} \]
+
+After \(k\) updates:
+\[ B_k = L_0T_1T_2...TkU_0 \]
+If we assume, initially \( B_0 = I \), the its LU-decomposition is also the identity
+matrix:
+Expressing \( B_k^{-1} \) with \( B_0 = I \):
+\[ B_k^{-1} = T_k^{-1}...T_2^{-1}T_1^{-1} \]
+\( T \) is a matrix that represents the update
+transformation inserted into the factorized form of the basis matrix \( B \).
+The explicit definition of \( T \) is:
+
+\[ T = I + (\tilde{aq} - up)\tilde{e}^T_p \]
+
+Breaking it down:
+\begin{itemize}
+    \item \( I \) is the identity matrix.
+    \item \( \tilde{aq} \) is a partial FTRAN result, defined as:
+          \[ \tilde{aq} = L^{-1}aq \]
+    \item \( \tilde{e^T_p} \) is another partial BTRAN result, defined as:
+          \[ \tilde{e^T_p} = e^T_p U^{-1} \]
+    \item \( up \) is the \( p^{th} \) column of \( U \), defined as:
+          \[ up = Uep \]
+\end{itemize}
+
 
 \section{Cardinality Estimation}\label{section:cardinality-estimate}
 An important use case of linear programming solvers in the field of databases is
@@ -565,24 +791,7 @@ This solver aims to maximize a cost function that represents
 the upper bound of the output size, optimizing for both
 time and memory complexity.
 
-To set the stage for our implementation,
-we focus on the problem of upper-bounding the
-cardinality of a join query $Q$.
-
-\subsubsection{Scenario}
-To elucidate the core concepts,
-suppose we have two relation $R$ and $S$ with attributes
-\[
-    Q(a, b, c) = R(a, b) \Join S(b, c)
-\]
-where we denote the sizes of the relations as
-$|R|$ and $|S|$ respectively.
-It is easy to see that the largest possible output is $|R| \cdot |S|$, which occurs when the join
-behaves like a cartesian product, i.e. have a selectivity equals to 1. So, this is the worst-case
-upper bound.
-\subsubsection{Variables}
-\subsubsection{Objective}
-\subsubsection{Constraints}
+To set the stage for our implementation, we introduce the AGM bound.
 
 \subsection{AGM bound}
 The AGM bound \parencite{atserias2013size} proves
@@ -611,24 +820,38 @@ Normalizing by dividing both sides by \(r'\), we obtain \ref{eq:normalized_inequ
 
 And in this simple abstracted way we get a sample packing LP from our dataset.
 
+\subsubsection{Scenario}
+To elucidate the core concepts,
+suppose we have two relation $R$ and $S$ with attributes
+\[
+    Q(a, b, c) = R(a, b) \Join S(b, c)
+\]
+where we denote the sizes of the relations as
+$|R|$ and $|S|$ respectively.
+It is easy to see that the largest possible output is $|R| \cdot |S|$, which occurs when the join
+behaves like a cartesian product, i.e. have a selectivity equals to 1. So, this is the worst-case
+upper bound.
+\subsubsection{Variables}
+\subsubsection{Objective}
+\subsubsection{Constraints}
 
 \section{State-of-the-art LP solvers}
 Here we will discuss alternative approaches that are used today to solve LPs. Nowadays, the best
 existing open-source and commercial LP-systems are based on implementations that make use
 of various algorithms and techniques to speed up the solution of large scale LP problems.
-There exist various LP solvers today, like CPLEX (IBM), CBC, Gurobi, HIGHS... We present HIGHS Scipy, and 
+There exist various LP solvers today, like CPLEX (IBM), CBC, Gurobi, HIGHS... We present HIGHS Scipy, and
 Cplex, because we are using them as a comparison to our solvers.
 \subsection{HIGHS Scipy}
 HiGHS, or High Performance Optimization Software is a software used to define,
 modify and solve large scale sparse linear optimization models.
 
-For LPs, HiGHS has implementations of both the revised simplex and interior point methods 
-\parencite{Huangfu2018}. 
+For LPs, HiGHS has implementations of both the revised simplex and interior point methods
+\parencite{Huangfu2018}.
 HiGHS has primal and
- dual revised simplex solvers, originally written by Qi Huangfu and 
- further developed by Julian Hall. 
-In our comparison, we don't make use of HiGHS directly but of Scipy's linprog, and using as 
-a method highs. It is mainly used to verify the accuracy of the optimal values 
+dual revised simplex solvers, originally written by Qi Huangfu and
+further developed by Julian Hall.
+In our comparison, we don't make use of HiGHS directly but of Scipy's linprog, and using as
+a method highs. It is mainly used to verify the accuracy of the optimal values
 obtained by our solvers.
 
 \begin{lstlisting}[language=Python]
@@ -637,9 +860,19 @@ obtained by our solvers.
 
 \subsection{Cplex}
 IBM ILOG CPLEX Optimization Studio, commonly known as CPLEX,
- is a software suite for mathematical optimization.
-  CPLEX consists of a library for linear programming, 
-  mixed integer programming, quadratic programming, and other related optimization problems.
-   It provides a range of solvers and supports various interfaces, including C++, Java, and Python.
-    CPLEX is widely used in both academia and industry for solving large-scale optimization 
-    problems. 
+is a software suite for mathematical optimization.
+CPLEX consists of a library for linear programming,
+mixed integer programming, quadratic programming, and other optimization problems.
+
+CPLEX utilizes a variety of algorithms to tackle linear programming (LP) problems.
+Although the majority of LP instances are efficiently solved using CPLEX's
+cutting-edge dual simplex algorithm, there are cases where other algorithms might be more suitable.
+For certain problem types, the primal simplex algorithm, the network optimizer, the barrier algorithm,
+or the sifting algorithm are used. 
+
+Furthermore, CPLEX provides a concurrent option, which runs multiple algorithms in parallel,
+returning the solution from the first algorithm to complete.
+It also supports various interfaces, including C++, Java, and Python. In our experiments
+we use the python interface.
+CPLEX is widely used in both academia and industry for solving large-scale optimization
+problems.

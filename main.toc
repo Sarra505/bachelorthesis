@@ -2,67 +2,67 @@
 \contentsline {chapter}{Acknowledgments}{iii}{Doc-Start}%
 \contentsline {chapter}{\nonumberline Abstract}{iv}{chapter*.1}%
 \contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}%
-\contentsline {chapter}{\numberline {2}Background and Related work}{2}{chapter.2}%
-\contentsline {section}{\numberline {2.1}Background}{2}{section.2.1}%
-\contentsline {section}{\numberline {2.2}Linear Programming}{2}{section.2.2}%
-\contentsline {subsubsection}{\nonumberline Packing LP}{3}{subsubsection*.4}%
-\contentsline {subsection}{\numberline {2.2.1}Duality}{3}{subsection.2.2.1}%
-\contentsline {subsection}{\numberline {2.2.2}Geometric Interpretation}{3}{subsection.2.2.2}%
-\contentsline {subsection}{\numberline {2.2.3}Feasibility, unboundedness}{4}{subsection.2.2.3}%
-\contentsline {subsection}{\numberline {2.2.4}The Standard Simplex Algorithm}{4}{subsection.2.2.4}%
-\contentsline {subsubsection}{\nonumberline Computational form of LP}{5}{subsubsection*.9}%
-\contentsline {subsubsection}{\nonumberline Defining a Basis}{6}{subsubsection*.11}%
-\contentsline {subsubsection}{\nonumberline The algorithm}{7}{subsubsection*.13}%
-\contentsline {subsubsection}{\nonumberline Termination}{8}{subsubsection*.15}%
-\contentsline {subsection}{\numberline {2.2.5}The runtime complexity of the simplex algorithm}{9}{subsection.2.2.5}%
-\contentsline {subsubsection}{\nonumberline Time complexity analysis of one step}{9}{subsubsection*.17}%
-\contentsline {subsection}{\numberline {2.2.6}The interior point method}{9}{subsection.2.2.6}%
-\contentsline {subsection}{\numberline {2.2.7}Revised Simplex Algorithm}{9}{subsection.2.2.7}%
-\contentsline {subsubsection}{\nonumberline The algorithm}{10}{subsubsection*.19}%
-\contentsline {subsubsection}{\nonumberline Inverting a square matrix}{11}{subsubsection*.21}%
-\contentsline {subsubsection}{\nonumberline The modified product form inverse}{13}{subsubsection*.24}%
-\contentsline {subsubsection}{\nonumberline Forrest-Tomlin update form}{13}{subsubsection*.26}%
-\contentsline {section}{\numberline {2.3}Cardinality Estimation}{13}{section.2.3}%
-\contentsline {subsubsection}{\nonumberline Scenario}{13}{subsubsection*.28}%
-\contentsline {subsubsection}{\nonumberline Variables}{14}{subsubsection*.30}%
-\contentsline {subsubsection}{\nonumberline Objective}{14}{subsubsection*.32}%
-\contentsline {subsubsection}{\nonumberline Constraints}{14}{subsubsection*.34}%
-\contentsline {subsection}{\numberline {2.3.1}AGM bound}{14}{subsection.2.3.1}%
-\contentsline {section}{\numberline {2.4}State-of-the-art LP solvers}{14}{section.2.4}%
-\contentsline {subsection}{\numberline {2.4.1}HIGHS Scipy}{15}{subsection.2.4.1}%
-\contentsline {subsection}{\numberline {2.4.2}Cplex}{15}{subsection.2.4.2}%
-\contentsline {chapter}{\numberline {3}Tuning Linear Programming Solvers for Query Optimization}{16}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Proposal or Implementation}{16}{section.3.1}%
-\contentsline {subsection}{\numberline {3.1.1}Implementation hierarchy}{16}{subsection.3.1.1}%
-\contentsline {subsection}{\numberline {3.1.2}Tableau simplex solver}{16}{subsection.3.1.2}%
-\contentsline {subsection}{\numberline {3.1.3}Data structures}{16}{subsection.3.1.3}%
-\contentsline {subsubsection}{\nonumberline Dense Matrix}{16}{subsubsection*.37}%
-\contentsline {subsubsection}{\nonumberline Sparse Matrix}{19}{subsubsection*.39}%
-\contentsline {subsubsection}{\nonumberline Comparison of memory complexity}{19}{subsubsection*.41}%
-\contentsline {subsection}{\numberline {3.1.4}Revised Simplex Solver}{20}{subsection.3.1.4}%
-\contentsline {subsection}{\numberline {3.1.5}Stability}{20}{subsection.3.1.5}%
-\contentsline {section}{\numberline {3.2}Experiments and Results}{20}{section.3.2}%
-\contentsline {subsubsection}{\nonumberline Note on cache locality}{21}{subsubsection*.45}%
-\contentsline {subsection}{\numberline {3.2.1}Query datasets}{21}{subsection.3.2.1}%
-\contentsline {subsubsection}{\nonumberline The JOB dataset results}{22}{subsubsection*.48}%
-\contentsline {subsubsection}{\nonumberline TPC-DS results}{23}{subsubsection*.56}%
-\contentsline {subsubsection}{\nonumberline TPC-H results}{23}{subsubsection*.61}%
-\contentsline {subsection}{\numberline {3.2.2}Results on randomly generated LPs}{23}{subsection.3.2.2}%
-\contentsline {section}{\numberline {3.3}Analysis}{24}{section.3.3}%
-\contentsline {subsection}{\numberline {3.3.1}Analysis JOB dataset}{28}{subsection.3.3.1}%
-\contentsline {subsubsection}{\nonumberline Structure and properties}{28}{subsubsection*.69}%
-\contentsline {subsubsection}{\nonumberline Time efficiency}{29}{subsubsection*.71}%
-\contentsline {subsection}{\numberline {3.3.2}Analysis of experiments on randomly generated LPs}{32}{subsection.3.3.2}%
-\contentsline {subsection}{\numberline {3.3.3}Why is highs so slow?}{33}{subsection.3.3.3}%
-\contentsline {chapter}{\numberline {4}Evaluation}{34}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Strengths}{34}{section.4.1}%
-\contentsline {subsection}{\numberline {4.1.1}Performance}{34}{subsection.4.1.1}%
-\contentsline {subsection}{\numberline {4.1.2}Accuracy}{34}{subsection.4.1.2}%
-\contentsline {subsection}{\numberline {4.1.3}Stability}{34}{subsection.4.1.3}%
-\contentsline {section}{\numberline {4.2}Limitations}{34}{section.4.2}%
-\contentsline {section}{\numberline {4.3}Future Work}{34}{section.4.3}%
-\contentsline {chapter}{\numberline {5}Conclusion}{35}{chapter.5}%
-\contentsline {chapter}{\nonumberline List of Figures}{36}{chapter*.72}%
-\contentsline {chapter}{\nonumberline List of Tables}{37}{chapter*.73}%
-\contentsline {chapter}{\nonumberline Bibliography}{38}{chapter*.74}%
+\contentsline {section}{\numberline {1.1}Motivation}{1}{section.1.1}%
+\contentsline {section}{\numberline {1.2}The Research Approach}{1}{section.1.2}%
+\contentsline {section}{\numberline {1.3}Chapter Overview}{2}{section.1.3}%
+\contentsline {chapter}{\numberline {2}Background and Related work}{3}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Linear Programming Fundamentals}{3}{section.2.1}%
+\contentsline {subsection}{\numberline {2.1.1}Linear Programming problem}{3}{subsection.2.1.1}%
+\contentsline {subsection}{\numberline {2.1.2}Packing LP}{4}{subsection.2.1.2}%
+\contentsline {subsection}{\numberline {2.1.3}Duality}{4}{subsection.2.1.3}%
+\contentsline {subsection}{\numberline {2.1.4}Geometric Interpretation}{4}{subsection.2.1.4}%
+\contentsline {subsection}{\numberline {2.1.5}Feasibility, unboundedness}{5}{subsection.2.1.5}%
+\contentsline {subsection}{\numberline {2.1.6}The Standard Simplex Algorithm}{5}{subsection.2.1.6}%
+\contentsline {subsubsection}{\nonumberline Computational form of LP}{6}{subsubsection*.7}%
+\contentsline {subsubsection}{\nonumberline Defining a Basis}{7}{subsubsection*.9}%
+\contentsline {subsubsection}{\nonumberline The algorithm}{8}{subsubsection*.11}%
+\contentsline {subsubsection}{\nonumberline Termination}{9}{subsubsection*.13}%
+\contentsline {subsubsection}{\nonumberline The runtime complexity of the simplex algorithm}{10}{subsubsection*.15}%
+\contentsline {subsubsection}{\nonumberline Time complexity analysis of one step}{10}{subsubsection*.17}%
+\contentsline {subsection}{\numberline {2.1.7}The interior point method}{10}{subsection.2.1.7}%
+\contentsline {subsubsection}{\nonumberline Time Complexity Analysis}{12}{subsubsection*.19}%
+\contentsline {subsection}{\numberline {2.1.8}Revised Simplex Algorithm}{13}{subsection.2.1.8}%
+\contentsline {subsubsection}{\nonumberline The algorithm}{13}{subsubsection*.21}%
+\contentsline {subsubsection}{\nonumberline Inverting a square matrix}{15}{subsubsection*.23}%
+\contentsline {subsubsection}{\nonumberline The product form inverse update method}{16}{subsubsection*.25}%
+\contentsline {subsubsection}{\nonumberline The modified product form inverse}{17}{subsubsection*.27}%
+\contentsline {section}{\numberline {2.2}Cardinality Estimation}{18}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}AGM bound}{19}{subsection.2.2.1}%
+\contentsline {subsubsection}{\nonumberline Scenario}{19}{subsubsection*.29}%
+\contentsline {subsubsection}{\nonumberline Variables}{20}{subsubsection*.31}%
+\contentsline {subsubsection}{\nonumberline Objective}{20}{subsubsection*.33}%
+\contentsline {subsubsection}{\nonumberline Constraints}{20}{subsubsection*.35}%
+\contentsline {section}{\numberline {2.3}State-of-the-art LP solvers}{20}{section.2.3}%
+\contentsline {subsection}{\numberline {2.3.1}HIGHS Scipy}{20}{subsection.2.3.1}%
+\contentsline {subsection}{\numberline {2.3.2}Cplex}{20}{subsection.2.3.2}%
+\contentsline {chapter}{\numberline {3}Tuning Linear Programming Solvers for Query Optimization}{22}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Implementation overview}{22}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Tableau simplex solver}{22}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Data structures}{22}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}Dense Matrix}{22}{subsection.3.3.1}%
+\contentsline {subsection}{\numberline {3.3.2}Sparse Matrix}{25}{subsection.3.3.2}%
+\contentsline {subsection}{\numberline {3.3.3}Comparison of memory complexity}{26}{subsection.3.3.3}%
+\contentsline {section}{\numberline {3.4}Revised Simplex Solver with PFI}{27}{section.3.4}%
+\contentsline {section}{\numberline {3.5}Stability}{28}{section.3.5}%
+\contentsline {chapter}{\numberline {4}Evaluation}{29}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Analysis}{29}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}Analysis JOB dataset}{29}{subsection.4.1.1}%
+\contentsline {subsubsection}{\nonumberline Structure and properties}{29}{subsubsection*.40}%
+\contentsline {subsubsection}{\nonumberline Time efficiency}{29}{subsubsection*.42}%
+\contentsline {subsection}{\numberline {4.1.2}Analysis of experiments on randomly generated LPs}{31}{subsection.4.1.2}%
+\contentsline {subsubsection}{\nonumberline Why is highs so slow?}{31}{subsubsection*.44}%
+\contentsline {section}{\numberline {4.2}Results}{31}{section.4.2}%
+\contentsline {subsubsection}{\nonumberline Note on cache locality}{31}{subsubsection*.46}%
+\contentsline {subsection}{\numberline {4.2.1}Results on Query datasets}{32}{subsection.4.2.1}%
+\contentsline {subsubsection}{\nonumberline The JOB dataset results}{32}{subsubsection*.49}%
+\contentsline {subsubsection}{\nonumberline TPC-DS results}{34}{subsubsection*.57}%
+\contentsline {subsubsection}{\nonumberline TPC-H results}{34}{subsubsection*.62}%
+\contentsline {subsection}{\numberline {4.2.2}Results on randomly generated LPs}{34}{subsection.4.2.2}%
+\contentsline {section}{\numberline {4.3}Limitations}{38}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Future Work}{38}{section.4.4}%
+\contentsline {subsection}{\numberline {4.4.1}Forrest-Tomlin update form}{38}{subsection.4.4.1}%
+\contentsline {chapter}{\numberline {5}Conclusion}{43}{chapter.5}%
+\contentsline {chapter}{\nonumberline List of Figures}{44}{chapter*.69}%
+\contentsline {chapter}{\nonumberline List of Tables}{45}{chapter*.70}%
+\contentsline {chapter}{\nonumberline Bibliography}{46}{chapter*.71}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

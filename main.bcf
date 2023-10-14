@@ -2358,9 +2358,10 @@
     <bcf:citekey order="7" intorder="1">microsoft2023cardinality</bcf:citekey>
     <bcf:citekey order="8" intorder="1">atserias2013size</bcf:citekey>
     <bcf:citekey order="9" intorder="1">Huangfu2018</bcf:citekey>
-    <bcf:citekey order="10" intorder="1">10.14778/2850583.2850594</bcf:citekey>
-    <bcf:citekey order="11" intorder="1">tpch</bcf:citekey>
-    <bcf:citekey order="12" intorder="1">tpcds2022</bcf:citekey>
+    <bcf:citekey order="10" intorder="1">murtagh1981advanced</bcf:citekey>
+    <bcf:citekey order="11" intorder="1">10.14778/2850583.2850594</bcf:citekey>
+    <bcf:citekey order="12" intorder="1">tpch</bcf:citekey>
+    <bcf:citekey order="13" intorder="1">tpcds2022</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="anyt">

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.12) (preloaded format=pdflatex 2023.2.6)  14 OCT 2023 21:09
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.12) (preloaded format=pdflatex 2023.2.6)  14 OCT 2023 21:25
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1607,18 +1607,18 @@ chapter 3.
 <figures/UML.png, id=316, 621.32124pt x 910.40125pt>
 File: figures/UML.png Graphic file (type png)
 <use figures/UML.png>
-Package pdftex.def Info: figures/UML.png  used on input line 22.
+Package pdftex.def Info: figures/UML.png  used on input line 17.
 (pdftex.def)             Requested size: 227.26862pt x 333.00352pt.
 [19
 
 
 ] [20 <./figures/UML.png>] [21] [22]
-Overfull \hbox (6.12227pt too wide) in paragraph at lines 141--141
+Overfull \hbox (6.12227pt too wide) in paragraph at lines 136--136
 []          \T1/cmtt/m/n/10.95 int *rowIdx;  // Row indices corresponding to the non-zero values[] 
  []
 
 
-Overfull \hbox (51.38924pt too wide) in paragraph at lines 141--141
+Overfull \hbox (51.38924pt too wide) in paragraph at lines 136--136
 []          \T1/cmtt/m/n/10.95 int *colPtr;  // Points to the index in `values` where each column starts[] 
  []
 
@@ -1637,48 +1637,49 @@ Overfull \hbox (0.54176pt too wide) in paragraph at lines 141--145
 \T1/pplx/m/n/10.95 (-20) The input files \T1/cmtt/m/n/10.95 TPCH\T1/pplx/m/n/10.95 (-20) , \T1/cmtt/m/n/10.95 TPCDS\T1/pplx/m/n/10.95 (-20) , and \T1/cmtt/m/n/10.95 JOB \T1/pplx/m/n/10.95 (-20) contain packing [][]Linear Programming (LP)[] problems.
  []
 
-<figures/histo_iter_pfi.pdf, id=399, 650.43pt x 325.215pt>
+<figures/histo_iter_pfi.pdf, id=394, 650.43pt x 325.215pt>
 File: figures/histo_iter_pfi.pdf Graphic file (type pdf)
 <use figures/histo_iter_pfi.pdf>
 Package pdftex.def Info: figures/histo_iter_pfi.pdf  used on input line 182.
 (pdftex.def)             Requested size: 418.25555pt x 209.13432pt.
-<figures/histogram_iter_tableau.pdf, id=400, 403.5075pt x 257.96375pt>
+<figures/histogram_iter_tableau.pdf, id=395, 403.5075pt x 257.96375pt>
 File: figures/histogram_iter_tableau.pdf Graphic file (type pdf)
 <use figures/histogram_iter_tableau.pdf>
 Package pdftex.def Info: figures/histogram_iter_tableau.pdf  used on input line 189.
 (pdftex.def)             Requested size: 418.25555pt x 267.39424pt.
-<figures/lp_size_vs_time_job.pdf, id=401, 403.5075pt x 257.96375pt>
+<figures/lp_size_vs_time_job.pdf, id=396, 403.5075pt x 257.96375pt>
 File: figures/lp_size_vs_time_job.pdf Graphic file (type pdf)
 <use figures/lp_size_vs_time_job.pdf>
 Package pdftex.def Info: figures/lp_size_vs_time_job.pdf  used on input line 197.
 (pdftex.def)             Requested size: 418.25555pt x 267.39424pt.
-<figures/methods_time_tpcds.pdf, id=402, 650.43pt x 325.215pt>
+<figures/methods_time_tpcds.pdf, id=397, 650.43pt x 325.215pt>
 File: figures/methods_time_tpcds.pdf Graphic file (type pdf)
 <use figures/methods_time_tpcds.pdf>
 Package pdftex.def Info: figures/methods_time_tpcds.pdf  used on input line 251.
 (pdftex.def)             Requested size: 418.25555pt x 209.13432pt.
-<figures/num_iter_tpcds_mpfi.pdf, id=403, 650.43pt x 325.215pt>
+<figures/num_iter_tpcds_mpfi.pdf, id=398, 650.43pt x 325.215pt>
 File: figures/num_iter_tpcds_mpfi.pdf Graphic file (type pdf)
 <use figures/num_iter_tpcds_mpfi.pdf>
 Package pdftex.def Info: figures/num_iter_tpcds_mpfi.pdf  used on input line 259.
 (pdftex.def)             Requested size: 418.25555pt x 209.13432pt.
-<figures/num_iter_pfi_tpcds.pdf, id=404, 650.43pt x 325.215pt>
+<figures/num_iter_pfi_tpcds.pdf, id=399, 650.43pt x 325.215pt>
 File: figures/num_iter_pfi_tpcds.pdf Graphic file (type pdf)
 <use figures/num_iter_pfi_tpcds.pdf>
 Package pdftex.def Info: figures/num_iter_pfi_tpcds.pdf  used on input line 266.
 (pdftex.def)             Requested size: 418.25555pt x 209.13432pt.
 [29] [30 <./figures/histo_iter_pfi.pdf>] [31 <./figures/histogram_iter_tableau.pdf>]
-<figures/time_vs_size_random.pdf, id=455, 650.43pt x 308.15125pt>
+<figures/time_vs_size_random.pdf, id=450, 650.43pt x 308.15125pt>
 File: figures/time_vs_size_random.pdf Graphic file (type pdf)
 <use figures/time_vs_size_random.pdf>
 Package pdftex.def Info: figures/time_vs_size_random.pdf  used on input line 307.
 (pdftex.def)             Requested size: 334.60571pt x 158.52803pt.
-<figures/size_time_random_large.pdf, id=458, 650.43pt x 308.15125pt>
+<figures/size_time_random_large.pdf, id=453, 650.43pt x 308.15125pt>
 File: figures/size_time_random_large.pdf Graphic file (type pdf)
 <use figures/size_time_random_large.pdf>
 Package pdftex.def Info: figures/size_time_random_large.pdf  used on input line 336.
 (pdftex.def)             Requested size: 418.25555pt x 198.16121pt.
-<figures/cplex_vs_all_random_large.pdf, id=459, 650.43pt x 325.215pt>
+ [32 <./figures/lp_size_vs_time_job.pdf>]
+<figures/cplex_vs_all_random_large.pdf, id=471, 650.43pt x 325.215pt>
 File: figures/cplex_vs_all_random_large.pdf Graphic file (type pdf)
 <use figures/cplex_vs_all_random_large.pdf>
 Package pdftex.def Info: figures/cplex_vs_all_random_large.pdf  used on input line 343.
@@ -1688,20 +1689,17 @@ Overfull \hbox (59.76009pt too wide) in paragraph at lines 343--345
 [][] 
  []
 
-<figures/speedup_vs_cplex_random_200.pdf, id=460, 650.43pt x 325.215pt>
+<figures/speedup_vs_cplex_random_200.pdf, id=472, 650.43pt x 325.215pt>
 File: figures/speedup_vs_cplex_random_200.pdf Graphic file (type pdf)
 <use figures/speedup_vs_cplex_random_200.pdf>
 Package pdftex.def Info: figures/speedup_vs_cplex_random_200.pdf  used on input line 351.
 (pdftex.def)             Requested size: 418.25555pt x 209.13432pt.
-<figures/speedup_cplex_less_1000.pdf, id=461, 650.43pt x 325.215pt>
+<figures/speedup_cplex_less_1000.pdf, id=473, 650.43pt x 325.215pt>
 File: figures/speedup_cplex_less_1000.pdf Graphic file (type pdf)
 <use figures/speedup_cplex_less_1000.pdf>
 Package pdftex.def Info: figures/speedup_cplex_less_1000.pdf  used on input line 359.
 (pdftex.def)             Requested size: 418.25555pt x 209.13432pt.
-[32 <./figures/lp_size_vs_time_job.pdf>] [33 <./figures/methods_time_tpcds.pdf> <./figures/num_iter_tpcds_mpfi.pdf>]
-Overfull \vbox (5.98921pt too high) has occurred while \output is active []
-
- [34 <./figures/num_iter_pfi_tpcds.pdf> <./figures/time_vs_size_random.pdf>] [35 <./figures/size_time_random_large.pdf>] [36 <./figures/cplex_vs_all_random_large.pdf>] [37 <./figures/speedup_vs_cplex_random_200.pdf> <./figures/speedup_cplex_less_1000.pdf>]) (chapters/05_conclusion.tex [38]
+[33 <./figures/methods_time_tpcds.pdf> <./figures/num_iter_tpcds_mpfi.pdf>] [34 <./figures/num_iter_pfi_tpcds.pdf> <./figures/time_vs_size_random.pdf>] [35 <./figures/size_time_random_large.pdf>] [36 <./figures/cplex_vs_all_random_large.pdf>] [37 <./figures/speedup_vs_cplex_random_200.pdf> <./figures/speedup_cplex_less_1000.pdf>]) (chapters/05_conclusion.tex [38]
 chapter 5.
 ) (pages/glossary.tex
 \@gls@deffile=\write10
@@ -1779,9 +1777,9 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 61860 strings out of 478312
- 1383208 string characters out of 5840164
- 2461802 words of memory out of 5000000
+ 61858 strings out of 478312
+ 1383194 string characters out of 5840164
+ 2460802 words of memory out of 5000000
  80321 multiletter control sequences out of 15000+600000
  580305 words of font info for 366 fonts, out of 8000000 for 9000
  2 hyphenation exceptions out of 8191
@@ -1789,16 +1787,10 @@ Here is how much of TeX's memory you used:
 
 pdfTeX warning (dest): name{glo:lp} has been referenced but does not exist, replaced by a fixed one
 
-
-pdfTeX warning (dest): name{glo:pfi} has been referenced but does not exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{glo:ccr} has been referenced but does not exist, replaced by a fixed one
-
  </home/sarrabenmed/.miktex/texmfs/data/fonts/pk/ljfour/jknappen/ec/dpi600/ectt1095.pk>{/home/sarrabenmed/.miktex/texmfs/install/fonts/enc/dvips/base/8r.enc}</home/sarrabenmed/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmex10.pfb></home/sarrabenmed/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmmi10.pfb></home/sarrabenmed/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmr10.pfb></home/sarrabenmed/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy10.pfb></home/sarrabenmed/.miktex/texmfs/install/fonts/type1/public/mathpazo/fplmbb.pfb></home/sarrabenmed/.miktex/texmfs/install/fonts/type1/public/mathpazo/fplmr.pfb></home/sarrabenmed/.miktex/texmfs/install/fonts/type1/public/mathpazo/fplmri.pfb></home/sarrabenmed/.miktex/texmfs/install/fonts/type1/public/fpl/fplrc8a.pfb></home/sarrabenmed/.miktex/texmfs/install/fonts/type1/public/amsfonts/symbols/msbm10.pfb></home/sarrabenmed/.miktex/texmfs/install/fonts/type1/urw/palatino/uplb8a.pfb></home/sarrabenmed/.miktex/texmfs/install/fonts/type1/urw/palatino/uplr8a.pfb></home/sarrabenmed/.miktex/texmfs/install/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on main.pdf (50 pages, 917746 bytes).
+Output written on main.pdf (50 pages, 917116 bytes).
 PDF statistics:
- 914 PDF objects out of 1000 (max. 8388607)
- 201 named destinations out of 1000 (max. 500000)
+ 909 PDF objects out of 1000 (max. 8388607)
+ 199 named destinations out of 1000 (max. 500000)
  95145 words of extra memory for PDF output out of 106986 (max. 10000000)
 

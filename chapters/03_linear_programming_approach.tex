@@ -5,12 +5,7 @@
 
 %------------------------------------------------------------------------
 Our contribution consists in conducting experiments on small packing LP problems that are generated from
-real-life queries as mentioned in Section \ref{section:cardinality-estimate} as well as randomly generated
-LPs with varying sizes. We use different LP solvers, and different update methods to solve these LPs.
-We then proceed to compare results based on time and memory performance. We also build an analysis of our
-datasets' properties.
-Finally, we aim to give a recommendation on how to build the best performing LP solver based on the
-particularities of the LP problems.
+cardinality estimation benchmarks as mentioned in Section \ref{section:cardinality-estimate} as well as randomly generated LPs with varying sizes. We use different LP solvers, and different update methods to solve these LPs. We then proceed to compare results based on time and memory performance. We later build an analysis of our datasets' properties. Finally, we aim to give a recommendation on how to build the best performing LP solver based on the particularities of the LP problems.
 
 %------------------------------------------------------------------------
 \section{Implementation overview}
@@ -30,7 +25,7 @@ This solver is the simplest of the three solvers, it follows the steps of the st
 algorithm in its tabular form, see Algorithm \ref{algo:implemented_tableau}. It uses dense matrices and vectors.
 Although the
 texttt{doPivotting()} operation is costly (\( O(m \times n) \) where $m$ is the number of rules and
-$n$ the number of variables), the simplicity of this algorithm makes it suitable for
+$n$ the number of variables), the simplicity of this algorithm can make it suitable for
 smaller problems.
 \begin{algorithm}
     \caption{Tableau Simplex Algorithm}
@@ -129,7 +124,7 @@ Overall, 1D vector is a better choice.
 Sparsity of a matrix is a feature that can be exploited to
 enhance memory complexity of our implementation, as we will discuss next.
 In our dataset, we deal with sparse matrices.
-We use the \gls{ccr} format to store sparse matrices in C++. They are represented using this
+We use the Compact Column Representation (CCR) format to store sparse matrices in C++. They are represented using this
 structure.
 
 \begin{verbatim}
@@ -151,7 +146,7 @@ For example, consider the matrix \( A \):
     \end{bmatrix}
 \]
 
-In \gls{ccr} format, the matrix is represented using three arrays:
+In CCR format, the matrix is represented using three arrays:
 \texttt{values}, \texttt{row\_indices}, and \texttt{column\_pointers}.
 
 \begin{align*}

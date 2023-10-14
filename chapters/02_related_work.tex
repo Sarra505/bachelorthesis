@@ -74,7 +74,7 @@ For instance, consider the primal-dual LP pair:
 \]
 
 \subsection{Geometric Interpretation}
-In this part let's assume for simplicity that we have two decision variables in our LP problem, i.e. $\mathbf{x} \in \mathbb{R}^2 $ is a two dimensional vector. This assumption will allow us to plot our problem on a 2D plane. An example is shown in Figure \ref{fig:lp_geom}. The LP problem \ref{LP_Problem} can be understood geometrically as follows: each inequality in the set of constraints is represented by a line. Therefore, the feasible region $\chi$ of any LP problem can be described as the intersection delimited by those lines, which is called a polyhedron, or in our 2D case, a polytope.
+In this part we assume for simplicity that we have two decision variables in our LP problem, i.e. $\mathbf{x} \in \mathbb{R}^2 $ is a two dimensional vector. This assumption will allow us to plot our problem on a 2D plane. An example is shown in Figure \ref{fig:lp_geom}. The LP problem \ref{LP_Problem} can be understood geometrically as follows: each inequality in the set of constraints is represented by a line. Therefore, the feasible region $\chi$ of any LP problem can be described as the intersection delimited by those lines, which is called a polyhedron, or in our 2D case, a polytope.
 
 A feasible vertex is a point at which, when substituted into the constraints, they are satisfied.
 The corners of the polytope are called vertices.
@@ -196,7 +196,7 @@ In this subsection we will present the most widely used algorithm for solving LP
 
 \subsubsection{Computational form of LP}
 
-To be approachable by the simplex algorithm, the LP problem \ref{LP_Problem} needs to be cast in a computational or standard form \ref{LP_Problem_Comp}, that fulfills the requirement of the constraint matrix having to have full row rank and only equality constraints are allowed. To convert the inequalities to equations, we introduce slack variables \(s_1, s_2, \dots, s_m\). After introducing those variables let's look at the problem \ref{LP_Problem}, where the constraints are now linear equalities:
+To be approachable by the simplex algorithm, the LP problem \ref{LP_Problem} needs to be cast in a computational or standard form \ref{LP_Problem_Comp}, that fulfills the requirement of the constraint matrix having to have full row rank and only equality constraints are allowed. To convert the inequalities to equations, we introduce slack variables \(s_1, s_2, \dots, s_m\). After introducing those variables, we look at the problem \ref{LP_Problem}, where the constraints are now linear equalities:
 
 \begin{align}
     \text{Maximize} \quad   & z = \mathbf{c}^T \mathbf{x} \notag                            \\
@@ -330,7 +330,7 @@ The time complexity of one iteration of the tableau simplex algorithm can be bro
 
 Thus, the overall time complexity of one iteration is \( O(m \times n) \). This is considered large, especially knowing that there may be an exponential number of iterations. This is why we proceed to define other solution methods that succeeded to achieve a better time performance.
 
-\subsection{The interior point method}
+\subsection{The Interior Point Method}
 The interior point method is another mathematical technique used to solve LP problems. Practically, this method is based on the idea of iteratively moving through the interior of the feasible region of the LP problem \parencite{alizadeh1995interior}. Mathematically, it can be described as follows:
 
 Consider an LP problem in standard form:
@@ -504,7 +504,7 @@ in the future work section.
 
 We will discuss the Product Form of the Inverse (PFI), introduced by
 George Dantzig \parencite{dantzig1954product}. In the revised simplex method,
-there's a need to represent the inverse of the basis matrix and efficiently
+there is a need to represent the inverse of the basis matrix and efficiently
 solve the BTRAN and FTRAN systems in Step 1 and 3 of Algorithm \ref{algo:revised}
 in each iteration to find the entering and leaving variables.
 
@@ -666,7 +666,7 @@ For LPs, HiGHS has implementations of both the revised simplex and interior poin
 HiGHS has primal and
 dual revised simplex solvers, originally written by Qi Huangfu and
 further developed by Julian Hall.
-In our comparison, we don't make use of HiGHS directly but through Scipy's linprog, and using the solver as a method. It is mainly used to verify the accuracy of the optimal values
+In our comparison, we do not make use of HiGHS directly but through Scipy's linprog, and using the solver as a method. It is mainly used to verify the accuracy of the optimal values
 obtained by our solvers.
 
 \begin{lstlisting}[language=Python]

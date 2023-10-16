@@ -6,9 +6,9 @@
 In this chapter, we present the background and related work that forms the foundation for our research on solving small linear programming problems related to cardinality estimation. We will talk about optimization, in particular the field of linear programming. We elaborate on the most widely used algorithms and techniques to tackle this problem, and we present some use cases and benchmarks. A major use case of linear programming solvers is cardinality estimation, which is a crucial step in the pipeline of query optimization.
 
 \section{Linear Programming Fundamentals}
-
+In this section, we will present the background of linear programming.
 \subsection{Linear Programming Problem}
-Informally, linear programming (LP) is a method to calculate the best possible outcome from a given set of requirements. A concrete real-world application of such a method is for instance aiming to maximize profit in a business, given some constraints on your variables like raw material availability, labor hours, etc.
+Informally, linear programming (LP) is a method to calculate the best possible outcome from a given set of requirements. A concrete real-world application of such a method is for instance aiming to maximize profit in a business, given some constraints on variables like raw material availability, labor hours...
 
 Formally, LP is a mathematical modeling technique in which a linear function (called the objective function) \( z: \mathbb{R}^n \to \mathbb{R} \) is maximized or minimized when subject to a set of linear constraints or inequalities.
 
@@ -27,7 +27,7 @@ In the following sections, we focus on LP problems that are maximization problem
 use the matrix representation of the problem.
 
 \subsection{Packing LP}
-A packing LP problem is a type of LP problem where the decision variables are subject to non-negative constraints, and the objective is to maximize a linear function, meaining $A$ contains positive coefficients.
+A packing LP problem is a type of LP problem where the decision variables are subject to non-negative constraints, and the objective is to maximize a linear function, meaning $A$ contains positive coefficients.
 
 We also present a special instance where:
 \( \mathbf{c}  = \mathbf{b} =  \begin{bmatrix}
@@ -37,8 +37,8 @@ Our specific problem is then expressed as follows:
 \begin{align}
     \text{Maximize} \quad   & \sum_{i=1}^{n} x_j \notag                                                             \\
     \text{subject to} \quad & \notag                                                                                \\
-                            & \mathbf{A} \mathbf{x} \leq \mathbf{1}_m, \quad                                        \\
-                            & x_i \geq 0, \quad                              & i = 1, \ldots, n \label{PLP_Problem}
+                            & \mathbf{A} \mathbf{x} \leq \mathbf{1}_m, \quad      \notag                                    \\
+                            & x_i \geq 0, \quad   \notag                             & i = 1, \ldots, n \label{PLP_Problem}
 \end{align}
 Where $\mathbf{1}_m = \begin{bmatrix}
         1      \\
@@ -46,11 +46,11 @@ Where $\mathbf{1}_m = \begin{bmatrix}
         \vdots \\
         1      \\
     \end{bmatrix}$
-This type of LP problems is relevant for our experiments.
+This type of LP problem is relevant to our experiments.
 
 \subsection{Duality}\label{duality}
 
-The duality theorem is an interesting result in linear programming, that states that very instance of maximization problem has a corresponding minimization problem called its dual problem \parencite{chvatal1983linear}. It is also a measure of how close we are to arriving at the optimum. The two problems are linked in an interesting way: if one problem has an optimal solution, then so does the other,and their optimal objective function values are equal.
+The duality theorem is an interesting result in linear programming, that states that every instance of maximization problem has a corresponding minimization problem called its dual problem \parencite{chvatal1983linear}. It is also a measure of how close we are to arriving at the optimum. The two problems are linked in an interesting way: if one problem has an optimal solution, then so does the other, and their optimal objective function values are equal.
 
 For instance, consider the primal-dual LP pair:
 \[
@@ -74,7 +74,7 @@ For instance, consider the primal-dual LP pair:
 \]
 
 \subsection{Geometric Interpretation}
-In this part we assume for simplicity that we have two decision variables in our LP problem, i.e. $\mathbf{x} \in \mathbb{R}^2 $ is a two dimensional vector. This assumption will allow us to plot our problem on a 2D plane. An example is shown in Figure \ref{fig:lp_geom}. The LP problem \ref{LP_Problem} can be understood geometrically as follows: each inequality in the set of constraints is represented by a line. Therefore, the feasible region $\chi$ of any LP problem can be described as the intersection delimited by those lines, which is called a polyhedron, or in our 2D case, a polytope.
+In this part, we assume for simplicity that we have two decision variables in our LP problem, i.e. $\mathbf{x} \in \mathbb{R}^2 $ is a two-dimensional vector. This assumption will allow us to plot our problem on a 2D plane. An example is shown in Figure \ref{fig:lp_geom}. The LP problem \ref{LP_Problem} can be understood geometrically as follows: each inequality in the set of constraints is represented by a line. Therefore, the feasible region $\chi$ of any LP problem can be described as the intersection delimited by those lines, which is called a polyhedron, or in our 2D case, a polytope.
 
 A feasible vertex is a point at which, when substituted into the constraints, they are satisfied.
 The corners of the polytope are called vertices.
@@ -119,12 +119,12 @@ They lie in the intersection of at most $n$ constraints. If a vertex lies in the
     \caption{Feasible region of the LP problem, the area (purple) delimited by the constraint lines, blue and red. The dashed black line represents the objective function.}
 \end{figure}\label{fig:lp_geom}
 
-The simplex algorithm that we will descibe later starts at an initial feasible vertex and moves along the edges of the polytope to vertices with better objective values until the optimal vertex is reached.
+The simplex algorithm that we will describe later starts at an initial feasible vertex and moves along the edges of the polytope to vertices with better objective values until the optimal vertex is reached.
 
-\subsection{Feasibility, unboundedness}\label{feasibility}
-We described how in geometric terms, a LP problem is feasible if the polytope defining its feasible region $ \chi $ is not empty. In other words, the LP is infeasible if no feasible solution exists, or $\chi = \emptyset$.
+\subsection{Feasibility, Unboundedness}\label{feasibility}
+We described how in geometric terms, an LP problem is feasible if the polytope defining its feasible region $ \chi $ is not empty. In other words, the LP is infeasible if no feasible solution exists, or $\chi = \emptyset$.
 
-The LP is said to have unbounded set of solutions if its solution can be made infinitely large without violating any of its constraints. Meaning its feasible region is infinite, or unbounded. An example is shown in Figure \ref{unbounded}.
+The LP is said to have an unbounded set of solutions if its solution can be made infinitely large without violating any of its constraints. Meaning its feasible region is infinite, or unbounded. An example is shown in Figure \ref{unbounded}.
 
 \begin{figure}[h]
     \centering
@@ -151,7 +151,7 @@ The LP is said to have unbounded set of solutions if its solution can be made in
             % Objective function (for illustration, let's assume z=3)
             \addplot[green, thick, dashed, domain=0:4] {3-x}; % x1 + x2 = 3
 
-            % Arrow for objective function
+            % Arrow for the objective function
             \draw[->, thick, green] (2,1) -- (3,0); % Arrow for the objective function
 
             % \legend{
@@ -161,7 +161,7 @@ The LP is said to have unbounded set of solutions if its solution can be made in
 
         \end{axis}
     \end{tikzpicture}
-    \caption{Graphical representation of an unbounded LP problem}
+    \caption{Graphical representation of an unbounded LP problem.}
     \label{unbounded}
 \end{figure}
 
@@ -173,7 +173,7 @@ $\mathbf{c}^T \mathbf{x} \leq \mathbf{c}^T \mathbf{x^*} $ for all $\mathbf{x} \i
     \centering
     \begin{tikzpicture}[node distance=2cm, auto]
         % Define styles
-        \tikzstyle{block} = [rectangle, draw, fill=blue!20, text width=6em, text centered, rounded corners, minimum height=3em]
+        \tikzstyle{block} = [rectangle, draw, fill=blue!20, text width=6em, align=center, rounded corners, minimum height=3em]
         \tikzstyle{line} = [draw, -latex']
 
         % Place nodes
@@ -186,13 +186,13 @@ $\mathbf{c}^T \mathbf{x} \leq \mathbf{c}^T \mathbf{x^*} $ for all $\mathbf{x} \i
         \path [line] (solution) -- node {is} (vertex);
 
     \end{tikzpicture}
-    \caption{Conceptual relationship between an optimal basis, an optimal solution,
-        and an optimal vertex.}
-\end{figure} \label{equivalence_terms}
+    \caption{Conceptual equivalence between an optimal basis, an optimal solution, and an optimal vertex.}
+    \label{equivalence_terms}
+\end{figure}
 
 \subsection{The Standard Simplex Algorithm}
 
-In this subsection we will present the most widely used algorithm for solving LP problems, the simplex algorithm, as introduced by George Dantzig in 1947 \parencite{dantzig1990origins}.
+In the following, we will present the most widely used algorithm for solving LP problems, the simplex algorithm, as introduced by George Dantzig in 1947 \parencite{dantzig1990origins}.
 
 \subsubsection{Computational form of LP}
 
@@ -207,11 +207,11 @@ To be approachable by the simplex algorithm, the LP problem \ref{LP_Problem} nee
                             & x_1, x_2, \dots, x_n, s_1, s_2, \dots, s_m \geq 0 \notag
 \end{align}
 
-We then have a LP problem in the appropriate form and can be used as input for the simplex algorithm. To develop an intuition for how this algorithm works, it is helpful to view the strategy of the simplex algorithm as that of successive improvements until reaching an optimum \parencite{chvatal1983linear}. For instance, a maximization problem is optimized when the slack variables are “squeezed out,” maximizing the true variables’ effect on the objective function.
+We then have an LP problem in the appropriate form which can be used as input for the simplex algorithm. To develop an intuition for how this algorithm works, it is helpful to view the strategy of the simplex algorithm as that of successive improvements until reaching an optimum \parencite{chvatal1983linear}. For instance, a maximization problem is optimized when the slack variables are “squeezed out,” maximizing the true variables’ effect on the objective function.
 
 \subsubsection{Defining a Basis}
 So far we have used the terms optimal vertex and solution interchangeably to refer
-to the point that delivers the optimum of a LP problem, if plugged in the objective function. Now we will explore the concept of feasible and optimal basis. All the concepts are however equivalent, see \ref{equivalence_terms}. Yet the simplex algorithm uses the basis terminology.
+to the point that delivers the optimum of an LP problem if plugged in the objective function. Now we will explore the concept of feasible and optimal basis. All the concepts are however equivalent, see \ref{equivalence_terms}. Yet the simplex algorithm uses the basis terminology.
 
 In linear algebra, a basis of a vector space is a set of vectors that:
 \begin{itemize}
@@ -221,22 +221,20 @@ In linear algebra, a basis of a vector space is a set of vectors that:
           expressed as a linear combination of the other basis vectors.
 \end{itemize}
 
-If an LP problem has an optimal solution, then it is enough to search the finite number of vertices of the feasible region. Every vertex, or corner point of the feasible region has at least one set of $m$ linearly independent columns of $A$ associated with it. The set of indices of these columns is called a basis.
-
-A basis can be seen as a basis matrix, consisting of the $m$ linearly independent columns of $\mathbf{A}$ associated with it.
+If an LP problem has an optimal solution, then it is enough to search the finite number of vertices of the feasible region. Every vertex, or corner point of the feasible region has at least one set of $m$ linearly independent columns of $\mathbf{A}$  associated with it. The set of indices of these columns is called a basis.
 
 Basic variables are the indices contained in a basis. A feasible basis is a basis for which all the basic variables have non-negative values when the other variables (non-basic variables) are set to zero in the constraints.
 
 \subsubsection{The algorithm}
 As we have seen, slack variables are introduced to convert inequalities into equations, and these slack variables can form an initial feasible basis. In this case, the decision variables are set to zero, and the slack variables are set to the values on the right-hand side of the constraints. This provides a starting point for the simplex method.
 
-If the the right-hand side is a vector of nonnegative numbers, i.e. $\mathbf{b} \geq 0 $, then
+If the right-hand side is a vector of nonnegative numbers, i.e. $\mathbf{b} \geq 0 $, then
 the problem is said to be initially feasible.
 
 
 \begin{algorithm}
     \caption{Simplex Algorithm}
-    \begin{algorithmic}[1]
+    \begin{algorithmic}
         \Procedure{Simplex}{$\mathbf{c}, \mathbf{A}, \mathbf{b}$}
         \State Initialize a feasible basic solution
         \While{true}
@@ -261,30 +259,31 @@ Let's present the methods used to perform the exchange in each step, i.e. the ch
 variable and the choice of the leaving variable.
 
 \begin{itemize}
-    \item Pricing: The choice of the entering variable: we choose a non-basic variable to enter the basis
-          and thus become basic. This is called Pricing. The choice usually depends on metrics
+    \item Pricing: we choose a non-basic variable to enter the basis
+          and thus become basic. The choice usually depends on metrics
           like the largest increase in the objective function, or the largest coefficient.
-          Bland's rule has been proved to guarantee termination and it states as follows:
+          Bland's rule has been proven to guarantee termination \parencite{chvatal1983linear}, and it states as follows:
           Choose the entering variable as the non-basic variable with
           the smallest index that has a negative reduced cost for a maximization problem:
           \[
               j = \min \{ j : c_j < 0 \}
           \]
           If there are no candidates for entering variable, we have reached the optimum.
-    \item Ratio test: the choice of the leaving variable: we choose a basic variable to leave the basis:
+    \item Ratio test: we choose a basic variable to leave the basis.
           we do this by performing a ratio test.
           For the chosen entering variable, compute the ratios for all positive values in its column:
           \[
               \text{ratio}_i = \frac{b_i}{a_{ij}}
           \]
-          Choose the leaving variable as the basic variable  has the smallest non-negative ratio.
+          Choose the leaving variable as the basic variable has the smallest non-negative ratio.
           If there are no positive values in entering column, the problem is unbounded.
 \end{itemize}
 
-After selecting an entering variable and a leaving variable, we perform pivoting, or
-updating the tableau. This is done through row operations \parencite{chvatal1983linear}.
+After selecting an entering variable and a leaving variable, we perform pivoting or
+updating the Tableau. This is done through row operations \parencite{chvatal1983linear}.
 
 \subsubsection{Termination}
+The simplex algorithm can terminate in multiple ways.
 \begin{enumerate}
     \item \textit{Optimality:}
           The algorithm terminates when there are no more negative coefficients in the objective function
@@ -300,7 +299,7 @@ updating the tableau. This is done through row operations \parencite{chvatal1983
 
     \item \textit{Maximum Iterations:}
           A set maximum number of iterations can be used to prevent indefinite running due to
-          numerical issues or other unforeseen circumstances. We set a bound on number of steps in our
+          numerical issues or other unforeseen circumstances. We set a bound on the number of steps in our
           implementations. This bound is equal to the maximum value a 32-bit unsigned integer can take, or
           $4294967295$.
 \end{enumerate}
@@ -311,16 +310,17 @@ Since the idea of the simplex algorithm is to search the finite number of bases 
 found that belongs to the optimal vertex, and there are $\binom{m}{n}$ bases, this might take an exponential number of steps. In fact, Klee and Minty (1972) \parencite{klee1972good} constructed a worst-case example where $2^m -1$ iterations may be required, making the simplex' worst-case time complexity exponential, which we denote by \( O(2^m) \).
 
 It can be however argued that this is only one worst-case example. Indeed, the number
-of iterations usually encountred in practice or even in formal experimental studies of is much lower.
-With $m<50$ and $m+n<200$, where $m$ and $n$ are the number of constraints and variables in the LP problem respectively, Dantzig \parencite{dantzig1990origins} observed that the number of iterations is usually less than $3m/2$
-and only rarely going to $3m$. However, there is no proof that for every problem the simplex algorithm for linear programming has a number of iterations or pivots that is majorized by a polynomial function.
+of iterations usually encountered in practice is much lower.
+With $m<50$ and $m+n<200$, where $m$ and $n$ are the number of constraints and variables in the LP problem respectively, Dantzig \parencite{dantzig1990origins} observed that the number of iterations is usually less than $3m/2$ and only rarely going to $3m$. 
+
+However, there is no proof that for every problem the simplex algorithm for linear programming has a number of iterations or pivots that is majorized by a polynomial function.
 
 For packing linear programs, the worst-case time complexity of the simplex algorithm remains exponential, though there exist polynomial implementations in practice \parencite{stille2010solution}.
 
 \subsubsection{Time complexity analysis of one step}
-Given a linear program with \( m \) constraints and \( n \) variables, the tableau for the
+Given a linear program with \( m \) constraints and \( n \) variables, the Tableau for the
 simplex algorithm will be of size \( (m+1) \times (n+m+1) \).
-The time complexity of one iteration of the tableau simplex algorithm can be broken down as follows:
+The time complexity of one iteration of the Tableau simplex algorithm can be broken down as follows:
 
 \begin{itemize}
     \item Identifying the entering variable (choosing from $m$ non-basic variables): \( O(m) \)
@@ -328,7 +328,7 @@ The time complexity of one iteration of the tableau simplex algorithm can be bro
     \item Pivoting operation: \( O(m \times n) \)
 \end{itemize}
 
-Thus, the overall time complexity of one iteration is \( O(m \times n) \). This is considered large, especially knowing that there may be an exponential number of iterations. This is why we proceed to define other solution methods that succeeded to achieve a better time performance.
+Thus, the overall time complexity of one iteration is \( O(m \times n) \). This is considered large, especially knowing that there may be an exponential number of iterations. This is why we proceed to define other solution methods that succeeded in achieving a better time performance.
 
 \subsection{The Interior Point Method}
 The interior point method is another mathematical technique used to solve LP problems. Practically, this method is based on the idea of iteratively moving through the interior of the feasible region of the LP problem \parencite{alizadeh1995interior}. Mathematically, it can be described as follows:
@@ -343,7 +343,7 @@ Consider an LP problem in standard form:
     \end{aligned}
 \]
 
-The interior point method introduces a penalty function to the objective function, which discourages solutions near the boundary of the feasible region. This barrier function is typically defined as $-\sum \log(x_i)$, where $x_i$ represents the elements of the vector $x$.
+The interior point method introduces a penalty function to the objective function, which discourages solutions near the boundary of the feasible region. This barrier function is typically defined as $-\sum \log(x_i)$, where $x_i$ represent the elements of the vector $x$.
 The optimization problem then becomes:
 
 \[
@@ -358,7 +358,7 @@ of the feasible region is found.
 \subsubsection{Time Complexity Analysis}
 The time complexity of the interior point method for linear programming is determined by the number of iterations required for convergence. In practice, the number of iterations is often polynomial in
 the problem size, which includes the number of decision variables $n$ and constraints $m$.
-Each iteration involves solving a system of linear equations, for example: $Hd = -(c + A^T\lambda)$. A mathematical derivation of this equation can be found in literature \parencite{alizadeh1995interior}.
+Each iteration involves solving a system of linear equations, for example, $Hd = -(c + A^T\lambda)$. A mathematical derivation of this equation can be found in literature \parencite{alizadeh1995interior}.
 
 Where:
 \begin{itemize}
@@ -384,11 +384,11 @@ Where:
     \item $f(n, m)$ represents the cost per iteration, which is polynomial in $n$ and $m$.
     \item $g(n)$ represents any additional preprocessing or initialization costs, which are typically polynomial in $n$.
 \end{itemize}
-Therefore, the overall time complexity of the interior point method is polynomial $n$ and $m$, number of variables and constraints in the LP, respectively. This is better than the (worst-case) exponential time complexity of the simplex algorithm.
+Therefore, the overall time complexity of the interior point method is polynomial $n$ and $m$, the number of variables and constraints in the LP, respectively. This is better than the (worst-case) exponential time complexity of the simplex algorithm.
 
 \subsection{Revised Simplex Algorithm}
-While the standard or tableau simplex algorithm maintains and updates theentire tableau in its
-dense form at each iteration, and the pivotting step of this algorithm is highly costly as we have to update the entire matrix using row operations. The revised simplex method transforms only the inverse of the basis matrix, $mathbb{B}^{-1}$, thus reducing the amount of writing at each step and overall memory usage.
+The standard or Tableau simplex algorithm maintains and updates the entire Tableau in its
+dense form at each iteration, and the pivoting step of this algorithm is highly costly as we have to update the entire matrix using row operations. The revised simplex method transforms only the inverse of the basis matrix, $\mathbf{B}^{-1}$, thus reducing the amount of writing at each step and overall memory usage.
 
 \subsubsection{The algorithm}
 Let's derive the mathematical proof of this algorithm:
@@ -438,19 +438,19 @@ Update the solution:
 \[ x_j = \theta \]
 and update the sets of basic and non-basic variables.
 
-This proof elucidates that the only variables required to "recreate" exactly the tableau at
-each step, without performing the costly pivotting operation are:
+This proof elucidates that the only variables required to "recreate" exactly the Tableau at
+each step, without performing the costly pivoting operation are:
 \begin{itemize}
     \item the indices of basic and non-basic variables.
-    \item $B^{-1}$ the inverse of the basis matrix. This is used to solve two types of linear equations
-          during an iteration, see step 1 and 3 in Algortihm \ref{algo:revised}.
-          In the actual implementation, there is no need to compute or store the $B^{-1}$.
-          We just use the basis matrix $B^{-1}$ to solve these linear systems of
-          equations. Therefore in practice, we only store $B$.
-    \item the current values of the basic variables, or the current basic feasible solution. $x_B = B^{-1}b$
+    \item $\mathbf{B}^{-1}$ the inverse of the basis matrix. This is used to solve two types of linear equations
+          during an iteration, see steps 1 and 3 in Algorithm \ref{algo:revised}.
+          In the actual implementation, there is no need to compute or store the $\mathbf{B}^{-1}$.
+          We just use the basis matrix to solve these linear systems of
+          equations. Therefore in practice, we only store $\mathbf{B}$.
+    \item the current values of the basic variables, or the current basic feasible solution. $\mathbf{x}_B = \mathbf{B}^{-1}\mathbf{b}$
 \end{itemize}
 
-The algorithm is elaborated in \ref{algo:revised}. As we can see, step 1 and 3 represent the solving of two types of systems, Forward Transofrmation (FTRAN) and Backward Transofrmation (BTRAN).
+The algorithm is elaborated in Algorithm \ref{algo:revised}. As we can see, step 1 and 3 represent the solving of two types of systems, Forward Transformation (FTRAN) and Backward Transformation (BTRAN).
 
 However, having to recompute the inverse of a matrix, or in our actual
 implementation, solve a linear equation system may be costly.
@@ -460,14 +460,14 @@ For a square matrix of size \(n \times n\), the time complexity of LU
 decomposition
 \parencite{golub2013matrix},
 which is one of the
-most prominent methods to invert a matrix, is $O(n^3) $.
+most prominent methods to invert a matrix is $O(n^3) $.
 
-This is why it is desirable to employ another tool to efficiently
+This is why it is desirable to use another tool to efficiently
 update the inverse of the basis matrix $\mathbf{B}^{-1}$
 without having to recompute it from scratch each time.
 Such tools are called update methods,
 and we will later describe the Product Form of the Inverse (PFI),
-the Middle Product Form of the Inverse (MPFI) and we also describe Forrest-Tomlin update method
+the Middle Product Form of the Inverse (MPFI) and we also describe the Forrest-Tomlin update method
 in the future work section.
 
 \begin{algorithm}
@@ -481,7 +481,7 @@ in the future work section.
                   \setlength{\itemindent}{3em}
                   \item[\textit{Step 1:}] Solve the system \( y\mathbf{B} = \mathbf{c}_B \) (BTRAN)
                   \item[\textit{Step 2:}] Choose an entering column. This may be any column $\mathbf{a}$  of
-                      \( \mathbf{A}_N \) such that \( y\mathbf{a} \) is less than the corresponding component
+                      \( \mathbf{A}_N \) such that \( \mathbf{y}\mathbf{a} \) is less than the corresponding component
                       of \( \mathbf{c}_N \). If there is no such column, then the current solution is optimal, Break.
                   \item[\textit{Step 3:}] Solve the system \( \mathbf{B}\mathbf{d} = \mathbf{a} \) (FTRAN)
                   \item[\textit{Step 4:}] Let \( \mathbf{x}_B^{\ast} = \mathbf{B}^{-1}\mathbf{b} \) the current basic variables' values.
@@ -505,7 +505,7 @@ in the future work section.
 We will discuss the Product Form of the Inverse (PFI), introduced by
 George Dantzig \parencite{dantzig1954product}. In the revised simplex method,
 there is a need to represent the inverse of the basis matrix and efficiently
-solve the BTRAN and FTRAN systems in Step 1 and 3 of Algorithm \ref{algo:revised}
+solve the BTRAN and FTRAN systems in Steps 1 and 3 of Algorithm \ref{algo:revised}
 in each iteration to find the entering and leaving variables.
 
 To avoid the costly reinversion of the basis matrix in each step,
@@ -572,23 +572,20 @@ the time complexity for solving both systems becomes \(O(km^2)\),
 which depends on the number of iterations (\(k\)) and the number of
 constraints (\(m\)).
 
-\subsubsection{The modified product form inverse}
-The Middle Product Form (MPF) update is a variant of the PFI that integrates
+\subsubsection{The Middle Product Form of the Inverse }
+The Middle Product Form of the Inverse (MPFI) update is a variant of the PFI that integrates
 updates in product form into the middle of factors L and U.
 This update
-is described mathematically in literature \parencite{huangfu2015novel}. This variant
-has also been proved empiricially to have a better performance than PFI and other PFI variants.
+is described mathematically in literature \parencite{huangfu2015novel}, and has been proven empirically to have a better performance than PFI and other PFI variants.
 This is also the update method used in Umbra's cardinality estimator \parencite{Umbra}.
 
 \section{Cardinality Estimation}\label{section:cardinality-estimate}
 An important use case of linear programming solvers in the field of database systems is
 cardinality estimation.
-In the context of query optimization, LP solvers can be useful to estimate query plan
-cardinalities and provide a reliable and good enough estimate to be used in selecting
+In the context of query optimization, LP solvers can be useful in estimating query plan
+cardinalities and providing a reliable and good enough estimate to be used in selecting
 the best join order, and hence speeding up query execution time \parencite{leis2018query}.
 
-Cardinality, defined as the number of tuples in the output,
-plays a pivotal role in the selection of an optimal query plan.
 Modern DBMS often rely on
 cost-based query optimizers to make this selection.
 For example, the SQL Server Query Optimizer
@@ -596,6 +593,7 @@ For example, the SQL Server Query Optimizer
 cost-based approach, aiming to minimize the estimated
 processing cost of executing a query.
 
+Cardinality is defined as the number of tuples in the output.
 Enhanced cardinality estimation
 can lead to more accurate cost models, which in turn results
 in more efficient query execution plans.
@@ -606,7 +604,7 @@ solver designed specifically for cardinality estimation.
 This solver aims to maximize a cost function that represents
 the upper bound of the output size, optimizing for both
 time and memory complexity.
-We assume the worst-case join sizes, and want to see how large our variable domains
+We assume the worst-case join sizes and want to see how large our variable domains
 can be given this worst-case scenario.
 
 To set the stage for our implementation, we introduce the AGM bound.
@@ -614,15 +612,15 @@ To set the stage for our implementation, we introduce the AGM bound.
 \subsection{AGM bound}
 The AGM bound \parencite{atserias2013size} proves
 using entropy that \[ \min_w \left( \sum_{i=1}^{k} w_i \log |R_i| \right) \]
-is a tight upper bound for join size, given query graph (how the
-relations are connected, if there are any shared attributes)
+is a tight upper bound for join size, given the query graph (how the
+relations are connected if there are any shared attributes)
 and relation sizes. The AGM bound is tight; in other words, we can always find
 a database instance linked to this join size upper bound.
-The dual LP problem of the given minimzation problem, is
+The dual LP problem of the given minimization problem is
 \[ \max \sum_{i} v_i \]
 subject to:
 \[ A^T \mathbf{v} \leq \log |R| \]
-The dual theorem \ref{duality} states that the both problems have the same
+The dual theorem \ref{duality} states that both problems have the same
 optimal values.
 
 This is how our query LP datasets are generated.
@@ -636,7 +634,7 @@ suppose we have two relation $R$ and $S$ with attributes
 where we denote the sizes of the relations as
 $|R|$ and $|S|$ respectively.
 It is easy to see that the largest possible output is $|R| \cdot |S|$, which occurs when the join
-behaves like a cartesian product, i.e. have a selectivity equals to 1. So, this is the worst-case
+behaves like a cartesian product, i.e. it has a selectivity equal to 1. So, this is the worst-case
 upper bound.
 
 Deriving a simple example for an LP problem related to cardinality estimation leads us to the inequality \ref{eq:initial_inequality}. Applying the natural logarithm to both sides yields \ref{eq:log_inequality}. We then rename the variables, simplifying the inequality to \ref{eq:renamed_inequality}.
@@ -649,17 +647,17 @@ Normalizing by dividing both sides by \(r'\), we obtain \ref{eq:normalized_inequ
     \text{maximize } a' + b' + c' + d' \quad & \text{s.t.} \quad \frac{1}{r'} a' + \frac{1}{r'} b' \leq 1 \label{eq:objective_function}
 \end{align}
 
-And in this simple abstracted way we get a sample packing LP from our dataset, where the decision variables would be the logarithms of the domains sizes of our variables, Our objective if to maximize the sum of our variables, and the constraints are the ones imposed by the AGM bound.
+In this simple abstracted way, we get a sample packing LP from our dataset, where the decision variables would be the logarithms of the domains sizes of our variables, Our objective is to maximize the sum of our variables, and the constraints are the ones imposed by the AGM bound.
 
 \section{State-of-the-art LP solvers}
 Here we will discuss alternative approaches that are used today to solve LPs. Nowadays, the best
-existing open-source and commercial LP-systems are based on implementations that make use
-of various algorithms and techniques to speed up the solution of large scale LP problems.
-There exist various LP solvers today, like CPLEX (IBM), CBC, Gurobi, HiGHS... We present HiGHS Scipy, and
+existing open-source and commercial LP systems are based on implementations that make use
+of various algorithms and techniques to speed up the solution of large-scale LP problems.
+There exist various LP solvers today, like CPLEX (IBM), CBC, Gurobi, and HiGHS... We present HiGHS Scipy, and
 Cplex, because we are using them as a comparison to our solvers.
 \subsection{HiGHS Scipy}
 HiGHS, or High Performance Optimization Software is a software used to define,
-modify and solve large scale sparse linear optimization models.
+modify and solve large-scale sparse linear optimization models.
 
 For LPs, HiGHS has implementations of both the revised simplex and interior point methods
 \parencite{Huangfu2018}.
@@ -687,6 +685,6 @@ For certain problem types, the primal simplex algorithm and the interior point m
 Furthermore, CPLEX provides a concurrent option, which runs multiple algorithms in parallel,
 returning the solution from the first algorithm to complete.
 It also supports various interfaces, including C++, Java, and Python. In our experiments
-we use the python interface.
+we use the Python interface.
 CPLEX is widely used in both academia and industry for solving large-scale optimization
 problems.

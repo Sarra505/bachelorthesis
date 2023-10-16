@@ -2,5 +2,18 @@
 % Add the above to each chapter to make compiling the PDF easier in some editors.
 
 \chapter{Conclusion}\label{chapter:conclusion}
+\section{Summary of the results}
+Our empirical results and analysis revealed some interesting insights about LP solvers' performance as well as the structure of the LPs related to cardinality estimation problems. Unlike typical large LP problems, the datasets contain smaller LP problems. Interestingly, despite their small size, the constraint matrices appear to be predominantly sparse.
 
+The MPFI solver emerged as the top performer, owing to the optimization techniques used in Umbra's code and the assumptions made about the input's structure. However, Cplex, designed for large LP problems, is hampered by its overheads in initialization and presolving for smaller LPs. This results in a reduced performance on the JOB dataset. Our solvers outperform Cplex for smaller LPs, but this advantage diminishes for larger-scale problems.
 
+Over time, Tableau's performance scales the worst, validating our claims regarding its potentially exponential time complexity and underscoring the necessity for more efficient methods when dealing with sizable LPs. Moreover, the hypothesis that MPFI is the fastest PFI variant was confirmed.
+
+To summarize, it's imperative to align the LP problem's size and nature with the appropriate solver. The JOB dataset's analysis elucidates the downsides of using an overly sophisticated solver for more straightforward tasks.
+
+\section{Future Work}
+
+\subsection{Forrest-Tomlin update form}
+The Forrest-Tomlin (FT) update enhances efficiency in the
+revised simplex method by modifying the LU decomposition of the basis matrix B.
+This update efficiently handles the BTRAN and FTRAN systems. It may be interesting to compare this variant with the other variants of update methods, since it has been said to be the fastest in literature \parencite{huangfu2015novel}.

@@ -3,24 +3,28 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {2.1}{\ignorespaces Feasible region of the LP problem, the area (purple) delimited by the constraint lines, blue and red. The dashed black line represents the objective function.\relax }}{5}{figure.caption.3}%
-\contentsline {figure}{\numberline {2.2}{\ignorespaces Graphical representation of an unbounded LP problem\relax }}{6}{figure.caption.4}%
-\contentsline {figure}{\numberline {2.3}{\ignorespaces Conceptual relationship between an optimal basis, an optimal solution, and an optimal vertex.\relax }}{6}{figure.caption.5}%
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Graphical representation of an unbounded LP problem.\relax }}{6}{figure.caption.4}%
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Conceptual equivalence between an optimal basis, an optimal solution, and an optimal vertex.\relax }}{6}{figure.caption.5}%
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {3.1}{\ignorespaces An UML Graph explaining the hierarchy of the implementation\relax }}{20}{figure.caption.28}%
 \contentsline {figure}{\numberline {3.2}{\ignorespaces Memory Layout of a 1D Dynamic Array\relax }}{22}{figure.caption.29}%
-\contentsline {figure}{\numberline {3.3}{\ignorespaces Memory Layout of a 2D Dynamic Array\relax }}{22}{figure.caption.30}%
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Memory Layout of a 2D Dynamic Array\relax }}{23}{figure.caption.30}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Boxplot for number of iterations for PFI for JOB dataset\relax }}{30}{figure.caption.42}%
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Boxplot for number of iterations for Tableau for JOB dataset\relax }}{31}{figure.caption.43}%
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Relation between LP size and time for the 3 simplex solvers for JOB dataset.\relax }}{32}{figure.caption.44}%
-\contentsline {figure}{\numberline {4.4}{\ignorespaces A graph comparing the time performance of two of our solvers with scipy solver solving the tpcds dataset\relax }}{33}{figure.caption.49}%
-\contentsline {figure}{\numberline {4.5}{\ignorespaces Boxplot for number of iterations for MPFI for TPCDS dataset\relax }}{33}{figure.caption.50}%
-\contentsline {figure}{\numberline {4.6}{\ignorespaces Boxplot for number of iterations for PFI for TPCDS dataset\relax }}{34}{figure.caption.51}%
-\contentsline {figure}{\numberline {4.7}{\ignorespaces Relation between LP size and time for the 3 simplex solvers and Cplex for randomly generated dataset with increasing LP size.\relax }}{34}{figure.caption.54}%
-\contentsline {figure}{\numberline {4.8}{\ignorespaces Relation between LP size and time for the 3 simplex solvers for the randomly generated dataset with increasing LP size ranging up to 220 rules and 220 variables.\relax }}{35}{figure.caption.56}%
-\contentsline {figure}{\numberline {4.9}{\ignorespaces Relation between LP size and time for the 3 simplex solvers with CPLEX randomly generated dataset with increasing LP size ranging up to 220 rules and 220 variables.\relax }}{36}{figure.caption.57}%
-\contentsline {figure}{\numberline {4.10}{\ignorespaces Speedup of the three solvers (how many times faster they are) compared to CPLEX for the randomly generated dataset for increasing LP size\relax }}{37}{figure.caption.58}%
-\contentsline {figure}{\numberline {4.11}{\ignorespaces Speedup of the three solvers (how many times faster they are) compared to CPLEX for the randomly generated dataset for the LP size up to 1000\relax }}{37}{figure.caption.59}%
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Boxplot for number of iterations for PFI for JOB dataset. This shows that PFI takes a small number of iterations for our dataset, so we do not need to refactorize the basis matrix.\relax }}{30}{figure.caption.42}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Relation between LP size and time for the 3 simplex solvers for JOB dataset.\relax }}{30}{figure.caption.43}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Relation between LP size and time for the 3 simplex solvers for JOB dataset and Cplex.\relax }}{31}{figure.caption.44}%
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Time profile comparison (Relationship between time and LP-size) of our 3 solvers solving the TPC-DS dataset\relax }}{33}{figure.caption.50}%
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Time profile comparison (Relationship between time and LP-size) of our 3 solvers and Cplex solving the TPC-DS dataset\relax }}{33}{figure.caption.51}%
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Histogram for number of iterations for MPFI for TPC-DS dataset\relax }}{34}{figure.caption.52}%
+\contentsline {figure}{\numberline {4.7}{\ignorespaces Histogram for number of iterations for PFI for TPC-DS dataset\relax }}{34}{figure.caption.53}%
+\contentsline {figure}{\numberline {4.8}{\ignorespaces Time profile comparison (Relationship between time and LP-size) of our 3 solvers solving the TPC-H dataset \relax }}{35}{figure.caption.56}%
+\contentsline {figure}{\numberline {4.9}{\ignorespaces Time profile comparison (Relationship between time and LP-size) of our 3 solvers and Cplex solving the TPC-H dataset\relax }}{35}{figure.caption.57}%
+\contentsline {figure}{\numberline {4.10}{\ignorespaces Speedup of our 3 solvers solving the TPC-H dataset compared to Cplex. \relax }}{36}{figure.caption.58}%
+\contentsline {figure}{\numberline {4.11}{\ignorespaces Relation between LP size and time for the 3 simplex solvers and Cplex for randomly generated dataset with increasing LP size.\relax }}{37}{figure.caption.61}%
+\contentsline {figure}{\numberline {4.12}{\ignorespaces Relation between LP size and time for the 3 simplex solvers for the randomly generated dataset with increasing LP size ranging up to 220 rules and 220 variables.\relax }}{38}{figure.caption.63}%
+\contentsline {figure}{\numberline {4.13}{\ignorespaces Relation between LP size and time for the 3 simplex solvers with CPLEX randomly generated dataset with increasing LP size ranging up to 220 rules and 220 variables.\relax }}{38}{figure.caption.64}%
+\contentsline {figure}{\numberline {4.14}{\ignorespaces Speedup of the three solvers (how many times faster they are) compared to CPLEX for the randomly generated dataset for increasing LP size\relax }}{39}{figure.caption.65}%
+\contentsline {figure}{\numberline {4.15}{\ignorespaces Speedup of the three solvers (how many times faster they are) compared to CPLEX for the randomly generated dataset for the LP size up to 1000\relax }}{39}{figure.caption.66}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

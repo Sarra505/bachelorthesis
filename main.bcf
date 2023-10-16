@@ -2358,27 +2358,29 @@
     <bcf:citekey order="7" intorder="1">dantzig1990origins</bcf:citekey>
     <bcf:citekey order="8" intorder="1">chvatal1983linear</bcf:citekey>
     <bcf:citekey order="9" intorder="1">chvatal1983linear</bcf:citekey>
-    <bcf:citekey order="10" intorder="1">klee1972good</bcf:citekey>
-    <bcf:citekey order="11" intorder="1">dantzig1990origins</bcf:citekey>
-    <bcf:citekey order="12" intorder="1">stille2010solution</bcf:citekey>
-    <bcf:citekey order="13" intorder="1">alizadeh1995interior</bcf:citekey>
+    <bcf:citekey order="10" intorder="1">chvatal1983linear</bcf:citekey>
+    <bcf:citekey order="11" intorder="1">klee1972good</bcf:citekey>
+    <bcf:citekey order="12" intorder="1">dantzig1990origins</bcf:citekey>
+    <bcf:citekey order="13" intorder="1">stille2010solution</bcf:citekey>
     <bcf:citekey order="14" intorder="1">alizadeh1995interior</bcf:citekey>
-    <bcf:citekey order="15" intorder="1">golub2013matrix</bcf:citekey>
+    <bcf:citekey order="15" intorder="1">alizadeh1995interior</bcf:citekey>
     <bcf:citekey order="16" intorder="1">golub2013matrix</bcf:citekey>
-    <bcf:citekey order="17" intorder="1">chvatal1983linear</bcf:citekey>
+    <bcf:citekey order="17" intorder="1">golub2013matrix</bcf:citekey>
     <bcf:citekey order="18" intorder="1">chvatal1983linear</bcf:citekey>
-    <bcf:citekey order="19" intorder="1">dantzig1954product</bcf:citekey>
-    <bcf:citekey order="20" intorder="1">huangfu2015novel</bcf:citekey>
-    <bcf:citekey order="21" intorder="1">Umbra</bcf:citekey>
-    <bcf:citekey order="22" intorder="1">leis2018query</bcf:citekey>
-    <bcf:citekey order="23" intorder="1">microsoft2023cardinality</bcf:citekey>
-    <bcf:citekey order="24" intorder="1">atserias2013size</bcf:citekey>
-    <bcf:citekey order="25" intorder="1">Huangfu2018</bcf:citekey>
-    <bcf:citekey order="26" intorder="1">cplex2009v12</bcf:citekey>
-    <bcf:citekey order="27" intorder="1">murtagh1981advanced</bcf:citekey>
-    <bcf:citekey order="28" intorder="1">10.14778/2850583.2850594</bcf:citekey>
-    <bcf:citekey order="29" intorder="1">tpch</bcf:citekey>
-    <bcf:citekey order="30" intorder="1">tpcds2022</bcf:citekey>
+    <bcf:citekey order="19" intorder="1">chvatal1983linear</bcf:citekey>
+    <bcf:citekey order="20" intorder="1">dantzig1954product</bcf:citekey>
+    <bcf:citekey order="21" intorder="1">huangfu2015novel</bcf:citekey>
+    <bcf:citekey order="22" intorder="1">Umbra</bcf:citekey>
+    <bcf:citekey order="23" intorder="1">leis2018query</bcf:citekey>
+    <bcf:citekey order="24" intorder="1">microsoft2023cardinality</bcf:citekey>
+    <bcf:citekey order="25" intorder="1">atserias2013size</bcf:citekey>
+    <bcf:citekey order="26" intorder="1">Huangfu2018</bcf:citekey>
+    <bcf:citekey order="27" intorder="1">cplex2009v12</bcf:citekey>
+    <bcf:citekey order="28" intorder="1">murtagh1981advanced</bcf:citekey>
+    <bcf:citekey order="29" intorder="1">10.14778/2850583.2850594</bcf:citekey>
+    <bcf:citekey order="30" intorder="1">tpch</bcf:citekey>
+    <bcf:citekey order="31" intorder="1">tpcds2022</bcf:citekey>
+    <bcf:citekey order="32" intorder="1">huangfu2015novel</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="anyt">

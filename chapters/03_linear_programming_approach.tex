@@ -24,12 +24,12 @@ and a \verb|compareSolvers.cpp|, in which we can conduct our benchmarks.
 This solver is the simplest of the three solvers, it follows the steps of the standard simplex
 algorithm in its tabular form, see Algorithm \ref{algo:implemented_tableau}. It uses dense matrices and vectors.
 Although the
-texttt{doPivotting()} operation is costly (\( O(m \times n) \) where $m$ is the number of rules and
-$n$ the number of variables), the simplicity of this algorithm can make it suitable for
+\texttt{doPivotting()} operation is costly, ( with  a time complexity of \( O(m \times n) \) where $m$ is the number of rules and
+$n$ the number of variables) the simplicity of this algorithm can make it suitable for
 smaller problems.
 \begin{algorithm}
     \caption{Tableau Simplex Algorithm}
-    \begin{algorithmic}[1]
+    \begin{algorithmic}
         \State \textbf{Input:} Packing LP maximisation problem in computational form
         \State \textbf{Output:} Optimal value $z$
 
@@ -57,18 +57,18 @@ smaller problems.
 \end{algorithm}
 %------------------------------------------------------------------------
 \section{Data structures}
-
+In the following, we will discuss the data structures used in our implementations, to store the constraint matrix $\mathbf{A}$.
 \subsection{Dense Matrix}
-Given a matrix \( A \) of dimensions \( m \times n \), the density \( D \) of
+Given a matrix $\mathbf{A}$ of dimensions \( m \times n \), the density \( D \) of
 the matrix is defined as:
 \[
-    D(A) = \frac{\text{Number of non-zero elements in } A}{m \times n}
+    D(\mathbf{A}) = \frac{\text{Number of non-zero elements in } \mathbf{A}}{m \times n}
 \]
 $D$ is a measure between 0 and 1, where 0 indicates a
 matrix with all zero elements (completely sparse)
 and 1 indicates a matrix with all non-zero elements (completely dense).
 
-Storing a dense matrix variable \( A \) of dimensions \( m \times n \) in C++, we have two alternatives.
+Storing a dense matrix variable \( \mathbf{A} \) of dimensions \( m \times n \) in C++, we have two alternatives.
 \begin{itemize}
     \item using a two-dimensional array. This array would contain
           $m$ arrays, representing the rows, each contains $n$ doubles, representing the matrix entries in each row.
@@ -184,41 +184,43 @@ representation might be more appropriate. However, if the matrix is sparse, then
 and the CCR format will be much more memory efficient.
 %------------------------------------------------------------------------
 \section{Revised Simplex Solver with PFI}
-
+In Algorithm \ref{algo:pfi} we reiterate the revised simplex algorithm, specifically our implementation with PFI.
 \begin{algorithm}
     \caption{Simplex Algorithm Using Eta Matrices}
     \begin{algorithmic}
         \State \textbf{Initialization}
         \State \textbf{Main Iteration:}
-        \State \textbf{Find the Entering Variable through solving:} $yB = c_b$
-        \State Initialize \(y\) to \(c_b\).
-        \State Solve for \(y\) using a succession of BTRAN operations using
+        \State \textbf{Find the Entering Variable through solving:} $\mathbf{yB} = \mathbf{c_b}$
+        \State Initialize \(\mathbf{y}\) to \(\mathbf{c_b}\).
+        \State Solve for \(\mathbf{y}\) using a succession of BTRAN operations using
         eta matrices \(1\) to \(k\):
-        \State Choose the first \(j\) such that \(c_j - yA_j\) is positive.
+        \State Choose the first \(j\) such that \(\mathbf{c_j} - \mathbf{yA_j}\) is positive.
         \If{no such \(j\) exists}
         \State \Return "Optimal solution found."
         \EndIf
 
-        \State \textbf{Find the Leaving Variable through solving:} $Bd =a$
-        \State Initialize \(d\) to be the entering column $a$.
-        \State Solve for \(d\) using a succession of FTRAN operations with
+        \State \textbf{Find the Leaving Variable through solving:} $\mathbf{Bd} =\mathbf{a}$
+        \State Initialize \(\mathbf{d}\) to be the entering column \(\mathbf{a}\).
+        \State Solve for \(\mathbf{d}\) using a succession of FTRAN operations with
         eta matrices \(1\) to \(k\):
-        \State Find the largest $t$ such that \( x_B^{\ast} - td \geq 0\) 
-        for positive components of $d$. Choose the corresponding component as the leaving variable.
-        \If{no positive entries in \(d\)}
+        \State Find the largest $t$ such that \( \mathbf{x_B^{\ast}} - t\mathbf{d} \geq 0\) 
+        for positive components of \(\mathbf{d}\). Choose the corresponding component as the leaving variable.
+        \If{no positive entries in \(\mathbf{d}\)}
         \State \Return "The problem is unbounded."
         \EndIf
 
         \State \textbf{Update the Current Basic Feasible Solution:}
         \State Set the entering variable at \(t\).
-        \State Update other basic variables: \(x^*_B - td\).
-        \State Push \(d\) as a new eta new eta matrix onto the vector.
+        \State Update other basic variables: \(\mathbf{x^*_B} - t\mathbf{d}\).
+        \State Push \(\mathbf{d}\) as a new eta matrix onto the vector.
 
-        \State GOTO main iteration.
+        \State GOTO Main Iteration.
     \end{algorithmic}
+    \label{algo:pfi}
 \end{algorithm}
+
 %------------------------------------------------------------------------
-\section{Stability}
+\section{Stability}\label{stability}
 In numerical algorithms, small rounding errors can have a substantial impact. 
 Such inaccuracies can arise from divisions by exceedingly small numbers, 
 resulting in misleading outcomes.

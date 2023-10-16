@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.12) (preloaded format=pdflatex 2023.2.6)  14 OCT 2023 21:25
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.12) (preloaded format=pdflatex 2023.2.6)  16 OCT 2023 10:40
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1523,11 +1523,11 @@ chapter 1.
 
 
 ]
-LaTeX Font Info:    Trying to load font information for TS1+pplx on input line 41.
+LaTeX Font Info:    Trying to load font information for TS1+pplx on input line 42.
  (/home/sarrabenmed/.miktex/texmfs/install/tex/latex/psnfss/ts1pplx.fd
 File: ts1pplx.fd 2004/09/06 font definitions for TS1/pplx.
 )
-Overfull \hbox (6.1661pt too wide) in paragraph at lines 41--45
+Overfull \hbox (6.1661pt too wide) in paragraph at lines 42--46
 []\T1/pplx/b/n/10.95 (-20) Chapter 2: Background and Related Work \T1/pplx/m/n/10.95 (-20) - Provides a foundational understanding
  []
 
@@ -1568,7 +1568,7 @@ Package pgfplots info on input line 162: Setting layers 'axis background,axis gr
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [5] [6] [7]
-Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on input line 238.
+Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on input line 236.
 Package microtype Info: Character `029' is missing
 (microtype)             in font `T1/pplx/m/sc/10.95'.
 (microtype)             Ignoring protrusion settings for this character.
@@ -1579,17 +1579,12 @@ Overfull \hbox (1.59785pt too wide) in paragraph at lines 455--457
 
 [13] [14] [15]
 
-LaTeX Warning: Citation 'Umbra' on page 16 undefined on input line 581.
-
-
-Overfull \hbox (1.7427pt too wide) in paragraph at lines 576--582
-\T1/pplx/m/n/10.95 (-20) product form into the middle of factors L and U. This update is described mathematically
- []
+LaTeX Warning: Citation 'Umbra' on page 16 undefined on input line 580.
 
 [16] [17] (/home/sarrabenmed/.miktex/texmfs/install/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2020/03/24 1.8d listings language file
 )
-LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 672.
+LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 670.
  (/home/sarrabenmed/.miktex/texmfs/install/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 2022/07/10 v2.5l Standard LaTeX font definitions
 )
@@ -1598,13 +1593,13 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 
-Overfull \hbox (20.90747pt too wide) in paragraph at lines 677--681
+Overfull \hbox (20.90747pt too wide) in paragraph at lines 675--679
 \T1/pplx/m/n/10.95 (-20) programming, mixed integer programming, quadratic programming, and other optimization
  []
 
 ) (chapters/03_linear_programming_approach.tex [18]
 chapter 3.
-<figures/UML.png, id=316, 621.32124pt x 910.40125pt>
+<figures/UML.png, id=315, 621.32124pt x 910.40125pt>
 File: figures/UML.png Graphic file (type png)
 <use figures/UML.png>
 Package pdftex.def Info: figures/UML.png  used on input line 17.
@@ -1612,7 +1607,11 @@ Package pdftex.def Info: figures/UML.png  used on input line 17.
 [19
 
 
-] [20 <./figures/UML.png>] [21] [22]
+] [20 <./figures/UML.png>] [21]
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[22]
 Overfull \hbox (6.12227pt too wide) in paragraph at lines 136--136
 []          \T1/cmtt/m/n/10.95 int *rowIdx;  // Row indices corresponding to the non-zero values[] 
  []
@@ -1622,85 +1621,115 @@ Overfull \hbox (51.38924pt too wide) in paragraph at lines 136--136
 []          \T1/cmtt/m/n/10.95 int *colPtr;  // Points to the index in `values` where each column starts[] 
  []
 
-[23] [24]) (chapters/04_evaluation.tex [25]
+[23]
+Overfull \hbox (8.25363pt too wide) in paragraph at lines 187--221
+\T1/pplx/m/n/10.95 (-20) In Algorithm []4[] we reiterate the revised simplex algorithm, specifically our implementation
+ []
+
+[24]) (chapters/04_evaluation.tex [25]
 chapter 4.
 [26
 
 
 ]
-Overfull \hbox (13.24747pt too wide) in paragraph at lines 66--72
-[]\T1/pplx/m/n/10.95 (-20) Simplicity of Tableau solver: our solver is very basic, skips unnecessary preprocessing
+Overfull \hbox (22.17804pt too wide) in paragraph at lines 55--58
+\T1/pplx/m/n/10.95 (-20) according to theoretical analysis of the functionalities of these solvers, and the documentation
  []
 
 [27] [28]
-Overfull \hbox (0.54176pt too wide) in paragraph at lines 141--145
-\T1/pplx/m/n/10.95 (-20) The input files \T1/cmtt/m/n/10.95 TPCH\T1/pplx/m/n/10.95 (-20) , \T1/cmtt/m/n/10.95 TPCDS\T1/pplx/m/n/10.95 (-20) , and \T1/cmtt/m/n/10.95 JOB \T1/pplx/m/n/10.95 (-20) contain packing [][]Linear Programming (LP)[] problems.
+Overfull \hbox (2.27928pt too wide) in paragraph at lines 139--143
+\T1/pplx/m/n/10.95 (-20) established the mathematical derivation of how these query-related packing LP problems
  []
 
-<figures/histo_iter_pfi.pdf, id=394, 650.43pt x 325.215pt>
+<figures/histo_iter_pfi.pdf, id=396, 650.43pt x 325.215pt>
 File: figures/histo_iter_pfi.pdf Graphic file (type pdf)
 <use figures/histo_iter_pfi.pdf>
-Package pdftex.def Info: figures/histo_iter_pfi.pdf  used on input line 182.
+Package pdftex.def Info: figures/histo_iter_pfi.pdf  used on input line 179.
 (pdftex.def)             Requested size: 418.25555pt x 209.13432pt.
-<figures/histogram_iter_tableau.pdf, id=395, 403.5075pt x 257.96375pt>
-File: figures/histogram_iter_tableau.pdf Graphic file (type pdf)
-<use figures/histogram_iter_tableau.pdf>
-Package pdftex.def Info: figures/histogram_iter_tableau.pdf  used on input line 189.
-(pdftex.def)             Requested size: 418.25555pt x 267.39424pt.
-<figures/lp_size_vs_time_job.pdf, id=396, 403.5075pt x 257.96375pt>
-File: figures/lp_size_vs_time_job.pdf Graphic file (type pdf)
-<use figures/lp_size_vs_time_job.pdf>
-Package pdftex.def Info: figures/lp_size_vs_time_job.pdf  used on input line 197.
-(pdftex.def)             Requested size: 418.25555pt x 267.39424pt.
-<figures/methods_time_tpcds.pdf, id=397, 650.43pt x 325.215pt>
+<figures/job_methods_time.pdf, id=397, 636.3775pt x 315.1775pt>
+File: figures/job_methods_time.pdf Graphic file (type pdf)
+<use figures/job_methods_time.pdf>
+Package pdftex.def Info: figures/job_methods_time.pdf  used on input line 187.
+(pdftex.def)             Requested size: 418.25555pt x 207.14732pt.
+<figures/cplex_vs_all_job.pdf, id=398, 650.43pt x 325.215pt>
+File: figures/cplex_vs_all_job.pdf Graphic file (type pdf)
+<use figures/cplex_vs_all_job.pdf>
+Package pdftex.def Info: figures/cplex_vs_all_job.pdf  used on input line 194.
+(pdftex.def)             Requested size: 418.25555pt x 209.13432pt.
+[29] [30 <./figures/histo_iter_pfi.pdf> <./figures/job_methods_time.pdf>] [31 <./figures/cplex_vs_all_job.pdf>]
+<figures/methods_time_tpcds.pdf, id=456, 650.43pt x 325.215pt>
 File: figures/methods_time_tpcds.pdf Graphic file (type pdf)
 <use figures/methods_time_tpcds.pdf>
-Package pdftex.def Info: figures/methods_time_tpcds.pdf  used on input line 251.
+Package pdftex.def Info: figures/methods_time_tpcds.pdf  used on input line 274.
 (pdftex.def)             Requested size: 418.25555pt x 209.13432pt.
-<figures/num_iter_tpcds_mpfi.pdf, id=398, 650.43pt x 325.215pt>
+<figures/cplex_vs_all_tpcds.pdf, id=457, 650.43pt x 325.215pt>
+File: figures/cplex_vs_all_tpcds.pdf Graphic file (type pdf)
+<use figures/cplex_vs_all_tpcds.pdf>
+Package pdftex.def Info: figures/cplex_vs_all_tpcds.pdf  used on input line 281.
+(pdftex.def)             Requested size: 418.25555pt x 209.13432pt.
+<figures/num_iter_tpcds_mpfi.pdf, id=458, 650.43pt x 325.215pt>
 File: figures/num_iter_tpcds_mpfi.pdf Graphic file (type pdf)
 <use figures/num_iter_tpcds_mpfi.pdf>
-Package pdftex.def Info: figures/num_iter_tpcds_mpfi.pdf  used on input line 259.
+Package pdftex.def Info: figures/num_iter_tpcds_mpfi.pdf  used on input line 288.
 (pdftex.def)             Requested size: 418.25555pt x 209.13432pt.
-<figures/num_iter_pfi_tpcds.pdf, id=399, 650.43pt x 325.215pt>
+<figures/num_iter_pfi_tpcds.pdf, id=459, 650.43pt x 325.215pt>
 File: figures/num_iter_pfi_tpcds.pdf Graphic file (type pdf)
 <use figures/num_iter_pfi_tpcds.pdf>
-Package pdftex.def Info: figures/num_iter_pfi_tpcds.pdf  used on input line 266.
+Package pdftex.def Info: figures/num_iter_pfi_tpcds.pdf  used on input line 295.
 (pdftex.def)             Requested size: 418.25555pt x 209.13432pt.
-[29] [30 <./figures/histo_iter_pfi.pdf>] [31 <./figures/histogram_iter_tableau.pdf>]
-<figures/time_vs_size_random.pdf, id=450, 650.43pt x 308.15125pt>
+<figures/methods_time_tpch.pdf, id=465, 636.3775pt x 315.1775pt>
+File: figures/methods_time_tpch.pdf Graphic file (type pdf)
+<use figures/methods_time_tpch.pdf>
+Package pdftex.def Info: figures/methods_time_tpch.pdf  used on input line 309.
+(pdftex.def)             Requested size: 418.25555pt x 207.14732pt.
+<figures/cplex_vs_all_tpch.pdf, id=466, 636.3775pt x 315.1775pt>
+File: figures/cplex_vs_all_tpch.pdf Graphic file (type pdf)
+<use figures/cplex_vs_all_tpch.pdf>
+Package pdftex.def Info: figures/cplex_vs_all_tpch.pdf  used on input line 315.
+(pdftex.def)             Requested size: 418.25555pt x 207.14732pt.
+<figures/speedup_tpch.pdf, id=467, 636.3775pt x 315.1775pt>
+File: figures/speedup_tpch.pdf Graphic file (type pdf)
+<use figures/speedup_tpch.pdf>
+Package pdftex.def Info: figures/speedup_tpch.pdf  used on input line 321.
+(pdftex.def)             Requested size: 418.25555pt x 207.14732pt.
+ [32] [33 <./figures/methods_time_tpcds.pdf> <./figures/cplex_vs_all_tpcds.pdf>] [34 <./figures/num_iter_tpcds_mpfi.pdf> <./figures/num_iter_pfi_tpcds.pdf>] [35 <./figures/methods_time_tpch.pdf> <./figures/cplex_vs_all_tpch.pdf>]
+<figures/time_vs_size_random.pdf, id=545, 650.43pt x 308.15125pt>
 File: figures/time_vs_size_random.pdf Graphic file (type pdf)
 <use figures/time_vs_size_random.pdf>
-Package pdftex.def Info: figures/time_vs_size_random.pdf  used on input line 307.
+Package pdftex.def Info: figures/time_vs_size_random.pdf  used on input line 395.
 (pdftex.def)             Requested size: 334.60571pt x 158.52803pt.
-<figures/size_time_random_large.pdf, id=453, 650.43pt x 308.15125pt>
+<figures/size_time_random_large.pdf, id=548, 650.43pt x 308.15125pt>
 File: figures/size_time_random_large.pdf Graphic file (type pdf)
 <use figures/size_time_random_large.pdf>
-Package pdftex.def Info: figures/size_time_random_large.pdf  used on input line 336.
+Package pdftex.def Info: figures/size_time_random_large.pdf  used on input line 424.
 (pdftex.def)             Requested size: 418.25555pt x 198.16121pt.
- [32 <./figures/lp_size_vs_time_job.pdf>]
-<figures/cplex_vs_all_random_large.pdf, id=471, 650.43pt x 325.215pt>
+<figures/cplex_vs_all_random_large.pdf, id=549, 650.43pt x 325.215pt>
 File: figures/cplex_vs_all_random_large.pdf Graphic file (type pdf)
 <use figures/cplex_vs_all_random_large.pdf>
-Package pdftex.def Info: figures/cplex_vs_all_random_large.pdf  used on input line 343.
+Package pdftex.def Info: figures/cplex_vs_all_random_large.pdf  used on input line 431.
 (pdftex.def)             Requested size: 478.01564pt x 239.00781pt.
 
-Overfull \hbox (59.76009pt too wide) in paragraph at lines 343--345
+Overfull \hbox (59.76009pt too wide) in paragraph at lines 431--433
 [][] 
  []
 
-<figures/speedup_vs_cplex_random_200.pdf, id=472, 650.43pt x 325.215pt>
+<figures/speedup_vs_cplex_random_200.pdf, id=550, 650.43pt x 325.215pt>
 File: figures/speedup_vs_cplex_random_200.pdf Graphic file (type pdf)
 <use figures/speedup_vs_cplex_random_200.pdf>
-Package pdftex.def Info: figures/speedup_vs_cplex_random_200.pdf  used on input line 351.
+Package pdftex.def Info: figures/speedup_vs_cplex_random_200.pdf  used on input line 439.
 (pdftex.def)             Requested size: 418.25555pt x 209.13432pt.
-<figures/speedup_cplex_less_1000.pdf, id=473, 650.43pt x 325.215pt>
+<figures/speedup_cplex_less_1000.pdf, id=551, 650.43pt x 325.215pt>
 File: figures/speedup_cplex_less_1000.pdf Graphic file (type pdf)
 <use figures/speedup_cplex_less_1000.pdf>
-Package pdftex.def Info: figures/speedup_cplex_less_1000.pdf  used on input line 359.
+Package pdftex.def Info: figures/speedup_cplex_less_1000.pdf  used on input line 447.
 (pdftex.def)             Requested size: 418.25555pt x 209.13432pt.
-[33 <./figures/methods_time_tpcds.pdf> <./figures/num_iter_tpcds_mpfi.pdf>] [34 <./figures/num_iter_pfi_tpcds.pdf> <./figures/time_vs_size_random.pdf>] [35 <./figures/size_time_random_large.pdf>] [36 <./figures/cplex_vs_all_random_large.pdf>] [37 <./figures/speedup_vs_cplex_random_200.pdf> <./figures/speedup_cplex_less_1000.pdf>]) (chapters/05_conclusion.tex [38]
+) (chapters/05_conclusion.tex [36 <./figures/speedup_tpch.pdf>] [37 <./figures/time_vs_size_random.pdf>] [38 <./figures/size_time_random_large.pdf> <./figures/cplex_vs_all_random_large.pdf>] [39 <./figures/speedup_vs_cplex_random_200.pdf> <./figures/speedup_cplex_less_1000.pdf>]
 chapter 5.
+
+Overfull \hbox (0.30548pt too wide) in paragraph at lines 6--7
+\T1/pplx/m/n/10.95 (-20) Interestingly, despite their small size, the constraint matrices appear to be predominantly
+ []
+
 ) (pages/glossary.tex
 \@gls@deffile=\write10
 \openout10 = `main.glsdefs'.
@@ -1724,19 +1753,19 @@ Package glossaries Warning: Entry `btran' has already been defined in the preamb
 
 Package glossaries Warning: Entry `pfi' has already been defined in the preamble (in which case remove the duplicate definition) or you have just updated to glossaries.sty v4.47 (in which case delete `main.glsdefs') on input line 19.
 
-) [39
+) [40
 
 
 ]
 Package tocbasic Info: character protrusion at lof deactivated on input line 56.
- (main.lof)
+ (main.lof [41
+
+
+])
 \tf@lof=\write11
 \openout11 = `main.lof'.
 
- [40
-
-
-]
+ [42]
 Package tocbasic Info: character protrusion at lot deactivated on input line 57.
  (main.lot)
 \tf@lot=\write12
@@ -1745,7 +1774,7 @@ Package tocbasic Info: character protrusion at lot deactivated on input line 57.
 
 No file main.gls.
 No file main.acr.
-[41
+[43
 
 
 ]
@@ -1760,7 +1789,7 @@ Overfull \hbox (3.92271pt too wide) in paragraph at lines 60--60
 []\T1/pplx/m/n/10.95 (-20) G. Graefe and W. J. McKenna. ^^P  The volcano optimizer generator: Extensibility
  []
 
-[42
+[44
 
 
 ]
@@ -1769,7 +1798,7 @@ Overfull \hbox (12.2373pt too wide) in paragraph at lines 60--60
  []
 
 No complaints by nag.
-[43] (main.aux)
+[45] (main.aux)
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
 Package logreq Info: Writing requests to 'main.run.xml'.
@@ -1777,20 +1806,17 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 61858 strings out of 478312
- 1383194 string characters out of 5840164
- 2460802 words of memory out of 5000000
- 80321 multiletter control sequences out of 15000+600000
- 580305 words of font info for 366 fonts, out of 8000000 for 9000
+ 61882 strings out of 478312
+ 1384152 string characters out of 5840164
+ 2465991 words of memory out of 5000000
+ 80350 multiletter control sequences out of 15000+600000
+ 578293 words of font info for 357 fonts, out of 8000000 for 9000
  2 hyphenation exceptions out of 8191
  115i,17n,109p,10932b,2457s stack positions out of 10000i,1000n,20000p,200000b,200000s
-
-pdfTeX warning (dest): name{glo:lp} has been referenced but does not exist, replaced by a fixed one
-
  </home/sarrabenmed/.miktex/texmfs/data/fonts/pk/ljfour/jknappen/ec/dpi600/ectt1095.pk>{/home/sarrabenmed/.miktex/texmfs/install/fonts/enc/dvips/base/8r.enc}</home/sarrabenmed/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmex10.pfb></home/sarrabenmed/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmmi10.pfb></home/sarrabenmed/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmr10.pfb></home/sarrabenmed/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy10.pfb></home/sarrabenmed/.miktex/texmfs/install/fonts/type1/public/mathpazo/fplmbb.pfb></home/sarrabenmed/.miktex/texmfs/install/fonts/type1/public/mathpazo/fplmr.pfb></home/sarrabenmed/.miktex/texmfs/install/fonts/type1/public/mathpazo/fplmri.pfb></home/sarrabenmed/.miktex/texmfs/install/fonts/type1/public/fpl/fplrc8a.pfb></home/sarrabenmed/.miktex/texmfs/install/fonts/type1/public/amsfonts/symbols/msbm10.pfb></home/sarrabenmed/.miktex/texmfs/install/fonts/type1/urw/palatino/uplb8a.pfb></home/sarrabenmed/.miktex/texmfs/install/fonts/type1/urw/palatino/uplr8a.pfb></home/sarrabenmed/.miktex/texmfs/install/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on main.pdf (50 pages, 917116 bytes).
+Output written on main.pdf (52 pages, 958684 bytes).
 PDF statistics:
- 909 PDF objects out of 1000 (max. 8388607)
- 199 named destinations out of 1000 (max. 500000)
- 95145 words of extra memory for PDF output out of 106986 (max. 10000000)
+ 982 PDF objects out of 1000 (max. 8388607)
+ 205 named destinations out of 1000 (max. 500000)
+ 89021 words of extra memory for PDF output out of 89155 (max. 10000000)
 

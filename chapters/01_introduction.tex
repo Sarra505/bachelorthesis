@@ -1,63 +1,64 @@
 % !TeX root = ../main.tex
-% Add the above to each chapter to make compiling the PDF easier in some editors.
- % write top down, clarify at first what will be written 
+% Add the above to each chapter to make compiling the PDF easier for some editors.
+ % Write top-down, clarify at first what will be written 
  % mention new concept -> connect it to the goal
 
 
-\chapter{Introduction}\label{chapter:introduction}
-In this chapter we motivate the purpouse of our research and present an overview of its structure, highlighting the importance of  reliable cardinality estimation in the field of query optimization. Our contribution's relevance lies in selecting the best method or combination of methods to solve hundreds of small LP problems efficiently, optimizing for time and memory. Cardinality estimation problem can be solved using linear programming, so our research opens doors for a faster cardinality estimation, and, in turn, efficient query execution.
+ \chapter{Introduction}\label{chapter:introduction}
+ In this chapter we motivate the purpose of our research and present an overview of its structure, highlighting the importance of reliable cardinality estimation in the field of query optimization. Our contribution's relevance lies in selecting the best method or combination of methods to solve hundreds of small LP problems efficiently, optimizing execution time and memory usage. The cardinality estimation problem can be solved using linear programming, so our research opens doors for a faster cardinality estimation, and, in turn, efficient query execution.
+ 
+ \section{Motivation}
+ 
+ The quest for optimizing query execution in databases is a critical
+ challenge. The query optimizer attempts 
+ to determine the most efficient way to execute a given query by considering the possible 
+ query plans \parencite{leis2018query}. 
+ These plans are all equivalent in their final output but vary in their
+ cost, that is, the amount of time that they need to run.
+ 
+ Cost-based query optimizers select query plans that have the lowest estimated cost to
+ execute. One parameter that plays an important role in this selection process 
+ is the cardinality estimates 
+ of these plans. Therefore, improving cardinality estimation leads to better estimated costs 
+ and, in turn, faster execution plans \parencite{graefe1993volcano}.
+ 
+ Linear Programming (LP) is a mathematical modeling technique to calculate the optimum of a linear function
+ given a set of linear constraints \parencite{chvatal1983linear}.
+ Cardinality estimation can be represented through linear programming \parencite{atserias2013size}.
+ 
+ Our aim with this project is to implement, 
+ investigate, and compare different methods suitable for solving hundreds of small LP 
+ problems. These methods include the standard simplex algorithm and the revised simplex algorithm.
 
-\section{Motivation}
-
-The quest for optimizing query execution in databases is a critical
-challenge. The query optimizer attempts 
-to determine the most efficient way to execute a given query by considering the possible 
-query plans \parencite{leis2018query}. 
-These plans are all equivalent in their final output, but vary in their
-cost, that is, the amount of time that they need to run.
-Cost-based query optimizers select query plans that have the lowest estimated cost to
-execute. One parameter that plays an important role in this selection process 
-is the cardinality estimates 
-of these plans. Therefore, improving cardinality estimation leads to better estimated costs 
-and, in turn, faster execution plans \parencite{graefe1993volcano}.
-Linear Programming (LP) is a mathematical modeling technique to calculate the optimum of a linear function
-given a set of linear constraits \parencite{chvatal1983linear}.
-Cardinality estimation can be represented through linear programming \parencite{atserias2013size}.
-Our aim with this project is to implement, 
-investigate and compare different methods suitable for solving hundreds of small LP 
-problems. These methods include the standard simplex algorithm and the revised simplex algorithm.
- We test our methods alongside Umbra's cardinality estimator, which uses revised simplex algorithm
-with MPFI \parencite{neumann2020umbra}. 
-By running various benchmarks, we conduct an analysis on the structure of these LP problems,
-we compare the time profiles for the different methods tested and finally 
-make a recommendation on the methods or combination of methods that deliver the best time and memory 
-complexity.
-
-\section{Chapter Overview}
-
-This thesis is structured as follows:
-
-\begin{itemize}
-  \item \textbf{Chapter 2: Background and Related Work} - Provides a 
-  foundational understanding of linear programming, duality, 
-  and an overview of the different LP solvers. We also explore cardinality
-   estimation and state-of-the-art LP solvers.
-  \item \textbf{Chapter 3: Tuning Linear Programming Solvers for Query
-   Optimization} - Introduces our proposal and implementation, 
-   including the hierarchy, tableau simplex solver, data structures, 
-   revised simplex solver, and stability considerations.
-  \item \textbf{Chapter 4: Evaluation} - Presents our results. Starting by 
-  an in-depth analysis 
-  of our results, including the analysis of the query dataset, and the
-   randomly generated LPs.
-   We also discuss limitations and outline potential future work.
-  \item \textbf{Chapter 5: Conclusion} - Summarizes our findings 
-  and contributions, reiterating the importance of cardinality estimation 
-  in query optimization, and discusses the implications of our research.
-\end{itemize}
-
-Throughout this thesis, we aim to provide a comprehensive 
-examination of the cardinality estimation problem and the methods 
-to solve it using linear programming. Our ultimate goal is to contribute 
-valuable insights that can enhance the time and memory complexity of the 
-query optimization process.
+ We test our methods alongside Umbra's LP solver for cardinality estimation \parencite{neumann2020umbra}. 
+ By running various benchmarks, we conduct an analysis of the structure of these LP problems, compare the time profiles for the different methods tested and finally 
+ make a recommendation on the methods or combination of methods that deliver the best time and memory complexity.
+ 
+ \section{Chapter Overview}
+ 
+ This thesis is structured as follows:
+ 
+ \begin{itemize}
+   \item \textbf{Chapter 2: Background and Related Work} - Provides a 
+   foundational understanding of linear programming, duality, 
+   and an overview of the different LP solvers. We also explore cardinality
+    estimation and state-of-the-art LP solvers.
+   \item \textbf{Chapter 3: Tuning Linear Programming Solvers for Query
+    Optimization} - Introduces our proposal and implementation, 
+    including the hierarchy, tableau simplex solver, data structures, 
+    revised simplex solver, and stability considerations.
+   \item \textbf{Chapter 4: Evaluation} - Presents our results as well as
+   an in-depth analysis 
+   of our results, including the analysis of the query dataset, and the
+    randomly generated LP problems.
+   \item \textbf{Chapter 5: Conclusion} - Summarizes our findings 
+   and contributions.  We also discuss the implications of our research. and outline potential future work.
+   and discusses 
+ \end{itemize}
+ 
+ Throughout this thesis, we aim to provide a comprehensive 
+ examination of the cardinality estimation problem and the methods 
+ to solve it using linear programming. Our ultimate goal is to contribute 
+ valuable insights that can enhance the
+ query optimization process.
+ 
